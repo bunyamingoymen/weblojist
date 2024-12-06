@@ -227,7 +227,7 @@
                                 <a href="{{ $pro->optional_3 ? url($pro->optional_3) : '#' }}"
                                     {{ $pro->optional_4 ? "target='_blank'" : '' }}>
                                     <div class="icon-wrap white-bg">
-                                        <div class="icon">
+                                        <div class="icon icon-container">
                                             <i class="{{ $pro->optional_2 }} secondary-color font-30px"></i>
                                         </div>
                                     </div>
@@ -376,7 +376,7 @@
                             <div class="col-md-4 col-sm-4 col-xs-12 mb-30 feature-box text-center">
                                 <a href="{{ $service->optional_3 ? url($service->optional_3) : '#' }}"
                                     {{ $service->optional_4 ? "target='_blank'" : '' }}>
-                                    <div class="gradient-bg-icon-two mb-20">
+                                    <div class="gradient-bg-icon-two mb-20 icon-container">
                                         <i class="{{ $service->optional_2 ?? '' }} font-30px white-color"></i>
                                     </div>
                                     <h5 class="mt-10">{{ $service->value ?? '' }}</h5>
@@ -488,13 +488,13 @@
                                 <div class="client-logo">
                                     @if ($item_supplier->other_url_supplier)
                                         <a href="{{ $item_supplier->other_url_supplier ? url($item_supplier->other_url_supplier) : '' }}"
-                                            target="_blank">
+                                            {{ $item_supplier->open_different_page ? 'target="_blank"' : '' }}>
                                             <img class="img-responsive" src="{{ $item_supplier->image ?? '' }}"
                                                 alt="{{ $item_supplier->title ?? '' }}" />
                                         </a>
                                     @else
-                                        <a
-                                            href="{{ route('index.blog.detail', ['pageCode' => $item_supplier->short_name ?? 'not-found']) }}">
+                                        <a href="{{ route('index.blog.detail', ['pageCode' => $item_supplier->short_name ?? 'not-found']) }}"
+                                            {{ $item_supplier->open_different_page ? 'target="_blank"' : '' }}>
                                             <img class="img-responsive" src="{{ $item_supplier->image ?? '' }}"
                                                 alt="{{ $item_supplier->title ?? '' }}" />
                                         </a>
@@ -606,9 +606,12 @@
                                         @if ($sm->value == '' || is_null($sm->value))
                                             @continue;
                                         @endif
-                                        <li><a class="icon {{ $sm->optional_3 ?? '' }}"
-                                                href="{{ $sm->value ?? '#.' }}"><i
-                                                    class="icofont {{ $sm->optional_4 ?? '' }}"></i></a></li>
+                                        <li>
+                                            <a class="icon {{ $sm->optional_3 ?? '' }} icon-container"
+                                                href="{{ $sm->value ?? '#.' }}">
+                                                <i class="icofont fontawesome {{ $sm->optional_4 ?? '' }}"></i>
+                                            </a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>

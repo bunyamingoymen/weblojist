@@ -36,8 +36,12 @@
             <div class="row">
                 <div class="col-md-8 centerize-col text-center">
                     <div class="section-title">
-                        <h2 class="raleway-font secondary-color">{{ isset($contact_sub_title) ? lang_db($contact_sub_title->value, -1) : lang_db('Just Keep In Touch', 1) }}</h2>
-                        <h1 class="raleway-font">{{ isset($contact_title) ? lang_db($contact_title->value, -1) : lang_db('Contact Us Now', 1) }}</h1>
+                        <h2 class="raleway-font secondary-color">
+                            {{ isset($contact_sub_title) ? lang_db($contact_sub_title->value, -1) : lang_db('Just Keep In Touch', 1) }}
+                        </h2>
+                        <h1 class="raleway-font">
+                            {{ isset($contact_title) ? lang_db($contact_title->value, -1) : lang_db('Contact Us Now', 1) }}
+                        </h1>
                     </div>
                     <p></p>
                 </div>
@@ -95,8 +99,13 @@
                                     @if ($sm->value == '' || is_null($sm->value))
                                         @continue;
                                     @endif
-                                    <li><a class="icon {{ $sm->optional_3 ?? '' }}" href="{{ $sm->value ?? '#.' }}"><i
-                                                class="icofont {{ $sm->optional_4 ?? '' }}"></i></a></li>
+                                    <li>
+                                        <a class="icon {{ $sm->optional_3 ?? '' }} icon-container"
+                                            href="{{ $sm->value ?? '#.' }}">
+                                            <i class="icofont {{ $sm->optional_4 ?? '' }} fontawesome">
+                                            </i>
+                                        </a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

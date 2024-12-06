@@ -109,11 +109,11 @@ class ProductController extends Controller
             foreach ($request->file('images') as $index => $file) {
                 $main_path = 'files/products/images';
                 $path = public_path($main_path);
-                $name = $item->code . "_image_" . $index . '.' . $file->getClientOriginalExtension();
+                $name = $item->code . "_image_" . $this->mainController->generateUniqueCode(['length' => 5]) . '.' . $file->getClientOriginalExtension();
                 $file->move($path, $name);
 
                 $product_multi = new Files();
-                $product_multi->code = $this->mainController->generateUniqueCode('files');
+                $product_multi->code = $this->mainController->generateUniqueCode(['table' => 'files']);
                 $product_multi->type = 'product';
                 $product_multi->type_code = $item->code;
                 $product_multi->file = $main_path . "/" . $name;

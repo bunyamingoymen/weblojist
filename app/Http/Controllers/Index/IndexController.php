@@ -42,12 +42,21 @@ class IndexController extends Controller
         $supplier = Page::where('type', 3)
             ->where('show_home', 1)
             ->where('pages.delete', 0)
-            ->leftJoin('key_values', function ($join) {
-                $join->on('key_values.value', '=', 'pages.code')
-                    ->where('key_values.key', '=', 'other_url_supplier');
+            ->leftJoin('key_values as supplier_url', function ($join) {
+                $join->on('supplier_url.value', '=', 'pages.code')
+                    ->where('supplier_url.key', '=', 'other_url_supplier');
             })
-            ->select('pages.*', 'key_values.optional_1 as other_url_supplier')
+            ->leftJoin('key_values as different_page', function ($join) {
+                $join->on('different_page.value', '=', 'pages.code')
+                    ->where('different_page.key', '=', 'open_different_page');
+            })
+            ->select(
+                'pages.*',
+                'supplier_url.optional_1 as other_url_supplier',
+                'different_page.optional_1 as open_different_page'
+            )
             ->get();
+
 
         $blogs = Page::Where('type', 1)->where('show_home', 1)->where('delete', 0)->get();
 

@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'email' => 'bunyamingoymen@gmail.com',
                 'type' => 0,
                 'can_be_deleted' => '0',
-                'password'  => Hash::make('introlistalemi.strongpartners.com'),
+                'password'  => Hash::make('123'),
             ],
             [
                 'code' => '2',
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'type' => 1,
                 'can_be_deleted' => '0',
-                'password'  => Hash::make('strongpartners12*56'),
+                'password'  => Hash::make('weblojist12*56'),
             ]
         ]);
     }

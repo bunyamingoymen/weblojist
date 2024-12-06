@@ -96,7 +96,7 @@
                                         </select>
                                     </div>
                                 @endif
-                                @if ($params == 'gallery/edit')
+                                @if ($params == 'gallery/edit' || $params == 'supplier/edit')
                                     <div class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
                                         <input type="checkbox" class="custom-control-input" id="pageOpenDifferentPage"
                                             name="open_different_page"
@@ -104,14 +104,16 @@
                                         <label class="custom-control-label"
                                             for="pageOpenDifferentPage">{{ lang_db('Open in different page') }}</label>
                                     </div>
-                                @else
-                                    <div class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="pageShowHome"
-                                            name="show_home"
-                                            {{ (isset($item) && $item->show_home) || !isset($item) ? 'checked' : '' }}>
-                                        <label class="custom-control-label"
-                                            for="pageShowHome">{{ lang_db('Show On Homepage') }}</label>
-                                    </div>
+                                @endif
+
+                                @if ($params == 'page/edit' || $params == 'supplier/edit' || $params == 'blog/edit')
+                                <div class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="pageShowHome"
+                                        name="show_home"
+                                        {{ (isset($item) && $item->show_home) || !isset($item) ? 'checked' : '' }}>
+                                    <label class="custom-control-label"
+                                        for="pageShowHome">{{ lang_db('Show On Homepage') }}</label>
+                                </div>
                                 @endif
 
                                 @if ($params == 'page/edit')

@@ -217,11 +217,11 @@ class PageController extends Controller
             foreach ($request->file('images') as $index => $file) {
                 $main_path = 'files/page/images';
                 $path = public_path($main_path);
-                $name = $item->code . "_image_" . $index . '.' . $file->getClientOriginalExtension();
+                $name = $item->code . "_image_" . $this->mainController->generateUniqueCode(['length' => 5]) . '.' . $file->getClientOriginalExtension();
                 $file->move($path, $name);
 
                 $page_multi = new Files();
-                $page_multi->code = $this->mainController->generateUniqueCode('files');
+                $page_multi->code = $this->mainController->generateUniqueCode(['table' => 'files']);
                 $page_multi->type = 'page';
                 $page_multi->type_code = $item->code;
                 $page_multi->file = $main_path . "/" . $name;
