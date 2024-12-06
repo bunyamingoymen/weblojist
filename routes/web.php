@@ -14,8 +14,32 @@ use App\Http\Middleware\UserRedirectMiddeware;
 use App\Models\Main\KeyValue;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+//Index:
+Route::get('/', [IndexController::class, "index"])->name('index.index');
+
+Route::post('/sendMessage', [IndexController::class, "sendMessage"])->name('index.sendMessage');
+
+Route::get('/blogs', [IndexController::class, "blogs"])->name('index.blogs');
+
+Route::get('/p/{pageCode}', [IndexController::class, "blog_detail"])->name('index.blog.detail');
+
+Route::get('/products', [IndexController::class, "products"])->name('index.products');
+
+Route::get('/product/{pageCode}', [IndexController::class, "product_detail"])->name('index.product.detail');
+
+Route::get('/gallery', [IndexController::class, "galleries"])->name('index.galleries');
+
+Route::get('/contact', [IndexController::class, "contact"])->name('index.contact');
+
+
+
+//User:
+Route::middleware([UserRedirectMiddeware::class])->group(function () {
+    Route::get('/login', [UserUserController::class, "loginScreen"])->name('user.login');
+    Route::post('/login', [UserUserController::class, "login"])->name('user.login.post');
+
+    Route::get('/register', [UserUserController::class, "registerScreen"])->name('user.register');
+    Route::post('/register', [UserUserController::class, "register"])->name('user.register.post');
 });
 
 
