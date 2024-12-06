@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'showCount' => 10,
+    'showblogCount' => 9,
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
