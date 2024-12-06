@@ -171,12 +171,47 @@ class KeyValueSeeder extends Seeder
 
         ]);
 
+        DB::table('key_values')->insert([
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
+                'value'             => 'video',
+                'optional_1'        => 'Video',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
+                'value'             => 'slider',
+                'optional_1'        => 'Slider',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
+                'value'             => 'picture',
+                'optional_1'        => 'Picture',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
+                'value'             => 'creative',
+                'optional_1'        => 'Creative',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+        ]);
+
         //Arkaplanlar
         DB::table('key_values')->insert([
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgroudSettings',
-                'value'             => 'video', //picture, silder ya da resim. İsteğe bağlı seçim.
+                'value'             => 'creative', //picture, silder, resim ya da  creative. İsteğe bağlı seçim.
                 'optional_5'        => '',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -218,6 +253,86 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //video, resim ya da silder
                 'optional_5'        => 'defaultFiles/slider/slider_3.jpg', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_1.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_2.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_3.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_4.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_5.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_6.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_7.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_8.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_9.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'creative', //video, resim ya da silder
+                'optional_5'        => 'defaultFiles/creative/creative_10.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

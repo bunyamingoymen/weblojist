@@ -3,8 +3,10 @@
     $home_logo_dark = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo Dark', 'first' => true]) ?? null;
 
     $headers = App\Models\Main\Menu::where('delete', 0)->where('active', 1)->where('type', 'header')->get();
+    $use_theme = 'dark';
 @endphp
-<nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full">
+<nav
+    class="navbar navbar-default navbar-fixed navbar-transparent {{ $use_theme == 'dark' ? 'dark' : 'white' }} bootsnav on no-full">
     <!--== End Top Search ==-->
     <div class="container">
 
@@ -12,9 +14,10 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i
                     class="tr-icon ion-android-menu"></i> </button>
-            <div class="logo"> <a href="{{ route('index.index') }}"> <img class="logo logo-display"
+            <div class="logo"> <a href="{{ route('index.index') }}"> <img
+                        class="logo {{ $use_theme == 'white' ? 'logo-display' : 'logo-scrolled' }}"
                         src="{{ !is_null($home_logo_white) && $home_logo_white->optional_5 ? asset($home_logo_white->optional_5) : '' }}"
-                        alt=""> <img class="logo logo-scrolled"
+                        alt=""> <img class="logo {{ $use_theme == 'dark' ? 'logo-display' : 'logo-scrolled' }}"
                         src="{{ !is_null($home_logo_dark) && $home_logo_dark->optional_5 ? asset($home_logo_dark->optional_5) : '' }}"
                         alt=""> </a> </div>
         </div>

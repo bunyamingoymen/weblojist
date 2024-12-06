@@ -13,31 +13,19 @@
                             <input type="hidden" name="keys[]" value="{{ $backgroudSettings[0]->key ?? '' }}" required
                                 readonly>
                             <input type="file" class="custom-file-input" id="choose_file_1" name="optional_5[]" hidden>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="backgroudSettings_video" name="values[]"
-                                    class="custom-control-input" value="video"
-                                    {{ $backgroudSettings[0]->value == 'video' ? 'checked' : '' }}
-                                    onclick='changeBackgroudType("video")'>
-                                <label class="custom-control-label"
-                                    for="backgroudSettings_video">{{ lang_db('Video') }}</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="backgroudSettings_slider" name="values[]"
-                                    class="custom-control-input" value="slider"
-                                    {{ $backgroudSettings[0]->value == 'slider' ? 'checked' : '' }}
-                                    onclick='changeBackgroudType("slider")'>
-                                <label class="custom-control-label"
-                                    for="backgroudSettings_slider">{{ lang_db('Slider') }}</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="backgroudSettings_picture" name="values[]"
-                                    class="custom-control-input" value="picture"
-                                    {{ $backgroudSettings[0]->value == 'picture' ? 'checked' : '' }}
-                                    onclick='changeBackgroudType("picture")'>
-                                <label class="custom-control-label"
-                                    for="backgroudSettings_picture">{{ lang_db('Picture') }}</label>
-                            </div>
+
+                            @foreach ($backgroudTypes as $background_type)
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="backgroudSettings_{{ $background_type->value }}"
+                                        name="values[]" class="custom-control-input" value="{{ $background_type->value }}"
+                                        {{ $backgroudSettings[0]->value == $background_type->value ? 'checked' : '' }}
+                                        onclick='changeBackgroudType("{{ $background_type->value }}")'>
+                                    <label class="custom-control-label"
+                                        for="backgroudSettings_{{ $background_type->value }}">{{ $background_type->optional_1 }}</label>
+                                </div>
+                            @endforeach
                         </div>
+
 
                         <div id="Backgrounds">
                             @foreach ($backgrouds as $item)
@@ -54,7 +42,8 @@
                                                     <source
                                                         src="{{ $item->optional_5 ? asset($item->optional_5) : 'Not Exit' }}"
                                                         type="video/mp4">
-                                                    <source src="{{ $item->optional_5 ? asset($item->optional_5) : 'Not Exit' }}"
+                                                    <source
+                                                        src="{{ $item->optional_5 ? asset($item->optional_5) : 'Not Exit' }}"
                                                         type="video/mov">
                                                     {{ lang_db('Your browser does not support the video tag') }}
                                                 </video>
@@ -91,7 +80,23 @@
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
-                                    @else
+                                    @elseif($item->value == 'picture')
+                                        <div class="col-lg-5">
+                                            @if (file_exists(public_path($item->optional_5)))
+                                                <img src="{{ $item->optional_5 ? asset($item->optional_5) : 'Not Exit' }}"
+                                                    alt="{{ $item->value ?? '' }}" style="height: 100px;">
+                                            @else
+                                                <p>Dosya Bulunamadı</p>
+                                            @endif
+                                        </div>
+                                        <div class="custom-file col-lg-5">
+                                            <input type="file" class="custom-file-input"
+                                                id="choose_file_{{ $item->code }}" name="optional_5[]">
+                                            <label class="custom-file-label" for="choose_file_{{ $item->code }}">
+                                                {{ lang_db('Choose file...') }}
+                                            </label>
+                                        </div>
+                                    @elseif($item->value == 'creative')
                                         <div class="col-lg-5">
                                             @if (file_exists(public_path($item->optional_5)))
                                                 <img src="{{ $item->optional_5 ? asset($item->optional_5) : 'Not Exit' }}"
@@ -142,41 +147,37 @@
             }
         });
 
-        function changeBackgroudType(type) {
-            var selectedType = document.getElementsByClassName('backgroudSettings_' + type);
+        //Global fonksyion tanımlandı:
+        window.changeBackgroudType = function(type) {
+            //Gelen türe göre, gelen tür hariç hepsini gizli, gelen türü de gizli olmayan şekilde ayarlıyoruz.
 
-            for (let i = 0; i < selectedType.length; i++) {
-                selectedType[i].hidden = false;
+            // Tüm arka plan türlerini tanımlıyoruz
+            var allTypes = [];
+            @foreach ($backgroudTypes as $background_type)
+                allTypes.push('{{ $background_type->value }}')
+                //Eğer yeni bir arkaplan ekleyeceksen direk buraya gelecektir db de varsa
+            @endforeach
+
+            // Gelen türü hidden=false yapıyoruz; (Görünür yapıyoruz yani)
+            const selectedTypeClass = 'backgroudSettings_' + type;
+            const selectedElements = document.getElementsByClassName(selectedTypeClass);
+            for (let i = 0; i < selectedElements.length; i++) {
+                selectedElements[i].hidden = false;
             }
-            document.getElementById('sliderNewButtonDiv').hidden = true;
-            var video = document.getElementsByClassName('backgroudSettings_video');
-            var slider = document.getElementsByClassName('backgroudSettings_slider');
-            var picture = document.getElementsByClassName('backgroudSettings_picture');
 
-            if (type == 'video') {
-                for (let i = 0; i < slider.length; i++) {
-                    slider[i].hidden = true;
-                }
-                for (let i = 0; i < picture.length; i++) {
-                    picture[i].hidden = true;
-                }
-            } else if (type == 'slider') {
-                document.getElementById('sliderNewButtonDiv').hidden = false;
-                for (let i = 0; i < video.length; i++) {
-                    video[i].hidden = true;
-                }
-                for (let i = 0; i < picture.length; i++) {
-                    picture[i].hidden = true;
-                }
-            } else if (type == 'picture') {
+            // Gelen türü listeden çıkar ve kalanları gizle
+            allTypes
+                .filter(bgType => bgType !== type) //bu kod gelen türün dönmemesini sağlar.
+                .forEach(bgType => {
+                    //Gelen tür hariç bütün türleri teker teker dönüp hidden = true yapıyoruz. (Görünmez yapıyoruz yani)
+                    const elements = document.getElementsByClassName('backgroudSettings_' + bgType);
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].hidden = true;
+                    }
+                });
 
-                for (let i = 0; i < video.length; i++) {
-                    video[i].hidden = true;
-                }
-                for (let i = 0; i < slider.length; i++) {
-                    slider[i].hidden = true;
-                }
-            }
+            // slider türü için özel işlem
+            document.getElementById('sliderNewButtonDiv').hidden = (type !== 'slider');
         }
 
         function addNewSlider() {

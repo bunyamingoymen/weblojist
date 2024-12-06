@@ -782,7 +782,7 @@ return [
                 'view' => [
                     'type' => '\Admin\KeyValueController@editPage',
                     'page' => $main_admin_path . 'setting.background',
-                    'key' => ['backgroudSettings', 'backgrouds'],
+                    'key' => ['backgroudSettings', 'backgroudTypes', 'backgrouds'],
                 ],
 
                 'delete' => [
