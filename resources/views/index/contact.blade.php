@@ -21,6 +21,11 @@
             /* En az ekranın %100 yüksekliğini kaplar */
             background-color: #f8f8f8;
             /* Arka plan rengi isteğe bağlı */
+
+            justify-content: space-evenly;
+            /* İçeriği dikey olarak ortalar */
+            align-items: center;
+            /* İçeriği yatay olarak ortalar */
         }
     </style>
     @if (isset($show_page_titles) && $show_page_titles->value == '1')

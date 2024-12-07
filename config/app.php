@@ -14,8 +14,8 @@ return [
     */
 
     'showCount' => 10,
-    'showblogCount' => 9,
     'name' => env('APP_NAME', 'Weblojist'),
+    'showblogCount' => 9,
 
     /*
     |--------------------------------------------------------------------------
@@ -82,9 +82,9 @@ return [
 
     'locale' => env('APP_LOCALE', 'tr'),
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'tr'),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'tr_TR'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
     /*
     |--------------------------------------------------------------------------
