@@ -13,6 +13,10 @@
         $contact_title = getCachedKeyValue(['key' => 'contact_title', 'first' => true, 'refreshCache' => true]) ?? null;
         $contact_sub_title =
             getCachedKeyValue(['key' => 'contact_sub_title', 'first' => true, 'refreshCache' => true]) ?? null;
+
+        $use_sub_title_theme_db =
+            getCachedKeyValue(['key' => 'sub_title_theme', 'first' => true, 'refreshCache' => true]) ?? null;
+        $use_sub_title_theme = $use_sub_title_theme_db ? $use_sub_title_theme_db->value : 'pink';
     @endphp
     @if ($backgroudSettings_type == 'video')
         <!--== Hero Slider Start ==-->
@@ -319,20 +323,20 @@
                                 {{ isset($site_title) ? lang_db($site_title->value, -1) : '' }}
                             </div>
                             <!--
-                                            LAYER NR. 13
-                                            <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-2"
-                                                data-x="['center','center','center','center']" data-hoffset="['-8','-8','-8','-8']"
-                                                data-y="['middle','middle','middle','middle']" data-voffset="['10','10','10','-10']"
-                                                data-fontsize="['20','20','20','25']" data-lineheight="['20','20','20','30']"
-                                                data-width="['none','none','none','360']" data-height="none"
-                                                data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text"
-                                                data-responsive_offset="on"
-                                                data-frames='[{"from":"y:50px;rX:45deg;sX:2;sY:2;opacity:0;","speed":1500,"to":"o:1;","delay":600,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                                data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                style="z-index: 17; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
-                                                We Are Based on Toronto, Canada</div>
-                                            -->
+                                                        LAYER NR. 13
+                                                        <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-2"
+                                                            data-x="['center','center','center','center']" data-hoffset="['-8','-8','-8','-8']"
+                                                            data-y="['middle','middle','middle','middle']" data-voffset="['10','10','10','-10']"
+                                                            data-fontsize="['20','20','20','25']" data-lineheight="['20','20','20','30']"
+                                                            data-width="['none','none','none','360']" data-height="none"
+                                                            data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text"
+                                                            data-responsive_offset="on"
+                                                            data-frames='[{"from":"y:50px;rX:45deg;sX:2;sY:2;opacity:0;","speed":1500,"to":"o:1;","delay":600,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
+                                                            data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                                            style="z-index: 17; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
+                                                            We Are Based on Toronto, Canada</div>
+                                                        -->
 
                             <!-- LAYER NR. 14 -->
                             <div class="tp-caption rev-btn rs-parallaxlevel-3" id="slide-3238-layer-3"
@@ -379,7 +383,9 @@
                 <div class="row">
                     <div class="col-md-8 centerize-col text-center">
                         <div class="section-title">
-                            <h2 class="raleway-font secondary-color">{{ lang_db('Who We Are', 1) }}</h2>
+                            <h2
+                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                {{ lang_db('Who We Are', 1) }}</h2>
                             <h1 class="raleway-font">{{ isset($site_title) ? lang_db($site_title->value, -1) : '' }}</h1>
                         </div>
                         <p>
@@ -407,7 +413,8 @@
                         <div class="container">
                             <div class="col-md-5 col-sm-6">
                                 <div class="section-title mb-50">
-                                    <h2 class="raleway-font secondary-color mt-0 font-20px">
+                                    <h2
+                                        class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-0 font-20px">
                                         {{ lang_db($home_page->sub_title) }}
                                     </h2>
                                     <h1 class="raleway-font mt-0 font-50px font-300">{{ lang_db($home_page->title) }}</h1>
@@ -426,7 +433,8 @@
                         <div class="container">
                             <div class="col-md-5 col-sm-6 col-md-offset-7 col-sm-offset-6">
                                 <div class="section-title mb-50">
-                                    <h2 class="raleway-font secondary-color mt-0 font-20px">
+                                    <h2
+                                        class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-0 font-20px">
                                         {{ lang_db($home_page->sub_title) }}
                                     </h2>
                                     <h1 class="raleway-font mt-0 font-50px font-300">{{ lang_db($home_page->title) }}</h1>
@@ -465,7 +473,8 @@
                                     {{ $pro->optional_4 ? "target='_blank'" : '' }}>
                                     <div class="icon-wrap white-bg">
                                         <div class="icon icon-container">
-                                            <i class="{{ $pro->optional_2 }} secondary-color font-30px"></i>
+                                            <i
+                                                class="{{ $pro->optional_2 }} {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} font-30px"></i>
                                         </div>
                                     </div>
                                 </a>
@@ -491,7 +500,9 @@
                 <div class="row">
                     <div class="col-md-8 centerize-col text-center">
                         <div class="section-title">
-                            <h2 class="raleway-font secondary-color">Meet Ninjas</h2>
+                            <h2
+                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                Meet Ninjas</h2>
                             <h1 class="raleway-font">Our Creative Team</h1>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ex ac velit varius
@@ -600,7 +611,9 @@
                     <div class="row">
                         <div class="col-md-8 centerize-col text-center">
                             <div class="section-title">
-                                <h2 class="raleway-font secondary-color">{{ lang_db($service_title->value ?? '', -1) }}
+                                <h2
+                                    class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                    {{ lang_db($service_title->value ?? '', -1) }}
                                 </h2>
                                 <h1 class="raleway-font">{{ lang_db($service_title->optional_1 ?? '', -1) }}</h1>
                             </div>
@@ -635,7 +648,9 @@
                 <div class="row">
                     <div class="col-md-8 centerize-col text-center">
                         <div class="section-title mb-50">
-                            <h2 class="raleway-font secondary-color">What Our Client Says</h2>
+                            <h2
+                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                What Our Client Says</h2>
                             <h1 class="raleway-font">Our Testimonials</h1>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ex ac velit varius
@@ -652,9 +667,12 @@
                                     <img class="img-responsive img-circle text-center"
                                         src="assets/images/team/avatar-1.jpg" alt="avatar-1" />
                                     <h4 class="font-600 mb-0 raleway-font">Anne McAdams</h4>
-                                    <span class="secondary-color font-14px">CEO / Founder</span>
+                                    <span
+                                        class="{{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} font-14px">CEO
+                                        / Founder</span>
                                     <div class="clearfix mb-20"></div>
-                                    <i class="icofont icofont-quote-left font-50px secondary-color mt-20"></i>
+                                    <i
+                                        class="icofont icofont-quote-left font-50px {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-20"></i>
                                     <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
                                 </div>
@@ -668,9 +686,12 @@
                                     <img class="img-responsive img-circle text-center"
                                         src="assets/images/team/avatar-2.jpg" alt="avatar-2" />
                                     <h4 class="font-600 mb-0 raleway-font">Jared Kane</h4>
-                                    <span class="secondary-color font-14px">CEO / Founder</span>
+                                    <span
+                                        class="{{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} font-14px">CEO
+                                        / Founder</span>
                                     <div class="clearfix mb-20"></div>
-                                    <i class="icofont icofont-quote-left font-50px secondary-color mt-20"></i>
+                                    <i
+                                        class="icofont icofont-quote-left font-50px {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-20"></i>
                                     <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
                                 </div>
@@ -682,9 +703,12 @@
                                 <div class="testimonial-content"> <img class="img-responsive img-circle"
                                         src="assets/images/team/avatar-3.jpg" alt="avatar-1" />
                                     <h4 class="font-600 mb-0 raleway-font">Nani Wale</h4>
-                                    <span class="secondary-color font-14px">CEO / Founder</span>
+                                    <span
+                                        class="{{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} font-14px">CEO
+                                        / Founder</span>
                                     <div class="clearfix mb-20"></div>
-                                    <i class="icofont icofont-quote-left font-50px secondary-color mt-20"></i>
+                                    <i
+                                        class="icofont icofont-quote-left font-50px {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-20"></i>
                                     <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
                                 </div>
@@ -696,9 +720,12 @@
                                 <div class="testimonial-content"> <img class="img-responsive img-circle"
                                         src="assets/images/team/avatar-4.jpg" alt="avatar-1" />
                                     <h4 class="font-600 mb-0 raleway-font">John Doe</h4>
-                                    <span class="secondary-color font-14px">CEO / Founder</span>
+                                    <span
+                                        class="{{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} font-14px">CEO
+                                        / Founder</span>
                                     <div class="clearfix mb-20"></div>
-                                    <i class="icofont icofont-quote-left font-50px secondary-color mt-20"></i>
+                                    <i
+                                        class="icofont icofont-quote-left font-50px {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }} mt-20"></i>
                                     <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur
                                         adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
                                 </div>
@@ -779,7 +806,8 @@
                 <div class="row">
                     <div class="col-md-8 centerize-col text-center">
                         <div class="section-title">
-                            <h2 class="raleway-font secondary-color">
+                            <h2
+                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
                                 {{ isset($contact_sub_title) ? lang_db($contact_sub_title->value, -1) : lang_db('Just Keep In Touch', 1) }}
                             </h2>
                             <h1 class="raleway-font">
@@ -799,7 +827,9 @@
                                 @if (isset($address) && isset($address->value))
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="section-title">
-                                            <h2 class="raleway-font secondary-color">{{ lang_db('Address', 1) }}</h2>
+                                            <h2
+                                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                                {{ lang_db('Address', 1) }}</h2>
                                             <p class="mt-30">{{ $address->value ?? '' }}</p>
                                         </div>
                                     </div>
@@ -808,7 +838,9 @@
                                 @if (isset($phones) && $phones->isNotEmpty())
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="section-title">
-                                            <h2 class="raleway-font secondary-color">{{ lang_db('Office Numbers', 1) }}
+                                            <h2
+                                                class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                                {{ lang_db('Office Numbers', 1) }}
                                             </h2>
                                             @foreach ($phones as $index => $phone)
                                                 <p class="mb-0 {{ $index == 0 ? 'mt-30' : '' }}">
@@ -825,7 +857,9 @@
                             <div class="row mt-20">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="section-title">
-                                        <h2 class="raleway-font secondary-color">{{ lang_db('Our E-mail', 1) }}</h2>
+                                        <h2
+                                            class="raleway-font {{ $use_sub_title_theme == 'pink' ? 'secondary-color' : 'default-color' }}">
+                                            {{ lang_db('Our E-mail', 1) }}</h2>
                                         @foreach ($emails as $index => $email)
                                             <p class="mb-0 {{ $index == 0 ? 'mt-30' : '' }}">
                                                 {{ $email->value ?? '' }} : {{ $email->optional_1 ?? '' }}

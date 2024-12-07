@@ -789,7 +789,7 @@ return [
                     'view' => [
                         'type' => '\Admin\KeyValueController@delete',
                         'page' => $main_admin_path . 'setting.background',
-                        'key' => ['backgroudSettings', 'backgrouds'],
+                        'key' => ['backgroudSettings', 'backgroudTypes', 'backgrouds'],
                         'redirect' => [
                             'params' => 'settings/background',
                         ]
@@ -800,6 +800,35 @@ return [
                     'type' => '\Admin\KeyValueController@edit',
                     'redirect' => [
                         'params' => 'settings/background',
+                    ]
+                ]
+            ],
+
+            'themeSettings' => [
+                'auth' => 1,
+                'authorization' => 2,
+
+                'title' => 'Theme Settings',
+
+                'sidebar' => [
+                    'type' => 'single',
+                    'id' => 'sidebarThemeSettings',
+                    'show' => true,
+                    'title' => 'Theme Settings',
+                    'group' => 'Settings',
+                    'icon' => 'mdi mdi-image',
+                ],
+
+                'view' => [
+                    'type' => '\Admin\KeyValueController@editPage',
+                    'page' => $main_admin_path . 'setting.theme_settings',
+                    'key' => ['header_theme', 'sub_title_theme'],
+                ],
+
+                'post' => [
+                    'type' => '\Admin\KeyValueController@edit',
+                    'redirect' => [
+                        'params' => 'settings/themeSettings',
                     ]
                 ]
             ],

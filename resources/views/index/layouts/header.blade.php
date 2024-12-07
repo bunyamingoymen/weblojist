@@ -3,7 +3,13 @@
     $home_logo_dark = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo Dark', 'first' => true]) ?? null;
 
     $headers = App\Models\Main\Menu::where('delete', 0)->where('active', 1)->where('type', 'header')->get();
-    $use_theme = 'dark';
+    if (Route::currentRouteName() == '') {
+        $use_theme = 'dark';
+    } else {
+        $use_theme_db = getCachedKeyValue(['key' => 'header_theme', 'first' => true, 'refreshCache' => true]) ?? null;
+        $use_theme = $use_theme_db ? $use_theme_db->value : 'dark';
+    }
+
 @endphp
 <nav
     class="navbar navbar-default navbar-fixed navbar-transparent {{ $use_theme == 'dark' ? 'dark' : 'white' }} bootsnav on no-full">
@@ -26,7 +32,7 @@
         <!--== Collect the nav links, forms, and other content for toggling ==-->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
+                <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>ü
                 @foreach ($headers->where('top_category', '0') as $header)
                     @if (count($headers->where('top_category', $header->code)) > 0)
                         <li class="dropdown">

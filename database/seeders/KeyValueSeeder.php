@@ -813,5 +813,23 @@ class KeyValueSeeder extends Seeder
                 'delete'            => 0
             ],
         ]);
+
+        //Tema ayarları
+        DB::table('key_values')->insert([
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'header_theme',
+                'value'             => 'dark',
+                'can_be_deleted'    => 1,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'sub_title_theme',
+                'value'             => 'pink',
+                'can_be_deleted'    => 1,
+                'delete'            => 0
+            ],
+        ]);
     }
 }

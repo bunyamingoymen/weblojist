@@ -1031,11 +1031,45 @@ class AdminLangSeeder extends Seeder
                 'en' => 'VAT'
             ],
 
-            'Gallery Descriptions'=>[
+            'Gallery Descriptions' => [
                 'tr' => "Galeri Açıklamaları",
                 'en' => 'Gallery Descriptions'
-            ]
+            ],
 
+            'Theme Settings' => [
+                'tr' => "Tema Ayarları",
+                'en' => 'Theme Settings'
+            ],
+
+            'Header Theme' => [
+                'tr' => "Header Teması",
+                'en' => 'Header Theme'
+            ],
+
+            'Dark' => [
+                'tr' => "Koyu",
+                'en' => 'Dark'
+            ],
+
+            'White' => [
+                'tr' => "Açık",
+                'en' => 'White'
+            ],
+
+            'Sub Title Theme' => [
+                'tr' => "Alt Başlık Teması",
+                'en' => 'Sub Title Theme'
+            ],
+
+            'Blue' => [
+                'tr' => "Mavi",
+                'en' => 'Blue'
+            ],
+
+            'Pink' => [
+                'tr' => "Pembe",
+                'en' => 'Pink'
+            ],
 
         ];
 
