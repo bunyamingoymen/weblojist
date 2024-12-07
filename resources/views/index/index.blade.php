@@ -18,8 +18,6 @@
             getCachedKeyValue(['key' => 'sub_title_theme', 'first' => true, 'refreshCache' => true]) ?? null;
         $use_sub_title_theme = $use_sub_title_theme_db ? $use_sub_title_theme_db->value : 'pink';
 
-
-        
     @endphp
     @if ($backgroudSettings_type == 'video')
         <!--== Hero Slider Start ==-->
@@ -326,20 +324,20 @@
                                 {{ isset($site_title) ? lang_db($site_title->value, -1) : '' }}
                             </div>
                             <!--
-                                                        LAYER NR. 13
-                                                        <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-2"
-                                                            data-x="['center','center','center','center']" data-hoffset="['-8','-8','-8','-8']"
-                                                            data-y="['middle','middle','middle','middle']" data-voffset="['10','10','10','-10']"
-                                                            data-fontsize="['20','20','20','25']" data-lineheight="['20','20','20','30']"
-                                                            data-width="['none','none','none','360']" data-height="none"
-                                                            data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text"
-                                                            data-responsive_offset="on"
-                                                            data-frames='[{"from":"y:50px;rX:45deg;sX:2;sY:2;opacity:0;","speed":1500,"to":"o:1;","delay":600,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                            data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                            style="z-index: 17; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
-                                                            We Are Based on Toronto, Canada</div>
-                                                        -->
+                                                            LAYER NR. 13
+                                                            <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-2"
+                                                                data-x="['center','center','center','center']" data-hoffset="['-8','-8','-8','-8']"
+                                                                data-y="['middle','middle','middle','middle']" data-voffset="['10','10','10','-10']"
+                                                                data-fontsize="['20','20','20','25']" data-lineheight="['20','20','20','30']"
+                                                                data-width="['none','none','none','360']" data-height="none"
+                                                                data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text"
+                                                                data-responsive_offset="on"
+                                                                data-frames='[{"from":"y:50px;rX:45deg;sX:2;sY:2;opacity:0;","speed":1500,"to":"o:1;","delay":600,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
+                                                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                                                data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                                                                style="z-index: 17; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
+                                                                We Are Based on Toronto, Canada</div>
+                                                            -->
 
                             <!-- LAYER NR. 14 -->
                             <div class="tp-caption rev-btn rs-parallaxlevel-3" id="slide-3238-layer-3"
@@ -609,7 +607,7 @@
             @php
                 $sectionCount++;
             @endphp
-            <section class="white-bg" id="service">
+            <section class="grey-bg" id="service">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 centerize-col text-center">
