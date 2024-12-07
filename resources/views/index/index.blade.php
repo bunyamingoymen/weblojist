@@ -17,6 +17,9 @@
         $use_sub_title_theme_db =
             getCachedKeyValue(['key' => 'sub_title_theme', 'first' => true, 'refreshCache' => true]) ?? null;
         $use_sub_title_theme = $use_sub_title_theme_db ? $use_sub_title_theme_db->value : 'pink';
+
+
+        
     @endphp
     @if ($backgroudSettings_type == 'video')
         <!--== Hero Slider Start ==-->

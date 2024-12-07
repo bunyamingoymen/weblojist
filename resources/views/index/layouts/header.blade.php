@@ -10,6 +10,7 @@
         $use_theme = $use_theme_db ? $use_theme_db->value : 'dark';
     }
 
+    $user_login = getCachedKeyValue(['key' => 'show_user_login', 'first' => true, 'refreshCache' => true]) ?? null;
 @endphp
 <nav
     class="navbar navbar-default navbar-fixed navbar-transparent {{ $use_theme == 'dark' ? 'dark' : 'white' }} bootsnav on no-full">
@@ -32,7 +33,7 @@
         <!--== Collect the nav links, forms, and other content for toggling ==-->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-                <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>ü
+                <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
                 @foreach ($headers->where('top_category', '0') as $header)
                     @if (count($headers->where('top_category', $header->code)) > 0)
                         <li class="dropdown">
@@ -60,7 +61,9 @@
                         </li>
                     @endif
                 @endforeach
-                <li><a href="{{ route('user.login') }}" class="">Giriş Yap</a></li>
+                @if (isset($user_login) && $user_login->value)
+                    <li><a href="{{ route('user.login') }}" class="">Giriş Yap</a></li>
+                @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

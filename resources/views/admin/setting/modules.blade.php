@@ -71,6 +71,15 @@
                             </div>
                         </div>
 
+                        <div class="col-lg-12 mb-3">
+                            <div class="col-lg-12 custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" name="show_user_login" id="show_user_login"
+                                    {{ isset($show_user_login) && isset($show_user_login[0]) && $show_user_login[0]->value ? 'checked' : '' }}>
+                                <label class="custom-control-label"
+                                    for="show_user_login">{{ lang_db('Show User Login Section') }}</label>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save"></i>
                             {{ lang_db('Save') }}</button>
                     </form>

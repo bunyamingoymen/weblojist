@@ -1071,6 +1071,11 @@ class AdminLangSeeder extends Seeder
                 'en' => 'Pink'
             ],
 
+            'Show User Login Section' => [
+                'tr' => "Kullanıcı Giriş Kısmını Göster",
+                'en' => 'Show User Login Section'
+            ],
+
         ];
 
         // Ortak alanlar

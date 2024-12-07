@@ -710,7 +710,7 @@ return [
                 'view' => [
                     'type' => '\Admin\KeyValueController@editPage',
                     'page' => $main_admin_path . 'setting.modules',
-                    'key' => ['show_about', 'show_page', 'show_process', 'show_services', 'show_suppliers', 'show_contact', 'show_whatsapp'],
+                    'key' => ['show_about', 'show_page', 'show_process', 'show_services', 'show_suppliers', 'show_contact', 'show_whatsapp', 'show_user_login'],
                 ],
 
                 'post' => [
