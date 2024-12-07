@@ -816,7 +816,7 @@ return [
                     'show' => true,
                     'title' => 'Theme Settings',
                     'group' => 'Settings',
-                    'icon' => 'mdi mdi-image',
+                    'icon' => 'mdi mdi-format-color-fill',
                 ],
 
                 'view' => [

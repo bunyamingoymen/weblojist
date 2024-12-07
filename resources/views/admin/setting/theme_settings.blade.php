@@ -19,7 +19,7 @@
                                     {{ lang_db('White') }}</option>
                             </select>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 mt-3">
                             <label for="sub_title_theme">{{ lang_db('Sub Title Theme') }}</label>
                             <input type="hidden" name="codes[]" value="{{ $sub_title_theme[0]->code ?? -1 }}" required
                                 readonly>
