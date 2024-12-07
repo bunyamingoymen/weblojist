@@ -4,6 +4,9 @@
         $gallery_title = getCachedKeyValue(['key' => 'gallery_title', 'first' => true, 'refreshCache' => true]) ?? null;
         $gallery_description =
             getCachedKeyValue(['key' => 'gallery_description', 'first' => true, 'refreshCache' => true]) ?? null;
+
+        $show_page_titles =
+            getCachedKeyValue(['key' => 'show_page_titles', 'first' => true, 'refreshCache' => true]) ?? null;
     @endphp
     <style>
         /* Car Gallery Styles */
@@ -142,39 +145,51 @@
                 margin-bottom: 5px;
             }
         }
+
+        .white-bg {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* En az ekranın %100 yüksekliğini kaplar */
+            background-color: #f8f8f8;
+            /* Arka plan rengi isteğe bağlı */
+        }
     </style>
 
-    <div class="transition-none">
-        <section class="title-hero-bg parallax-effect"
-            style="background-image: url({{ asset('defaultFiles/title/title_1.jpg') }});">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="page-title text-center white-color">
-                            <h1 class="raleway-font font-300">{{ lang_db($title, 1) }}</h1>
-                            <div class="breadcrumb mt-20">
-                                <!-- Breadcrumb Start -->
-                                <ul>
-                                    <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
-                                    <li>{{ lang_db($title, 1) }}</li>
-                                </ul>
-                                <!-- Breadcrumb End -->
+    @if (isset($show_page_titles) && $show_page_titles->value == '1')
+        <div class="transition-none">
+            <section class="title-hero-bg parallax-effect"
+                style="background-image: url({{ asset('defaultFiles/title/title_1.jpg') }});">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-title text-center white-color">
+                                <h1 class="raleway-font font-300">{{ lang_db($title, 1) }}</h1>
+                                <div class="breadcrumb mt-20">
+                                    <!-- Breadcrumb Start -->
+                                    <ul>
+                                        <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
+                                        <li>{{ lang_db($title, 1) }}</li>
+                                    </ul>
+                                    <!-- Breadcrumb End -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </section>
-    </div>
+                </div>
+            </section>
+        </div>
+    @endif
+
 
     <section class="car-gallery white-bg" id="cars">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 centerize-col text-center">
                     <div class="section-title">
-                        <h2 class="raleway-font">{{ lang_db($gallery_title->value) }}</h2>
-                        <p>{{ lang_db($gallery_description->value) }}</p>
+                        <h2 class="raleway-font">{{ isset($gallery_title) ? lang_db($gallery_title->value) : '' }}</h2>
+                        <p>{{ isset($gallery_description) ? lang_db($gallery_description->value) : '' }}</p>
                     </div>
                 </div>
             </div>

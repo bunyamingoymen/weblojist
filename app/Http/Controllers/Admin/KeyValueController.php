@@ -168,6 +168,15 @@ class KeyValueController extends Controller
         $show_user_login->value = $request->show_user_login ? '1' : '0';
         $show_user_login->save();
 
+        $show_page_titles = KeyValue::Where('key', 'show_page_titles')->first();
+        if (!$show_page_titles) {
+            $show_page_titles = new KeyValue();
+            $show_page_titles->key = 'show_page_titles';
+            $show_page_titles->code = $this->mainController->generateUniqueCode(['table' => 'key_values']);
+        }
+        $show_page_titles->value = $request->show_page_titles ? '1' : '0';
+        $show_page_titles->save();
+
 
         return redirect()->route('admin_page', ['params' => $request->post['redirect']['params']])->with('success', 'Updated');
     }

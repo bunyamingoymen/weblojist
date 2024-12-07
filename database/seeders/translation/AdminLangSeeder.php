@@ -1076,6 +1076,11 @@ class AdminLangSeeder extends Seeder
                 'en' => 'Show User Login Section'
             ],
 
+            'Show Page Titles Sections' => [
+                'tr' => "Sayfa Başlıkları Kısmını Göster",
+                'en' => 'Show Page Titles Sections'
+            ],
+
         ];
 
         // Ortak alanlar
