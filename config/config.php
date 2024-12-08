@@ -822,7 +822,7 @@ return [
                 'view' => [
                     'type' => '\Admin\KeyValueController@editPage',
                     'page' => $main_admin_path . 'setting.theme_settings',
-                    'key' => ['header_theme', 'sub_title_theme'],
+                    'key' => ['header_theme', 'sub_title_theme', 'active_theme'],
                 ],
 
                 'post' => [

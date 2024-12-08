@@ -1081,6 +1081,11 @@ class AdminLangSeeder extends Seeder
                 'en' => 'Show Page Titles Sections'
             ],
 
+            'Active Theme' => [
+                'tr' => "Aktif Tema",
+                'en' => 'Active Theme'
+            ],
+
         ];
 
         // Ortak alanlar

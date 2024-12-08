@@ -141,7 +141,7 @@ function getActiveThemePath()
 {
     $default_path = 'index.becki';
 
-    $active_path = getCachedKeyValue(['key' => 'active_theme', 'refreshCache' => true, 'first' => true]) ?? null;
+    $active_path = getCachedKeyValue(['key' => 'themes', 'value' => getActiveTheme(), 'refreshCache' => true, 'first' => true]) ?? null;
 
     return $active_path ? $active_path->optional_1 : $default_path;
 }

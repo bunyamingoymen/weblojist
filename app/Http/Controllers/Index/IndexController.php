@@ -81,7 +81,7 @@ class IndexController extends Controller
             else
                 return app($controller_class)->$method($pageCode);
         }
-
+        dd($active_theme);
         // Sınıf ya da method yoksa hata döndür
         abort(404);
     }
