@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MainController;
+use App\Models\Main\KeyValue;
 use App\Models\Main\Menu;
 use App\Models\Main\Page;
 use App\Models\Translation;
@@ -29,9 +30,14 @@ class MenuController extends Controller
             $selected_menu = null;
         }
         $menu = Menu::Where('delete', 0)->where('type', $menu_type)->orderBy('row', 'ASC')->get();
+
         $blogs = Page::Where('delete', 0)->where('type', 1)->get();
         $pages = Page::Where('delete', 0)->where('type', 2)->get();
         $suppliers = Page::Where('delete', 0)->where('type', 3)->get();
+
+        if ($menu_type == 'footer') $footer_title = KeyValue::Where('key', 'footer_titles')->get();
+        else $footer_title = null;
+
 
         $title = $request->title;
 
@@ -39,12 +45,17 @@ class MenuController extends Controller
 
         return view($request->page, compact(
             'title',
+
             'language',
+
             'selected_menu',
             'menu',
+
             'blogs',
             'pages',
-            'suppliers'
+            'suppliers',
+
+            'footer_title'
         ));
     }
 
@@ -62,40 +73,80 @@ class MenuController extends Controller
 
         $language = $this->mainController->databaseOperations(['model' => 'App\Models\Main\KeyValue', 'returnvalues' => ['items'], 'where' => ['key' => 'language'], 'create' => false])['items'] ?? [];
 
-        foreach ($language as $lan) {
-            if (!isset($request->language) || !isset($request->language[$lan->optional_1])) continue;
-
-            if ($request->title && isset($request->language[$lan->optional_1]['title'])) {
-                $translationTitle = $this->mainController->databaseOperations(['model' => 'App\Models\Translation', 'returnvalues' => ['item'], 'where' => ['key' => $request->title, 'language' => $lan->optional_1], 'create' => false])['item'] ?? null;
-
-                if ($translationTitle)
-                    $translationTitle = Translation::find($translationTitle->id);
-                else
-                    $translationTitle = new Translation();
-
-                $translationTitle->key = $request->title;
-                $translationTitle->language = $lan->optional_1;
-                $translationTitle->value = $request->language[$lan->optional_1]['title'];
-                $translationTitle->type = -1;
-                $translationTitle->save();
-            }
-        }
-
         $menu->top_category = $request->top_category;
         $menu->title = $request->title;
 
-        //menu path belirleme kısmı
-        if ($request->path == 'specific_page')
-            $menu->path = $request->specific_selectbox_page;
-        else if ($request->path == 'specific_blog')
-            $menu->path = $request->specific_selectbox_blog;
-        else if ($request->path == 'specific_supplier')
-            $menu->path = $request->specific_selectbox_supplier;
-        else if ($request->path == 'manuel_input')
-            $menu->path = $request->manuel_input;
-        else
-            $menu->path = $request->path;
+        if (!$request->footer_type || ($request->footer_type && $request->footer_type == 'url')) {
+            foreach ($language as $lan) {
+                if (!isset($request->language) || !isset($request->language[$lan->optional_1])) continue;
 
+                if ($request->title && isset($request->language[$lan->optional_1]['title'])) {
+                    $translationTitle = $this->mainController->databaseOperations(['model' => 'App\Models\Translation', 'returnvalues' => ['item'], 'where' => ['key' => $request->title, 'language' => $lan->optional_1], 'create' => false])['item'] ?? null;
+
+                    if ($translationTitle)
+                        $translationTitle = Translation::find($translationTitle->id);
+                    else
+                        $translationTitle = new Translation();
+
+                    $translationTitle->key = $request->title;
+                    $translationTitle->language = $lan->optional_1;
+                    $translationTitle->value = $request->language[$lan->optional_1]['title'];
+                    $translationTitle->type = -1;
+                    $translationTitle->save();
+                }
+            }
+
+            //menu path belirleme kısmı
+            if ($request->path == 'specific_page')
+                $menu->path = $request->specific_selectbox_page;
+            else if ($request->path == 'specific_blog')
+                $menu->path = $request->specific_selectbox_blog;
+            else if ($request->path == 'specific_supplier')
+                $menu->path = $request->specific_selectbox_supplier;
+            else if ($request->path == 'manuel_input')
+                $menu->path = $request->manuel_input;
+            else
+                $menu->path = $request->path;
+        } else if ($request->footer_type && $request->footer_type == 'image') {
+            if ($request->hasFile('footer_type_image')) {
+                $file = $request->file("footer_type_image");
+                $main_path = "file/footer/image";
+                $path = public_path($main_path);
+                $name = "footer_image_{$menu->code}_{$this->mainController->generateUniqueCode(['length' => 5])}.{$file->getClientOriginalExtension()}";
+                $file->move($path, $name);
+                $menu->path = "{$main_path}/{$name}";
+            } else $menu->path = $menu->path ?? '';
+        } else if ($request->footer_type && $request->footer_type == 'text') {
+            foreach ($language as $lan) {
+                if (!isset($request->language) || !isset($request->language[$lan->optional_1])) continue;
+
+                if ($request->title && isset($request->language[$lan->optional_1]['footer_type_text'])) {
+                    $translationTitle = $this->mainController->databaseOperations(['model' => 'App\Models\Translation', 'returnvalues' => ['item'], 'where' => ['key' => $request->footer_type_text, 'language' => $lan->optional_1], 'create' => false])['item'] ?? null;
+
+                    if ($translationTitle)
+                        $translationTitle = Translation::find($translationTitle->id);
+                    else
+                        $translationTitle = new Translation();
+
+                    $translationTitle->key = $request->title;
+                    $translationTitle->language = $lan->optional_1;
+                    $translationTitle->value = $request->language[$lan->optional_1]['footer_type_text'];
+                    $translationTitle->type = -1;
+                    $translationTitle->save();
+                }
+            }
+
+            $menu->path = $request->footer_type_text ?? '';
+        } else if ($request->footer_type && $request->footer_type == 'social_media') {
+            $menu->path = '';
+        } else if ($request->footer_type && $request->footer_type == 'title') {
+            $menu->path = $request->footer_type_title;
+        } else {
+            $menu->path = '';
+        }
+
+
+        $menu->footer_type = $request->footer_type;
         $menu->row = $request->row;
         $menu->column = $request->column;
         $menu->active = $request->active ? '1' : '0';

@@ -1086,6 +1086,26 @@ class AdminLangSeeder extends Seeder
                 'en' => 'Active Theme'
             ],
 
+            'Text' => [
+                'tr' => "Yazı",
+                'en' => 'Text'
+            ],
+
+            'Social Media' => [
+                'tr' => "Sosyal Medya",
+                'en' => 'Social Media'
+            ],
+
+            'Logo' => [
+                'tr' => "Logo",
+                'en' => 'Logo'
+            ],
+
+            'Not Exist' => [
+                'tr' => "Mevcut Değil",
+                'en' => 'Not Exist'
+            ],
+
         ];
 
         // Ortak alanlar

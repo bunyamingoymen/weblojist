@@ -717,7 +717,7 @@ return [
                     'title' => 'Modules',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-file-table-box-multiple-outline',
-                    'theme' => ['all'],
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [

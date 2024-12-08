@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin_page', ['params' => 'settings/menu/footer']) }}" method="POST"
-                        id="changeMenuFormID">
+                        id="changeMenuFormID" enctype="multipart/form-data">
                         @csrf
 
                         @if (isset($selected_menu))
@@ -62,111 +62,221 @@
                                 value="{{ $selected_menu->column ?? '1' }}" min="1" max="4">
                         </div>
 
-
                         <div class="col-lg-12 mt-2">
-                            <label for="title">{{ lang_db('Title') }}: </label>
-                            <input type="text" class="form-control" id="title" name="title"
-                                value="{{ $selected_menu->title ?? '' }}">
-                        </div>
+                            <label for="column">{{ lang_db('Type') }}: </label>
+                            <select name="footer_type" id="footer_type" class="form-control"
+                                onchange="changeFooterType(this.value)">
+                                <option value="title"
+                                    {{ isset($selected_menu) && $selected_menu->footer_type == 'title' ? 'selected' : '' }}>
+                                    {{ lang_db('Title') }}
+                                </option>
 
-                        @foreach ($language as $item)
-                            @if ($item->optional_2 == 'main_language')
-                                @continue
-                            @endif
-                            <div class="col-xl-8 mt-5">
-                                <div class="card text-white bg-primary">
-                                    <div class="card-body">
-                                        <h3 class="card-title font-size-16 mt-0 text-white">{{ $item->value }}</h3>
-                                        <div class="card-text">
+                                <option value="image"
+                                    {{ isset($selected_menu) && $selected_menu->footer_type == 'logo' ? 'selected' : '' }}>
+                                    {{ lang_db('Image') }}
+                                </option>
 
-                                            <div class="col-lg-12">
-                                                <label
-                                                    for="title_lan_{{ $item->optional_1 }}">{{ lang_db('Title') }}</label>
-                                                <input type="text" class="form-control"
-                                                    name="language[{{ $item->optional_1 }}][title]"
-                                                    id="title_lan_{{ $item->optional_1 }}"
-                                                    value="{{ isset($selected_menu) && $selected_menu->title ? lang_db($selected_menu->title, $type = -1, $locale = $item->optional_1) : '' }}"
-                                                    placeholder="Enter Title">
-                                            </div>
+                                <option value="text"
+                                    {{ isset($selected_menu) && $selected_menu->footer_type == 'text' ? 'selected' : '' }}>
+                                    {{ lang_db('Text') }}
+                                </option>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                                <option value="social_media"
+                                    {{ isset($selected_menu) && $selected_menu->footer_type == 'social_media' ? 'selected' : '' }}>
+                                    {{ lang_db('Social Media') }}
+                                </option>
 
-
-                        <div class="col-lg-12 mt-2">
-                            <label for="path">{{ lang_db('URL') }}: </label>
-                            <select name="path" id="path" class="form-control" onchange="changePathType()">
-                                <option value="#"
-                                    {{ (isset($selected_menu) && $selected_menu->path == '#') || !isset($selected_menu) ? 'selected' : '' }}>
-                                    {{ lang_db('No URL') }}</option>
-                                <option value="contact"
-                                    {{ isset($selected_menu) && $selected_menu->path == 'contact' ? 'selected' : '' }}>
-                                    {{ lang_db('Contact') }}</option>
-                                <option value="blogs"
-                                    {{ isset($selected_menu) && $selected_menu->path == 'blogs' ? 'selected' : '' }}>
-                                    {{ lang_db('Blogs') }}</option>
-                                <option value="products"
-                                    {{ isset($selected_menu) && $selected_menu->path == 'products' ? 'selected' : '' }}>
-                                    {{ lang_db('Products') }}</option>
-                                <option value="gallery"
-                                    {{ isset($selected_menu) && $selected_menu->path == 'gallery' ? 'selected' : '' }}>
-                                    {{ lang_db('Gallery') }}</option>
-                                <option value="specific_page"
-                                    {{ isset($selected_menu) && count($pages->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}>
-                                    {{ lang_db('A specific Page') }}</option>
-                                <option value="specific_blog"
-                                    {{ isset($selected_menu) && count($blogs->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}>
-                                    {{ lang_db('A specific Blog') }}</option>
-                                <option
-                                    value="specific_supplier {{ isset($selected_menu) && count($suppliers->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}">
-                                    {{ lang_db('A specific Supplier') }}</option>
-                                <option value="manuel_input" {{ isset($selected_menu) ? 'selected' : '' }}>
-                                    {{ lang_db('Manuel Input') }}</option>
+                                <option value="url"
+                                    {{ (isset($selected_menu) && $selected_menu->footer_type == 'url') || !isset($selected_menu) ? 'selected' : '' }}>
+                                    {{ lang_db('URL') }}
+                                </option>
                             </select>
                         </div>
 
-                        <div class="col-lg-12 mt-2" id="specific_section" hidden>
-                            <div id="specific_section_page" hidden>
-                                <label for="">Bağlantı Sayfası: </label>
-                                <select name="specific_selectbox_page" id="specific_selectbox_page" class="form-control">
-                                    @foreach ($pages as $page)
-                                        <option value="/p/{{ $page->short_name }}"
-                                            {{ isset($selected_menu) && $page->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
-                                            {{ lang_db($page->title) }}</option>
-                                    @endforeach
-                                </select>
+                        <div id="footerTypeTitleDiv" style="display: none;">
+                            <div class="col-lg-12 mt-2">
+                                <label for="footer_type_title">{{ lang_db('Title') }}: </label>
+                                <input type="text" class="form-control" id="footer_type_title" name="footer_type_title"
+                                    value="{{ $selected_menu->path ?? '' }}">
                             </div>
-                            <div id="specific_section_blog" hidden>
-                                <label for="">Bağlantı Sayfası: </label>
-                                <select name="specific_selectbox_blog" id="specific_selectbox_blog" class="form-control">
-                                    @foreach ($blogs as $blog)
-                                        <option value="/p/{{ $blog->short_name }}"
-                                            {{ isset($selected_menu) && $blog->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
-                                            {{ lang_db($blog->title) }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div id="specific_section_supplier" hidden>
-                                <label for="">Bağlantı Sayfası: </label>
-                                <select name="specific_selectbox_supplier" id="specific_selectbox_supplier"
-                                    class="form-control">
-                                    @foreach ($suppliers as $supplier)
-                                        <option value="/p/{{ $supplier->short_name }}"
-                                            {{ isset($selected_menu) && $supplier->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
-                                            {{ lang_db($supplier->title) }}
-                                        </option>
-                                    @endforeach
-                                </select>
+
+                            @foreach ($language as $item)
+                                @if ($item->optional_2 == 'main_language')
+                                    @continue
+                                @endif
+                                <div class="col-xl-8 mt-5">
+                                    <div class="card text-white bg-primary">
+                                        <div class="card-body">
+                                            <h3 class="card-title font-size-16 mt-0 text-white">{{ $item->value }}</h3>
+                                            <div class="card-text">
+
+                                                <div class="col-lg-12">
+                                                    <label
+                                                        for="title_lan_{{ $item->optional_1 }}">{{ lang_db('Title') }}</label>
+                                                    <input type="text" class="form-control"
+                                                        name="language[{{ $item->optional_1 }}][title]"
+                                                        id="title_lan_{{ $item->optional_1 }}"
+                                                        value="{{ isset($selected_menu) && $selected_menu->title ? lang_db($selected_menu->title, $type = -1, $locale = $item->optional_1) : '' }}"
+                                                        placeholder="Enter Title">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div id="footerTypeImageDiv" style="display: none;">
+                            <div class="col-lg-10 mt-4 ml-3">
+                                <div>
+                                    <input type="file" class="custom-file-input" id="footer_type_image"
+                                        name="footer_type_image" accept="image/*">
+                                    <label class="custom-file-label" for="pageImage">
+                                        {{ lang_db('Choose file...') }}
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-12 mt-2" id="manuel_url" hidden>
-                            <label for="manuel_input">{{ lang_db('Manuel Input') }}: </label>
-                            <input type="text" class="form-control" id="manuel_input" name="manuel_input"
-                                value={{ $selected_menu->path ?? '' }}>
+                        <div id="footerTypeTextDiv" style="display: none;">
+                            <div class="col-lg-12 mt-2">
+                                <label for="footer_type_text">{{ lang_db('Text') }}: </label>
+                                <textarea name="footer_type_text" id="footer_type_text" class="form-control" cols="30" rows="10">{{ $selected_menu->path ?? '' }}</textarea>
+                            </div>
+
+                            @foreach ($language as $item)
+                                @if ($item->optional_2 == 'main_language')
+                                    @continue
+                                @endif
+                                <div class="col-lg-12 mt-5">
+                                    <div class="card text-white bg-primary">
+                                        <div class="card-body">
+                                            <h3 class="card-title font-size-16 mt-0 text-white">{{ $item->value }}</h3>
+                                            <div class="card-text">
+
+                                                <div class="col-lg-12">
+                                                    <label for="text_lan_{{ $item->optional_1 }}">
+                                                        {{ lang_db('Text') }}
+                                                    </label>
+                                                    <textarea name="language[{{ $item->optional_1 }}][footer_type_text]" id="text_lan_{{ $item->optional_1 }}"
+                                                        class="form-control" cols="30" rows="10">{{ isset($selected_menu) && $selected_menu->title ? lang_db($selected_menu->title, $type = -1, $locale = $item->optional_1) : '' }}</textarea>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div id="footerTypeUrlDiv" style="display: none;">
+                            <div class="col-lg-12 mt-2">
+                                <label for="title">{{ lang_db('Title') }}: </label>
+                                <input type="text" class="form-control" id="title" name="title"
+                                    value="{{ $selected_menu->title ?? '' }}">
+                            </div>
+
+                            @foreach ($language as $item)
+                                @if ($item->optional_2 == 'main_language')
+                                    @continue
+                                @endif
+                                <div class="col-xl-8 mt-5">
+                                    <div class="card text-white bg-primary">
+                                        <div class="card-body">
+                                            <h3 class="card-title font-size-16 mt-0 text-white">{{ $item->value }}</h3>
+                                            <div class="card-text">
+
+                                                <div class="col-lg-12">
+                                                    <label
+                                                        for="title_lan_{{ $item->optional_1 }}">{{ lang_db('Title') }}</label>
+                                                    <input type="text" class="form-control"
+                                                        name="language[{{ $item->optional_1 }}][title]"
+                                                        id="title_lan_{{ $item->optional_1 }}"
+                                                        value="{{ isset($selected_menu) && $selected_menu->title ? lang_db($selected_menu->title, $type = -1, $locale = $item->optional_1) : '' }}"
+                                                        placeholder="Enter Title">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <div class="col-lg-12 mt-2">
+                                <label for="path">{{ lang_db('URL') }}: </label>
+                                <select name="path" id="path" class="form-control" onchange="changePathType()">
+                                    <option value="#"
+                                        {{ (isset($selected_menu) && $selected_menu->path == '#') || !isset($selected_menu) ? 'selected' : '' }}>
+                                        {{ lang_db('No URL') }}</option>
+                                    <option value="contact"
+                                        {{ isset($selected_menu) && $selected_menu->path == 'contact' ? 'selected' : '' }}>
+                                        {{ lang_db('Contact') }}</option>
+                                    <option value="blogs"
+                                        {{ isset($selected_menu) && $selected_menu->path == 'blogs' ? 'selected' : '' }}>
+                                        {{ lang_db('Blogs') }}</option>
+                                    <option value="products"
+                                        {{ isset($selected_menu) && $selected_menu->path == 'products' ? 'selected' : '' }}>
+                                        {{ lang_db('Products') }}</option>
+                                    <option value="gallery"
+                                        {{ isset($selected_menu) && $selected_menu->path == 'gallery' ? 'selected' : '' }}>
+                                        {{ lang_db('Gallery') }}</option>
+                                    <option value="specific_page"
+                                        {{ isset($selected_menu) && count($pages->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}>
+                                        {{ lang_db('A specific Page') }}</option>
+                                    <option value="specific_blog"
+                                        {{ isset($selected_menu) && count($blogs->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}>
+                                        {{ lang_db('A specific Blog') }}</option>
+                                    <option
+                                        value="specific_supplier {{ isset($selected_menu) && count($suppliers->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'selected' : '' }}">
+                                        {{ lang_db('A specific Supplier') }}</option>
+                                    <option value="manuel_input" {{ isset($selected_menu) ? 'selected' : '' }}>
+                                        {{ lang_db('Manuel Input') }}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-12 mt-2" id="specific_section" hidden>
+                                <div id="specific_section_page" hidden>
+                                    <label for="">Bağlantı Sayfası: </label>
+                                    <select name="specific_selectbox_page" id="specific_selectbox_page"
+                                        class="form-control">
+                                        @foreach ($pages as $page)
+                                            <option value="/p/{{ $page->short_name }}"
+                                                {{ isset($selected_menu) && $page->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
+                                                {{ lang_db($page->title) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div id="specific_section_blog" hidden>
+                                    <label for="">Bağlantı Sayfası: </label>
+                                    <select name="specific_selectbox_blog" id="specific_selectbox_blog"
+                                        class="form-control">
+                                        @foreach ($blogs as $blog)
+                                            <option value="/p/{{ $blog->short_name }}"
+                                                {{ isset($selected_menu) && $blog->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
+                                                {{ lang_db($blog->title) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div id="specific_section_supplier" hidden>
+                                    <label for="">Bağlantı Sayfası: </label>
+                                    <select name="specific_selectbox_supplier" id="specific_selectbox_supplier"
+                                        class="form-control">
+                                        @foreach ($suppliers as $supplier)
+                                            <option value="/p/{{ $supplier->short_name }}"
+                                                {{ isset($selected_menu) && $supplier->short_name == str_replace('/p/', '', $selected_menu->path) ? 'selected' : '' }}>
+                                                {{ lang_db($supplier->title) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 mt-2" id="manuel_url" hidden>
+                                <label for="manuel_input">{{ lang_db('Manuel Input') }}: </label>
+                                <input type="text" class="form-control" id="manuel_input" name="manuel_input"
+                                    value={{ $selected_menu->path ?? '' }}>
+                            </div>
                         </div>
 
                         <div class="row input m-3">
@@ -214,7 +324,20 @@
                                         <div
                                             class="row dd-handle ml-2 mt-2 selected_menu {{ $item->active == 1 ? 'selected_menu_active' : 'selected_menu_passive' }}">
                                             <div>
-                                                {{ $item->title }} {!! $item->open_different_page ? '<i class="fas fa-external-link-alt"></i>' : '' !!}
+                                                @if (is_null($item->footer_type) || $item->footer_type == 'url')
+                                                    {{ $item->title }} {!! $item->open_different_page ? '<i class="fas fa-external-link-alt"></i>' : '' !!}
+                                                @elseif ($item->footer_type == 'image')
+                                                    <img src="{{ isset($item->path) ? asset($item->path) : lang_db('Not Exist') }}"
+                                                        alt="{{ $item->path }}"
+                                                        style="max-height: 50px; max-width: 50px;">
+                                                @elseif($item->footer_type == 'text')
+                                                    {{ $item->path }}
+                                                @elseif($item->footer_type == 'social_media')
+                                                    <b><i>{{ lang_db('Social Media Links') }}</i></b>
+                                                @elseif ($item->footer_type == 'title')
+                                                    <h4>{{ $item->path }}</h4>
+                                                @endif
+
                                             </div>
                                             <div>
                                                 <a href="{{ route('admin_page', ['params' => 'settings/menu/footer']) }}?code={{ $item->code }}"
@@ -242,7 +365,7 @@
     </div>
     <script>
         function submitChangeMenuForm() {
-            var title = document.getElementById('title').value;
+            var title = 'bypass'; //document.getElementById('title').value;
             var row = document.getElementById('row').value;
             var column = document.getElementById('column').value;
 
@@ -299,62 +422,106 @@
             }
         }
 
+        function changeFooterType(footerType) {
+            if (footerType == 'title') {
+                $('#footerTypeTitleDiv').slideDown(200);
+                $('#footerTypeImageDiv').slideUp(200);
+                $('#footerTypeTextDiv').slideUp(200);
+                $('#footerTypeUrlDiv').slideUp(200);
+            } else if (footerType == 'image') {
+                $('#footerTypeTitleDiv').slideUp(200);
+                $('#footerTypeImageDiv').slideDown(200);
+                $('#footerTypeTextDiv').slideUp(200);
+                $('#footerTypeUrlDiv').slideUp(200);
+            } else if (footerType == 'text') {
+                $('#footerTypeTitleDiv').slideUp(200);
+                $('#footerTypeImageDiv').slideUp(200);
+                $('#footerTypeTextDiv').slideDown(200);
+                $('#footerTypeUrlDiv').slideUp(200);
+            } else if (footerType == 'url') {
+                $('#footerTypeTitleDiv').slideUp(200);
+                $('#footerTypeImageDiv').slideUp(200);
+                $('#footerTypeTextDiv').slideUp(200);
+                $('#footerTypeUrlDiv').slideDown(200);
+            } else if (footerType == 'social_media') {
+                $('#footerTypeTitleDiv').slideUp(200);
+                $('#footerTypeImageDiv').slideUp(200);
+                $('#footerTypeTextDiv').slideUp(200);
+                $('#footerTypeUrlDiv').slideUp(200);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            const selectedPath = "{{ $selected_menu->path ?? '#' }}";
+            const selectedPath =
+                "{{ isset($selected_menu) && $selected_menu->footer_type == 'url' && $selected_menu->path ? $selected_menu->path : '#' }}";
             const pathSelect = document.getElementById('path');
 
-            if (selectedPath === '#') {
-                pathSelect.value = '#';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = true;
-            } else if (selectedPath === 'contact') {
-                pathSelect.value = 'contact';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = true;
-            } else if (selectedPath === 'blogs') {
-                pathSelect.value = 'blogs';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = true;
-            } else if (selectedPath === 'products') {
-                pathSelect.value = 'products';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = true;
-            } else if (selectedPath === 'gallery') {
-                pathSelect.value = 'gallery';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = true;
-            } else if (
-                {{ isset($selected_menu) && count($pages->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
-            ) {
-                document.getElementById('specific_section').hidden = false;
-                document.getElementById('manuel_url').hidden = true;
-                pathSelect.value = 'specific_page';
-                document.getElementById('specific_section_page').hidden = false;
-                document.getElementById('specific_section_blog').hidden = true;
-                document.getElementById('specific_section_supplier').hidden = true;
-            } else if (
-                {{ isset($selected_menu) && count($blogs->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
-            ) {
-                document.getElementById('specific_section').hidden = false;
-                document.getElementById('manuel_url').hidden = true;
-                pathSelect.value = 'specific_blog';
-                document.getElementById('specific_section_page').hidden = true;
-                document.getElementById('specific_section_blog').hidden = false;
-                document.getElementById('specific_section_supplier').hidden = true;
-            } else if (
-                {{ isset($selected_menu) && count($suppliers->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
-            ) {
-                document.getElementById('specific_section').hidden = false;
-                document.getElementById('manuel_url').hidden = true;
-                pathSelect.value = 'specific_supplier';
-                document.getElementById('specific_section_page').hidden = true;
-                document.getElementById('specific_section_blog').hidden = true;
-                document.getElementById('specific_section_supplier').hidden = false;
-            } else {
-                pathSelect.value = 'manuel_input';
-                document.getElementById('specific_section').hidden = true;
-                document.getElementById('manuel_url').hidden = false;
+            const footerType = "{{ $selected_menu->footer_type ?? 'url' }}";
+            changeFooterType(footerType);
+
+            if (footerType == 'image') {
+
+            } else if (footerType == 'text') {
+
+            } else if (footerType == 'title') {
+
+            } else if (footerType == 'social_media') {
+
+            } else if (footerType == 'url') {
+                if (selectedPath === '#') {
+                    pathSelect.value = '#';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = true;
+                } else if (selectedPath === 'contact') {
+                    pathSelect.value = 'contact';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = true;
+                } else if (selectedPath === 'blogs') {
+                    pathSelect.value = 'blogs';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = true;
+                } else if (selectedPath === 'products') {
+                    pathSelect.value = 'products';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = true;
+                } else if (selectedPath === 'gallery') {
+                    pathSelect.value = 'gallery';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = true;
+                } else if (
+                    {{ isset($selected_menu) && count($pages->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
+                ) {
+                    document.getElementById('specific_section').hidden = false;
+                    document.getElementById('manuel_url').hidden = true;
+                    pathSelect.value = 'specific_page';
+                    document.getElementById('specific_section_page').hidden = false;
+                    document.getElementById('specific_section_blog').hidden = true;
+                    document.getElementById('specific_section_supplier').hidden = true;
+                } else if (
+                    {{ isset($selected_menu) && count($blogs->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
+                ) {
+                    document.getElementById('specific_section').hidden = false;
+                    document.getElementById('manuel_url').hidden = true;
+                    pathSelect.value = 'specific_blog';
+                    document.getElementById('specific_section_page').hidden = true;
+                    document.getElementById('specific_section_blog').hidden = false;
+                    document.getElementById('specific_section_supplier').hidden = true;
+                } else if (
+                    {{ isset($selected_menu) && count($suppliers->where('short_name', str_replace('/p/', '', $selected_menu->path))) >= 1 ? 'true' : 'false' }}
+                ) {
+                    document.getElementById('specific_section').hidden = false;
+                    document.getElementById('manuel_url').hidden = true;
+                    pathSelect.value = 'specific_supplier';
+                    document.getElementById('specific_section_page').hidden = true;
+                    document.getElementById('specific_section_blog').hidden = true;
+                    document.getElementById('specific_section_supplier').hidden = false;
+                } else {
+                    pathSelect.value = 'manuel_input';
+                    document.getElementById('specific_section').hidden = true;
+                    document.getElementById('manuel_url').hidden = false;
+                }
             }
+
         });
     </script>
 @endsection

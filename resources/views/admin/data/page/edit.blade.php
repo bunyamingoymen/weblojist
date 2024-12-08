@@ -1,5 +1,8 @@
 @extends('admin.layouts.main')
 @section('admin_index_body')
+    @php
+        $active_theme_type = getActiveTheme();
+    @endphp
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -96,49 +99,54 @@
                                         </select>
                                     </div>
                                 @endif
-                                @if ($params == 'gallery/edit' || $params == 'supplier/edit')
-                                    <div class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="pageOpenDifferentPage"
-                                            name="open_different_page"
-                                            {{ isset($item) && isset($open_different_page) && $open_different_page->optional_1 ? 'checked' : '' }}>
-                                        <label class="custom-control-label"
-                                            for="pageOpenDifferentPage">{{ lang_db('Open in different page') }}</label>
-                                    </div>
-                                @endif
+                                @if ($active_theme_type == 'becki')
+                                    @if ($params == 'gallery/edit' || $params == 'supplier/edit')
+                                        <div
+                                            class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id="pageOpenDifferentPage"
+                                                name="open_different_page"
+                                                {{ isset($item) && isset($open_different_page) && $open_different_page->optional_1 ? 'checked' : '' }}>
+                                            <label class="custom-control-label"
+                                                for="pageOpenDifferentPage">{{ lang_db('Open in different page') }}</label>
+                                        </div>
+                                    @endif
 
-                                @if ($params == 'page/edit' || $params == 'supplier/edit' || $params == 'blog/edit')
-                                <div class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="pageShowHome"
-                                        name="show_home"
-                                        {{ (isset($item) && $item->show_home) || !isset($item) ? 'checked' : '' }}>
-                                    <label class="custom-control-label"
-                                        for="pageShowHome">{{ lang_db('Show On Homepage') }}</label>
-                                </div>
-                                @endif
+                                    @if ($params == 'page/edit' || $params == 'supplier/edit' || $params == 'blog/edit')
+                                        <div
+                                            class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id="pageShowHome"
+                                                name="show_home"
+                                                {{ (isset($item) && $item->show_home) || !isset($item) ? 'checked' : '' }}>
+                                            <label class="custom-control-label"
+                                                for="pageShowHome">{{ lang_db('Show On Homepage') }}</label>
+                                        </div>
+                                    @endif
 
-                                @if ($params == 'page/edit')
-                                    <div class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="productHomeType"
-                                            name="home_type"
-                                            {{ (isset($item) && $item->home_type) || !isset($item) ? 'checked' : '' }}>
-                                        <label class="custom-control-label"
-                                            for="productHomeType">{{ lang_db('If it is shown on the homepage, the image should be on the right side (If this is not selected, it will be on the left side.)') }}</label>
-                                    </div>
-                                @endif
+                                    @if ($params == 'page/edit')
+                                        <div
+                                            class="col-lg-12 mt-3 ml-3 custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id="productHomeType"
+                                                name="home_type"
+                                                {{ (isset($item) && $item->home_type) || !isset($item) ? 'checked' : '' }}>
+                                            <label class="custom-control-label"
+                                                for="productHomeType">{{ lang_db('If it is shown on the homepage, the image should be on the right side (If this is not selected, it will be on the left side.)') }}</label>
+                                        </div>
+                                    @endif
 
-                                @if ($params == 'supplier/edit')
-                                    <div class="mt-3 col-lg-4">
-                                        <label
-                                            for="pageOtherURLOnHomePage">{{ lang_db('URL to go to on the Home Page (If empty, it goes to its own page) (Show on Home Page button must be active)') }}</label>
-                                        <input type="text" id="pageOtherURLOnHomePage" name="other_url_supplier"
-                                            class="form-control" value="{{ $other_url_supplier->optional_1 ?? '' }}">
-                                    </div>
+                                    @if ($params == 'supplier/edit')
+                                        <div class="mt-3 col-lg-4">
+                                            <label
+                                                for="pageOtherURLOnHomePage">{{ lang_db('URL to go to on the Home Page (If empty, it goes to its own page) (Show on Home Page button must be active)') }}</label>
+                                            <input type="text" id="pageOtherURLOnHomePage" name="other_url_supplier"
+                                                class="form-control" value="{{ $other_url_supplier->optional_1 ?? '' }}">
+                                        </div>
+                                    @endif
                                 @endif
 
                                 <div class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" class="custom-control-input" id="pageShowTitle"
                                         name="show_title_on_its_own"
-                                        {{ isset($show_title_on_its_own) && $show_title_on_its_own->optional_1 ? 'checked' : '' }}>
+                                        {{ (isset($show_title_on_its_own) && $show_title_on_its_own->optional_1) || !isset($show_title_on_its_own) ? 'checked' : '' }}>
                                     <label class="custom-control-label"
                                         for="pageShowTitle">{{ lang_db('Show title on its own page') }}</label>
                                 </div>
@@ -146,7 +154,7 @@
                                 <div class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
                                     <input type="checkbox" class="custom-control-input" id="pageShowDate"
                                         name="show_date_on_its_own"
-                                        {{ isset($show_date_on_its_own) && $show_date_on_its_own->optional_1 ? 'checked' : '' }}>
+                                        {{ (isset($show_date_on_its_own) && $show_date_on_its_own->optional_1) || !isset($show_date_on_its_own) ? 'checked' : '' }}>
                                     <label class="custom-control-label"
                                         for="pageShowDate">{{ lang_db('Show date on its own page') }}</label>
                                 </div>

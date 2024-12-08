@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('type')->nullable(); //footer veya header
             $table->string('top_category')->nullable()->default(0); //0 ise üst kategori, değilse alt kategori
             $table->string('title')->nullable();
-            $table->string('path')->nullable();
+            $table->longText('path')->nullable();
             $table->string('row')->nullable(); //satır
-            $table->string('column')->nullable(); //sütun
+            $table->string('column')->nullable(); //sütun, sadece footer için
             $table->tinyInteger('open_different_page')->nullable()->default(0);
+            $table->string('footer_type')->nullable(); //logo, yazı, sosyal medya, link
             $table->tinyInteger('can_be_deleted')->default(1);
             $table->tinyInteger('active')->default(1);
             $table->tinyInteger('delete')->default(0);
