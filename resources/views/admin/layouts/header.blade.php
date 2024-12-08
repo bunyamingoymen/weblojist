@@ -9,7 +9,7 @@
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
-            <!-- LOGO -->
+
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
@@ -27,7 +27,6 @@
                 <i class="mdi mdi-backburger"></i>
             </button>
 
-            <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
@@ -68,7 +67,6 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         @foreach ($other_flags as $flag)
-                            <!-- item-->
                             <a href="{{ route('Translation.setActiveLang', ['locale' => $flag->optional_1]) }}"
                                 class="dropdown-item notify-item">
                                 <img src="{{ asset($flag->optional_5) }}" alt="user-image" class="mr-2"
@@ -189,7 +187,6 @@
                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <!-- item-->
                     <a class="dropdown-item" href="{{ route('admin.profile') }}"><i
                             class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i>
                         {{ lang_db('Profile') }}</a>

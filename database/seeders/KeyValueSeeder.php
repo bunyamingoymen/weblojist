@@ -171,12 +171,14 @@ class KeyValueSeeder extends Seeder
 
         ]);
 
+        //Arkaplan tipleri
         DB::table('key_values')->insert([
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgroudTypes',
                 'value'             => 'video',
                 'optional_1'        => 'Video',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -185,6 +187,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgroudTypes',
                 'value'             => 'slider',
                 'optional_1'        => 'Slider',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -193,6 +196,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgroudTypes',
                 'value'             => 'picture',
                 'optional_1'        => 'Picture',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -201,6 +205,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgroudTypes',
                 'value'             => 'creative',
                 'optional_1'        => 'Creative',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -212,6 +217,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgroudSettings',
                 'value'             => 'creative', //picture, silder, resim ya da  creative. İsteğe bağlı seçim.
+                'optional_4'        => 'becki',
                 'optional_5'        => '',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -220,6 +226,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'video', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/video.mp4', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -228,6 +235,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'picture', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/image_background.jpg', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -236,6 +244,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/slider/slider_1.jpg', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -244,6 +253,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/slider/slider_2.jpg', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -252,6 +262,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/slider/slider_3.jpg', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -260,6 +271,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_1.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -268,6 +280,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_2.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -276,6 +289,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_3.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -284,6 +298,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_4.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -292,6 +307,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_5.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -300,6 +316,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_6.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -308,6 +325,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_7.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -316,6 +334,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_8.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -324,6 +343,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_9.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -332,6 +352,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgrouds',
                 'value'             => 'creative', //video, resim ya da silder
+                'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_10.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -820,6 +841,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'header_theme',
                 'value'             => 'dark',
+                'optional_4'        => 'becki', //hangi tmeya ait olduğunu belirtiyor.
                 'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
@@ -827,6 +849,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'sub_title_theme',
                 'value'             => 'pink',
+                'optional_4'        => 'becki', //hangi tmeya ait olduğunu belirtiyor.
                 'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
@@ -856,6 +879,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_about',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -863,6 +887,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_page',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -870,6 +895,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_process',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -877,6 +903,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_services',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -884,6 +911,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_suppliers',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -891,6 +919,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_contact',
                 'value'             => '1',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -898,6 +927,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_whatsapp',
                 'value'             => '0',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -905,6 +935,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_user_login',
                 'value'             => '0',
+                'optional_4'        => 'becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -912,6 +943,32 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'show_page_titles',
                 'value'             => '0',
+                'optional_4'        => 'becki',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+        ]);
+
+        //Temalar
+        DB::table('key_values')->insert([
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'active_theme',
+                'value'             => 'becki',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'themes',
+                'value'             => 'becki',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'themes',
+                'value'             => 'akea',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

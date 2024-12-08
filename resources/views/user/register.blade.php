@@ -22,19 +22,14 @@
 
 
     <title>Login | {{ env('APP_NAME') }}</title>
+
     <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
 
-    <!-- Sweet Alert-->
     <link href="{{ route('assetFile', ['folder' => 'user/libs/sweetalert2', 'filename' => 'sweetalert2.min.css']) }}"
         rel="stylesheet" type="text/css" />
-
-
-    <!-- alertifyjs Css -->
     <link
         href="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build/css', 'filename' => 'alertify.min.css']) }}"
         rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'bootstrap.min.css']) }}">
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'icons.min.css']) }}">
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'app.min.css']) }}">
@@ -109,9 +104,7 @@
                             </form>
 
                         </div>
-                        <!-- end card-body -->
                     </div>
-                    <!-- end card -->
 
                     <div class="row mt-5">
                         <div class="col-sm-12 text-center">
@@ -122,28 +115,16 @@
                     </div>
 
                 </div>
-                <!-- end col -->
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end page -->
 
     <script src="{{ route('assetFile', ['folder' => 'user/js', 'filename' => 'vendor.min.js']) }}"></script>
-
-
-    <!-- alertifyjs js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build', 'filename' => 'alertify.min.js']) }}">
     </script>
-
-    <!-- Sweet Alerts js -->
     <script src="{{ route('assetFile', ['folder' => 'user/libs/sweetalert2', 'filename' => 'sweetalert2.min.js']) }}">
     </script>
-
     <script src="{{ route('assetFile', ['folder' => 'user/js', 'filename' => 'app.min.js']) }}"></script>
-
-    <!--Uyarı Mesajları-->
     <script>
         $(document).ready(function() {
 
@@ -163,7 +144,6 @@
 
     <script>
         function submitEdit() {
-            // Input değerlerini al
             const fields = {
                 name: document.getElementById('name').value,
                 username: document.getElementById('username').value,
@@ -174,7 +154,6 @@
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // Boş alanları bul
             const emptyFields = Object.entries(fields)
                 .filter(([key, value]) => value.trim() === "")
                 .map(([key]) => {
@@ -193,8 +172,6 @@
                     }
                 });
 
-
-            // Eğer boş alan varsa kullanıcıya göster
             if (emptyFields.length > 0) {
                 Swal.fire({
                     type: "error",
@@ -205,7 +182,6 @@
                 return;
             }
 
-            // E-posta doğrulama ve şifre eşleşme kontrolü
             if (!emailPattern.test(fields.email)) {
                 Swal.fire({
                     type: "error",
@@ -216,7 +192,6 @@
                 return;
             }
 
-            //Şifre kontrolü
             if (fields.password !== fields.repeat_password) {
                 Swal.fire({
                     type: "error",
@@ -227,7 +202,6 @@
                 return;
             }
 
-            // Formu gönder
             document.getElementById('registerFormID').submit();
         }
     </script>

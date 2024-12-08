@@ -65,8 +65,8 @@ class IndexController extends Controller
         $emails = KeyValue::Where('key', 'emails')->where('delete', 0)->get();
 
         $social_media = KeyValue::Where('key', 'social_media')->where('delete', 0)->get();
-
-        return view('index.index', compact(
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}index", compact(
             'backgroudSettings_type',
             'backgrouds',
 
@@ -102,8 +102,8 @@ class IndexController extends Controller
             ->paginate($showblogCount);
 
         $type = 'blog';
-
-        return view('index.blogs', compact('blogs', 'type'));
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.blogs", compact('blogs', 'type'));
     }
 
 
@@ -119,7 +119,8 @@ class IndexController extends Controller
 
         $files = Files::Where('type', 'page')->where('delete', 0)->where('type_code', $page->code)->get();
 
-        return view('index.blog_detail', compact('page', 'type', 'show_title_on_its_own', 'show_date_on_its_own', 'files'));
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.blog_detail", compact('page', 'type', 'show_title_on_its_own', 'show_date_on_its_own', 'files'));
     }
 
     public function products()
@@ -183,7 +184,8 @@ class IndexController extends Controller
 
         $type = 'product';
 
-        return view('index.blogs', compact('blogs', 'type'));
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.blogs", compact('blogs', 'type'));
     }
 
     public function galleries()
@@ -201,8 +203,8 @@ class IndexController extends Controller
             ->where('pages.active', 1)
             ->get();
 
-
-        return view('index.gallery', compact('title', 'categories', 'galleries'));
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.gallery", compact('title', 'categories', 'galleries'));
     }
 
 
@@ -214,7 +216,8 @@ class IndexController extends Controller
         $files = Files::Where('type', 'product')->where('delete', 0)->where('type_code', $page->code)->get();
         $type = 'product';
 
-        return view('index.blog_detail', compact('page', 'type', 'files'));
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.blog_detail", compact('page', 'type', 'files'));
     }
 
     public function contact()
@@ -225,7 +228,8 @@ class IndexController extends Controller
 
         $social_media = KeyValue::Where('key', 'social_media')->where('delete', 0)->get();
 
-        return view('index.contact', compact(
+        $active_theme = getActiveTheme();
+        return view("index.{$active_theme}.contact", compact(
 
             'address',
             'phones',

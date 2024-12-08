@@ -24,7 +24,6 @@
 
     <script src="{{ route('assetFile', ['folder' => 'admin/js', 'filename' => 'pageTable.js']) }}"></script>
 
-    <!--Silme sicript'i-->
     <script>
         function deleteItem(code, name) {
             Swal.fire({
@@ -43,7 +42,7 @@
             })
         }
     </script>
-    <!-- Sayfa Değiştirme Scripti-->
+
     <script>
         function changePage(page) {
             var pageData = {
@@ -85,7 +84,6 @@
         }
     </script>
 
-    <!--Ag-gird Komutları-->
     <script>
         var columnDefs = [{
                 headerName: "#",

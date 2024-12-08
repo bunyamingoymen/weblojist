@@ -28,7 +28,7 @@
         ->where('column', '4')
         ->get();
 @endphp
-<!--905555555555 -->
+
 @if (isset($show_whatsapp) && isset($whatsapp_phone) && $show_whatsapp->value && $whatsapp_phone->value)
     <a href="https://wa.me/{{ $whatsapp_phone->value }}" class="whatsapp-support" target="_blank">
         <div class="whatsapp-support-icon">

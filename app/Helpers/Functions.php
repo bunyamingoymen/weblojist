@@ -127,3 +127,12 @@ function getPriceTypeSymbol($price_type)
 {
     return getPriceType($price_type)->optional_1;
 }
+
+function getActiveTheme()
+{
+    $default_theme = 'becki';
+
+    $active_theme = getCachedKeyValue(['key' => 'active_theme', 'refreshCache' => true, 'first' => true]) ?? null;
+
+    return $active_theme ? $active_theme->optional_1 : $default_theme;
+}

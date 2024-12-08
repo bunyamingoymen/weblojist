@@ -166,12 +166,10 @@
                             <div class="page-title text-center white-color">
                                 <h1 class="raleway-font font-300">{{ lang_db($title, 1) }}</h1>
                                 <div class="breadcrumb mt-20">
-                                    <!-- Breadcrumb Start -->
                                     <ul>
                                         <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
                                         <li>{{ lang_db($title, 1) }}</li>
                                     </ul>
-                                    <!-- Breadcrumb End -->
                                 </div>
                             </div>
                         </div>
@@ -194,7 +192,6 @@
                 </div>
             </div>
 
-            <!-- Car Brand Filter -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="car-brand-filter text-center mb-50">
@@ -207,9 +204,7 @@
                 </div>
             </div>
 
-            <!-- Car Grid -->
             <div class="row car-grid">
-                <!-- Mercedes -->
                 @foreach ($galleries as $gallery)
                     @php
                         $url = $gallery->short_name ?? 'not-found';
@@ -249,46 +244,40 @@
     </section>
 
     <script>
-        // Tüm filtre butonlarını seç
         const filterButtons = document.querySelectorAll('.btn-filter');
-        // Tüm araç kartlarını seç
         const carItems = document.querySelectorAll('.car-item');
 
-        // Her filtre butonuna tıklama olayı ekle
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Aktif class'ı tüm butonlardan kaldır
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Tıklanan butona active class'ı ekle
+
                 button.classList.add('active');
 
-                // Seçilen markayı al
                 const selectedBrand = button.getAttribute('data-brand');
 
-                // Her araç kartı için kontrol et
+
                 carItems.forEach(item => {
-                    // Önce fade-out efekti uygula
+
                     item.style.opacity = '0';
                     item.style.transition = 'opacity 0.3s ease';
 
                     setTimeout(() => {
-                        // Eğer "tüm markalar" seçildiyse veya araç kartının markası seçilen marka ile eşleşiyorsa
+
                         if (selectedBrand === 'all' || item.getAttribute('data-brand') ===
                             selectedBrand) {
-                            item.style.display = 'block'; // Göster
-                            // Kısa bir gecikme ile fade-in efekti uygula
+                            item.style.display = 'block';
+
                             setTimeout(() => {
                                 item.style.opacity = '1';
                             }, 50);
                         } else {
-                            item.style.display = 'none'; // Gizle
+                            item.style.display = 'none';
                         }
-                    }, 300); // Bu süre fade-out efektinin tamamlanmasını bekler
+                    }, 300);
                 });
             });
         });
 
-        // Sayfa yüklendiğinde tüm araçları görünür yap
         window.addEventListener('load', () => {
             carItems.forEach(item => {
                 item.style.opacity = '1';

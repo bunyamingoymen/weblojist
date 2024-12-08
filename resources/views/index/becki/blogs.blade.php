@@ -15,26 +15,20 @@
         .img-responsive {
             width: 100%;
             height: 350px;
-            /* İstediğiniz sabit yüksekliği belirleyin */
 
             object-fit: contain;
-            /* Resmi sıkıştırmadan alana sığdırır */
             background-color: #f0f0f0;
-            /* Boş kalan alan için arka plan rengi (isteğe bağlı) */
         }
 
         .white-bg {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* En az ekranın %100 yüksekliğini kaplar */
             background-color: #f8f8f8;
-            /* Arka plan rengi isteğe bağlı */
         }
     </style>
 
     @if (isset($show_page_titles) && $show_page_titles->value == '1')
-        <!--== Page Title Start ==-->
         <div class="transition-none">
             <section class="title-hero-bg parallax-effect"
                 style="background-image: url({{ asset('defaultFiles/title/title_1.jpg') }});">
@@ -44,12 +38,10 @@
                             <div class="page-title text-center white-color">
                                 <h1 class="raleway-font font-300">{{ lang_db($title, 1) }}</h1>
                                 <div class="breadcrumb mt-20">
-                                    <!-- Breadcrumb Start -->
                                     <ul>
                                         <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
                                         <li>{{ lang_db($title, 1) }}</li>
                                     </ul>
-                                    <!-- Breadcrumb End -->
                                 </div>
                             </div>
                         </div>
@@ -58,10 +50,8 @@
                 </div>
             </section>
         </div>
-        <!--== Page Title End ==-->
     @endif
 
-    <!--== Blog Classic Post Start ==-->
     <section class="white-bg">
         <div class="container">
             <div class="row blog-style-01">
@@ -102,7 +92,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--== Post End ==-->
                     @endforeach
                 @endif
             </div>
@@ -150,5 +139,4 @@
         </div>
 
     </section>
-    <!--== Blog Classic Post End ==-->
 @endsection

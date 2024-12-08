@@ -1,25 +1,23 @@
 @extends('index.layouts.main')
 @section('index_body')
-    <!--== Maintenance Start ==-->
+
     <div class="remove-padding transition-none">
         <div id="rev_slider_8_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="particle-effect-three6"
             data-source="gallery" style="background:#ffffff;padding:0px;">
-            <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
+
             <div id="rev_slider_8_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
-                <ul> <!-- SLIDE  -->
+                <ul>
                     <li data-index="rs-16" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
                         data-hideslideonmobile="off" data-easein="Power4.easeOut" data-easeout="Power4.easeOut"
                         data-masterspeed="default" data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/"
                         data-rotate="0" data-saveperformance="off" data-title="Example One" data-param1="" data-param2=""
                         data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
                         data-param9="" data-param10="" data-description="">
-                        <!-- MAIN IMAGE -->
+
                         <img src="assets/images/transparent.png" data-bgcolor='#ffffff' style='background:#ffffff'
                             alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat"
                             data-bgparallax="off" class="rev-slidebg" data-no-retina />
-                        <!-- LAYERS -->
 
-                        <!-- LAYER NR. 1 -->
                         <div class="tp-caption  " id="slide-16-layer-15" data-x="['center','center','center','center']"
                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                             data-voffset="['0','0','0','0']" data-width="full-proportional" data-height="full-proportional"
@@ -33,7 +31,6 @@
                                 data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']"
                                 width="1920" height="1080" data-no-retina> </div>
 
-                        <!-- LAYER NR. 2 -->
                         <div class="tp-caption   tp-resizeme  blurslider-gradient" id="slide-16-layer-6"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['-110','-110','-130','-130']"
@@ -46,7 +43,6 @@
                             style="z-index: 6; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">
                             404 {{ lang_db('PAGE', 1) }}<br>{{ lang_db('ERROR!', 1) }}</div>
 
-                        <!-- LAYER NR. 3 -->
                         <div class="tp-caption   tp-resizeme" id="slide-16-layer-8"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['30','30','0','0']"
@@ -58,7 +54,6 @@
                             style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">
                             {{ lang_db("THE PAGE YOU ARE LOOKING FOR DOESN'T EXIST.", 1) }}</div>
 
-                        <!-- LAYER NR. 4 -->
                         <a class="tp-caption rev-btn  tp-resizeme  blurslider-button" href="{{route('index.index')}}"
                             id="slide-16-layer-17" data-x="['center','center','center','center']"
                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
@@ -75,7 +70,6 @@
             </div>
         </div>
     </div>
-    <!--== Maintenance End ==-->
 @endsection
 @section('index_script')
     <link rel="stylesheet"

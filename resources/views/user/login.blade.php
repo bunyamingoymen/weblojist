@@ -24,17 +24,14 @@
     <title>Login | {{ env('APP_NAME') }}</title>
     <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
 
-    <!-- App css -->
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'bootstrap.min.css']) }}">
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'icons.min.css']) }}">
     <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'user/css', 'filename' => 'app.min.css']) }}">
 
-    <!-- alertifyjs Css -->
     <link
         href="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build/css', 'filename' => 'alertify.min.css']) }}"
         rel="stylesheet" type="text/css" />
 
-    <!-- Sweet Alert-->
     <link href="{{ route('assetFile', ['folder' => 'admin/libs/sweetalert2', 'filename' => 'sweetalert2.min.css']) }}"
         rel="stylesheet" type="text/css" />
 
@@ -96,9 +93,8 @@
                             </form>
 
                         </div>
-                        <!-- end card-body -->
+
                     </div>
-                    <!-- end card -->
 
                     <div class="row mt-5">
                         <div class="col-sm-12 text-center">
@@ -109,19 +105,12 @@
                     </div>
 
                 </div>
-                <!-- end col -->
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end page -->
 
-    <!-- Sweet Alerts js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/sweetalert2', 'filename' => 'sweetalert2.min.js']) }}">
     </script>
-
-    <!-- alertifyjs js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build', 'filename' => 'alertify.min.js']) }}">
     </script>
 
@@ -129,7 +118,6 @@
 
     <script src="{{ route('assetFile', ['folder' => 'user/js', 'filename' => 'app.min.js']) }}"></script>
 
-    <!--Uyarı Mesajları-->
     <script>
         $(document).ready(function() {
 

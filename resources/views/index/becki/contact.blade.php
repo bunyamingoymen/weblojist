@@ -29,7 +29,6 @@
         }
     </style>
     @if (isset($show_page_titles) && $show_page_titles->value == '1')
-        <!--== Page Title Start ==-->
         <div class="transition-none">
             <section class="title-hero-bg parallax-effect"
                 style="background-image: url({{ asset('defaultFiles/title/title_1.jpg') }});">
@@ -39,12 +38,10 @@
                             <div class="page-title text-center white-color">
                                 <h1 class="raleway-font font-300">{{ lang_db('Contact', 1) }}</h1>
                                 <div class="breadcrumb mt-20">
-                                    <!-- Breadcrumb Start -->
                                     <ul>
                                         <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
                                         <li>{{ lang_db('Contact', 1) }}</li>
                                     </ul>
-                                    <!-- Breadcrumb End -->
                                 </div>
                             </div>
                         </div>
@@ -53,9 +50,7 @@
                 </div>
             </section>
         </div>
-        <!--== Page Title End ==-->
     @endif
-    <!--== Contact Start ==-->
     <section class="white-bg transition-none" id="contact">
         <div class="container">
             <div class="row">
@@ -194,5 +189,4 @@
             </div>
         </div>
     </section>
-    <!--== Contact End ==-->
 @endsection

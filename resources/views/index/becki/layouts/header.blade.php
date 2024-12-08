@@ -14,10 +14,8 @@
 @endphp
 <nav
     class="navbar navbar-default navbar-fixed navbar-transparent {{ $use_theme == 'dark' ? 'dark' : 'white' }} bootsnav on no-full">
-    <!--== End Top Search ==-->
     <div class="container">
 
-        <!--== Start Header Navigation ==-->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i
                     class="tr-icon ion-android-menu"></i> </button>
@@ -28,9 +26,7 @@
                         src="{{ !is_null($home_logo_dark) && $home_logo_dark->optional_5 ? asset($home_logo_dark->optional_5) : '' }}"
                         alt=""> </a> </div>
         </div>
-        <!--== End Header Navigation ==-->
 
-        <!--== Collect the nav links, forms, and other content for toggling ==-->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                 <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
@@ -70,7 +66,6 @@
 
             </ul>
         </div>
-        <!--== /.navbar-collapse ==-->
     </div>
 
 </nav>

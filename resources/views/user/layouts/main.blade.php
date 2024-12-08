@@ -22,68 +22,45 @@
     @endif
 
     <title>{{ env('APP_NAME') }} | {{ lang_db($title, 2) }} | User Panel</title>
-    <!-- App favicon -->
+
     <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
 
-    <!-- Bootstrap Css -->
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'bootstrap.min.css']) }}" rel="stylesheet"
         type="text/css" />
-
-    <!-- Icons Css -->
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'icons.min.css']) }}" rel="stylesheet"
         type="text/css" />
-
-    <!-- alertifyjs Css -->
     <link
         href="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build/css', 'filename' => 'alertify.min.css']) }}"
         rel="stylesheet" type="text/css" />
-
-    <!-- Sweet Alert-->
     <link href="{{ route('assetFile', ['folder' => 'admin/libs/sweetalert2', 'filename' => 'sweetalert2.min.css']) }}"
         rel="stylesheet" type="text/css" />
-
-
-    <!-- App Css-->
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'app.min.css']) }}" rel="stylesheet"
         type="text/css" />
-
-    <!-- Slick Slider -->
     <link href="{{ route('assetFile', ['folder' => 'admin/libs/slick-slider/slick', 'filename' => 'slick.css']) }}"
         rel="stylesheet" type="text/css" />
     <link
         href="{{ route('assetFile', ['folder' => 'admin/libs/slick-slider/slick', 'filename' => 'slick-theme.css']) }}"
         rel="stylesheet" type="text/css" />
-
-
-    <!--Ag grid-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/styles/ag-grid.css" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/styles/ag-theme-quartz.css" />
-
     <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/dist/ag-grid-community.min.js"></script>
 
 </head>
 
 <body data-sidebar="dark">
 
-    <!-- Begin page -->
     <div id="layout-wrapper">
 
         @include('user.layouts.header')
 
-        <!-- ========== Left Sidebar Start ========== -->
         @include('user.layouts.sidebar')
-        <!-- Left Sidebar End -->
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div class="main-content">
 
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <!-- start page title -->
+
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
@@ -91,27 +68,22 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
                     <div>
                         @yield('user_index_body')
                     </div>
-                </div> <!-- container-fluid -->
+                </div>
             </div>
-            <!-- End Page-content -->
 
 
             @include('user.layouts.footer')
         </div>
-        <!-- end main content-->
 
     </div>
-    <!-- END layout-wrapper -->
 
     <div id="hiddenDiv" hidden>
 
     </div>
 
-    <!-- JAVASCRIPT -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/jquery', 'filename' => 'jquery.min.js']) }}"></script>
 
     <script
@@ -123,27 +95,15 @@
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/simplebar', 'filename' => 'simplebar.min.js']) }}">
     </script>
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/node-waves', 'filename' => 'waves.min.js']) }}"></script>
-
-    <!--tinymce js-->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/tinymce', 'filename' => 'tinymce.min.js']) }}"></script>
-
-    <!-- alertifyjs js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build', 'filename' => 'alertify.min.js']) }}">
     </script>
-
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/slick-slider/slick', 'filename' => 'slick.min.js']) }}">
     </script>
-
-
-    <!-- Sweet Alerts js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/sweetalert2', 'filename' => 'sweetalert2.min.js']) }}">
     </script>
-
     <script src="{{ route('assetFile', ['folder' => 'admin/js', 'filename' => 'app.js']) }}"></script>
 
-
-
-    <!--Uyarı Mesajları-->
     <script>
         $(document).ready(function() {
 
@@ -165,12 +125,10 @@
         });
     </script>
 
-    <!--Form Ayarları-->
     <script>
         var tiny_lang = "{{ getActiveLang() }}";
     </script>
 
-    <!-- init js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/js/pages', 'filename' => 'form-editor.init.js']) }}"></script>
 
 

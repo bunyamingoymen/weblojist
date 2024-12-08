@@ -42,9 +42,9 @@
     <form id="checkOutForm" action="{{ route('user.checkout.post') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <!-- Sol Taraf - Adres ve Ödeme -->
+
             <div class="col-lg-8">
-                <!-- Adres Seçimi -->
+
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-4">{{ lang_db('Delivery Address', 2) }}</h4>
@@ -86,14 +86,12 @@
                     </div>
                 </div>
 
-                <!-- Ödeme Yöntemi -->
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title mb-4">{{ lang_db('Payment Method', 2) }}</h4>
 
                         @foreach ($payment_methods as $item => $method)
                             @if ($method->value = 'Money Order')
-                                <!-- Havale/EFT -->
                                 <div class="card payment-method-card mb-3 {{ $item == 0 ? 'selected' : '' }}">
                                     <div class="card-body">
                                         <div class="custom-control custom-radio">
@@ -130,7 +128,6 @@
                                     </div>
                                 </div>
                             @elseif ($method->value = 'Credit Cart')
-                                <!-- Kredi Kartı -->
                                 <div class="card payment-method-card mb-3 {{ $item == 0 ? 'selected' : '' }}">
                                     <div class="card-body">
                                         <div class="custom-control custom-radio">
@@ -174,7 +171,6 @@
                 </div>
             </div>
 
-            <!-- Sağ Taraf - Sipariş Özeti -->
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">

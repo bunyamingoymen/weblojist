@@ -20,20 +20,14 @@
     @endif
 
     <title>{{ env('APP_NAME') }} | {{ lang_db($title) }} | Admin Panel</title>
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
 
-    <!-- Bootstrap Css -->
+    <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'bootstrap.min.css']) }}" rel="stylesheet"
         type="text/css" />
-    <!-- Icons Css -->
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'icons.min.css']) }}" rel="stylesheet"
         type="text/css" />
-    <!-- App Css-->
     <link href="{{ route('assetFile', ['folder' => 'admin/css', 'filename' => 'app.min.css']) }}" rel="stylesheet"
         type="text/css" />
-
-    <!-- alertifyjs Css -->
     <link
         href="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build/css', 'filename' => 'alertify.min.css']) }}"
         rel="stylesheet" type="text/css" />
@@ -54,7 +48,6 @@
                     </div>
                 </div>
             </div>
-            <!-- end row -->
 
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -91,12 +84,9 @@
                     </div>
                 </div>
             </div>
-            <!-- end row -->
         </div>
     </div>
-    <!-- end Account pages -->
 
-    <!-- JAVASCRIPT -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/jquery', 'filename' => 'jquery.min.js']) }}"></script>
     <script
         src="{{ route('assetFile', ['folder' => 'admin/libs/bootstrap/js', 'filename' => 'bootstrap.bundle.min.js']) }}">
@@ -108,13 +98,11 @@
 
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/node-waves', 'filename' => 'waves.min.js']) }}"></script>
 
-    <!-- alertifyjs js -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build', 'filename' => 'alertify.min.js']) }}">
     </script>
 
     <script src="{{ route('assetFile', ['folder' => 'admin/js', 'filename' => 'app.js']) }}"></script>
 
-    <!--Uyarı Mesajları-->
     <script>
         $(document).ready(function() {
             @if (session('success'))

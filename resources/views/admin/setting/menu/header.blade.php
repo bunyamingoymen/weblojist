@@ -15,7 +15,6 @@
             color: #FC5661 !important;
         }
     </style>
-    <!-- nestable2 css -->
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
@@ -25,7 +24,6 @@
                         @csrf
 
                         @if (isset($selected_menu))
-                            <!--Code-->
                             <div hidden>
                                 <input type="text" name="code" id="code" value="{{ $selected_menu->code }}">
                             </div>
@@ -50,7 +48,6 @@
                             </select>
                         </div>
 
-                        <!--Menü Sıra-->
                         <div class="col-lg-12 mt-2">
                             <label for="row">{{ lang_db('Menu Row') }}: </label>
                             <input type="number" class="form-control" id="row" name="row"
@@ -63,7 +60,6 @@
                                 value={{ $selected_menu->column ?? '1' }} min="1" max="4">
                         </div>
 
-                        <!--Menü Adı-->
                         <div class="col-lg-12 mt-2">
                             <label for="title">{{ lang_db('Title') }}: </label>
                             <input type="text" class="form-control" id="title" name="title"
@@ -129,7 +125,6 @@
                             </select>
                         </div>
 
-                        <!--Bağlantı Tipi-->
                         <div class="col-lg-12 mt-2" id="specific_section" hidden>
                             <div id="specific_section_page" hidden>
                                 <label for="">Bağlantı Sayfası: </label>
@@ -165,15 +160,12 @@
                             </div>
                         </div>
 
-                        <!--Bağlantı Adresi-->
                         <div class="col-lg-12 mt-2" id="manuel_url" hidden>
                             <label for="manuel_input">{{ lang_db('Manuel Input') }}: </label>
                             <input type="text" class="form-control" id="manuel_input" name="manuel_input"
                                 value={{ $selected_menu->path ?? '' }}>
                         </div>
 
-
-                        <!--Durumu-->
                         <div class="row input m-3">
                             <div class="col-lg-12 custom-control custom-checkbox custom-control-inline">
                                 <input type="checkbox" class="custom-control-input" id="active" name="active"
@@ -192,7 +184,6 @@
                             </div>
                         </div>
 
-                        <!--Buton-->
                         <div style="float: right;">
                             <button class="btn btn-primary" type="button" onclick="submitChangeMenuForm()">
                                 <i class="mdi mdi-content-save"></i>
@@ -204,7 +195,7 @@
                 </div>
             </div>
         </div>
-        <!--Menü Listeleme-->
+
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">

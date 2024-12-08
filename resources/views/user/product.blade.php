@@ -4,16 +4,12 @@
         .img-fluid {
             width: 100%;
             height: 350px;
-            /* İstediğiniz sabit yüksekliği belirleyin */
 
             object-fit: contain;
-            /* Resmi sıkıştırmadan alana sığdırır */
             background-color: #f0f0f0;
-            /* Boş kalan alan için arka plan rengi (isteğe bağlı) */
         }
     </style>
     <div class="row">
-        <!-- Ürün kartları -->
         @foreach ($products as $product)
             <div class="col-xl-4 col-sm-6">
                 <div class="card">
@@ -47,7 +43,6 @@
         <div class="col-sm-12 col-md-12">
             <div class="dataTables_paginate paging_simple_numbers">
                 <ul class="pagination pagination-rounded justify-content-center">
-                    <!-- Previous Button -->
                     @if ($products->currentPage() > 1)
                         <li class="paginate_button page-item previous">
                             <a href="{{ $products->previousPageUrl() }}" class="page-link">
@@ -62,7 +57,6 @@
                         </li>
                     @endif
 
-                    <!-- First Page -->
                     @if ($products->currentPage() > 3)
                         <li class="paginate_button page-item">
                             <a href="{{ $products->url(1) }}" class="page-link">1</a>
@@ -74,7 +68,6 @@
                         @endif
                     @endif
 
-                    <!-- Pagination Links -->
                     @foreach (range(1, $products->lastPage()) as $i)
                         @if ($i >= $products->currentPage() - 2 && $i <= $products->currentPage() + 2)
                             <li class="paginate_button page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
@@ -83,7 +76,6 @@
                         @endif
                     @endforeach
 
-                    <!-- Last Page -->
                     @if ($products->currentPage() < $products->lastPage() - 2)
                         @if ($products->currentPage() < $products->lastPage() - 3)
                             <li class="paginate_button page-item disabled">
@@ -96,7 +88,6 @@
                         </li>
                     @endif
 
-                    <!-- Next Button -->
                     @if ($products->currentPage() < $products->lastPage())
                         <li class="paginate_button page-item next">
                             <a href="{{ $products->nextPageUrl() }}" class="page-link">

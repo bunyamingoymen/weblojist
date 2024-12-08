@@ -195,7 +195,6 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script src="{{ route('assetFile', ['folder' => 'admin/libs/jquery', 'filename' => 'jquery.min.js']) }}"></script>
 
     <script>

@@ -122,7 +122,6 @@
     </style>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <!-- Başarı Mesajı -->
             <div class="text-center mb-5">
                 <div class="success-checkmark success-animation">
                     <i class="mdi mdi-check"></i>
@@ -135,7 +134,6 @@
 
             <div class="card">
                 <div class="card-body">
-                    <!-- Sipariş Takibi -->
                     <div class="order-track">
                         <div class="track-step">
                             <div class="step-icon"></div>
@@ -159,8 +157,6 @@
                         </div>
                     </div>
 
-
-                    <!-- Butonlar -->
                     <div class="text-center btn-track-order">
                         <a href="{{ route('user.order') }}" class="btn btn-primary mr-2">
                             <i class="mdi mdi-package-variant mr-1"></i> {{ lang_db('View My Orders', 2) }}
@@ -178,12 +174,11 @@
 
     <script>
         $(document).ready(function() {
-            // Sayfa yüklendiğinde animasyonu başlat
+
             setTimeout(function() {
                 $('.success-checkmark').addClass('success-animation');
             }, 100);
 
-            // Sipariş takip adımlarını güncelle (örnek)
             function updateOrderStatus(step) {
                 $('.track-step').each(function(index) {
                     if (index <= step) {
@@ -193,8 +188,7 @@
                     }
                 });
             }
-
-            // İlk iki adımı tamamlanmış olarak işaretle
+            
             updateOrderStatus(1);
         });
     </script>

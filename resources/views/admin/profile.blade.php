@@ -69,7 +69,6 @@
         }
     </style>
 
-    <!-- Profil Bilgileri -->
     <div class="row">
         <div class="col-xl-4">
             <div class="card">
@@ -99,7 +98,6 @@
         <div class="col-xl-8">
             <div class="card">
                 <div class="card-body">
-                    <!-- Profil Bilgileri -->
                     <div class="form-section">
                         <h4 class="form-section-title">Profil Bilgileri</h4>
                         <form action="{{ route('admin.change.profile') }}" method="POST">
@@ -133,7 +131,6 @@
                         </form>
                     </div>
 
-                    <!-- Şifre Değiştirme -->
                     <div class="form-section">
                         <h4 class="form-section-title">Şifre Değiştirme</h4>
                         <form action="{{ route('admin.change.password') }}" method="POST">

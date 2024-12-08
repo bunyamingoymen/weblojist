@@ -20,7 +20,6 @@
 
     @endphp
     @if ($backgroudSettings_type == 'video')
-        <!--== Hero Slider Start ==-->
         <section class="remove-padding relative view-height-100vh white-bg" id="home">
             <div class="parallax-overlay"></div>
             <div class="container">
@@ -43,16 +42,15 @@
                 <source src="{{ $backgrouds->first()->optional_5 ?? '' }}" type="video/mp4">
             </video>
         </section>
-        <!--== Hero Slider End ==-->
     @elseif ($backgroudSettings_type == 'slider')
-        <!--== Hero Slider Start ==-->
+
         <section class="remove-padding transition-none" id="home">
             <div id="rev_slider_1078_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container"
                 data-alias="classic4export" data-source="gallery"
                 style="margin:0px auto;background-color:#000000;padding:0px;margin-top:0px;margin-bottom:0px;">
-                <!-- START REVOLUTION SLIDER 5.4.1 fullwidth mode -->
+
                 <div id="rev_slider_1078_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
-                    <ul> <!-- SLIDE  -->
+                    <ul>
                         @foreach ($backgrouds as $item_background)
                             <li data-index="rs-{{ $item_background->code }}" data-transition="slidingoverlayhorizontal"
                                 data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
@@ -60,16 +58,13 @@
                                 data-saveperformance="off" data-title="" data-param1="" data-param2="" data-param3=""
                                 data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
                                 data-param10="" data-description="">
-                                <!-- MAIN IMAGE -->
+
                                 <img src="{{ asset($item_background->optional_5) }}" alt=""
                                     data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                                     data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                                <!-- LAYERS -->
 
-                                <!-- LAYER NR. 1 -->
                                 <div class="hero-text-wrap">
 
-                                    <!-- LAYER NR. 2 -->
                                     <div class="tp-caption NotGeneric-Title tp-resizeme"
                                         id="slide-{{ $item_background->code }}-layer-2"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -85,7 +80,6 @@
                                         {{ isset($site_title) ? lang_db($site_title->value, -1) : '' }}
                                     </div>
 
-                                    <!-- LAYER NR. 4 -->
                                     <div class="tp-caption NotGeneric-SubTitle tp-resizeme"
                                         id="slide-{{ $item_background->code }}-layer-4"
                                         data-x="['center','center','center','center']" data-hoffset="['0','0','0','50']"
@@ -111,9 +105,7 @@
                 </div>
             </div>
         </section>
-        <!--== Hero Slider End ==-->
     @elseif ($backgroudSettings_type == 'picture')
-        <!--== Hero Image Start ==-->
         <section class="parallax-bg fixed-bg view-height-100vh lg-section"
             data-parallax-bg-image="{{ $backgrouds->first()->optional_5 ?? '' }}" data-parallax-speed="0.5"
             data-parallax-direction="up" id="home">
@@ -135,29 +127,26 @@
                 </div>
             </div>
         </section>
-        <!--== Hero Image End ==-->
     @elseif($backgroudSettings_type == 'creative')
         <div class="remove-padding transition-none" id="home">
             <div id="rev_slider_1174_1_wrapper" class="rev_slider_wrapper fullscreen-container"
                 data-alias="inspiration-header" data-source="gallery" style="background-color:transparent;padding:0px;">
-                <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
                 <div id="rev_slider_1174_1" class="rev_slider fullscreenbanner" style="display:none;"
                     data-version="5.4.1">
-                    <ul> <!-- SLIDE  -->
+                    <ul>
                         <li data-index="rs-3238" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
                             data-hideslideonmobile="off" data-easein="default" data-easeout="default"
                             data-masterspeed="500" data-rotate="0" data-saveperformance="off" data-title="Slide"
                             data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
                             data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             @if (isset($backgrouds) && count($backgrouds) >= 1)
-                                <!-- MAIN IMAGE -->
+
                                 <img src="{{ isset($backgrouds[0]) && isset($backgrouds[0]->optional_5) ? asset($backgrouds[0]->optional_5) : '' }}"
                                     data-bgcolor="#eeeeee" alt="" data-bgposition="center center"
                                     data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off"
                                     class="rev-slidebg" data-no-retina>
                             @endif
 
-                            <!-- LAYERS -->
                             @if (isset($backgrouds) && count($backgrouds) >= 2)
                                 <div class="tp-caption tp-resizeme rs-parallaxlevel-8" id="slide-3238-layer-4"
                                     data-x="['left','left','left','left']" data-hoffset="['-264','-264','-371','-416']"
@@ -308,7 +297,6 @@
                                         data-no-retina> </div>
                             @endif
 
-                            <!-- LAYER NR. 12 -->
 
                             <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-16"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -323,23 +311,7 @@
                                 style="z-index: 16; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
                                 {{ isset($site_title) ? lang_db($site_title->value, -1) : '' }}
                             </div>
-                            <!--
-                                                            LAYER NR. 13
-                                                            <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-2"
-                                                                data-x="['center','center','center','center']" data-hoffset="['-8','-8','-8','-8']"
-                                                                data-y="['middle','middle','middle','middle']" data-voffset="['10','10','10','-10']"
-                                                                data-fontsize="['20','20','20','25']" data-lineheight="['20','20','20','30']"
-                                                                data-width="['none','none','none','360']" data-height="none"
-                                                                data-whitespace="['nowrap','nowrap','nowrap','normal']" data-type="text"
-                                                                data-responsive_offset="on"
-                                                                data-frames='[{"from":"y:50px;rX:45deg;sX:2;sY:2;opacity:0;","speed":1500,"to":"o:1;","delay":600,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                                                data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                                style="z-index: 17; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;">
-                                                                We Are Based on Toronto, Canada</div>
-                                                            -->
 
-                            <!-- LAYER NR. 14 -->
                             <div class="tp-caption rev-btn rs-parallaxlevel-3" id="slide-3238-layer-3"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['92','92','92','92']"
@@ -354,7 +326,6 @@
                                 {{ lang_db('CONTINUE', 1) }}
                             </div>
 
-                            <!-- LAYER NR. 15 -->
                             <div class="tp-caption rev-scroll-btn revs-light rs-parallaxlevel-5" id="slide-3238-layer-13"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['50','50','50','50']"
@@ -495,7 +466,6 @@
     @endif
 
     @if (false)
-        <!--== Team Start ==-->
         <section class="grey-bg" id="team">
             <div class="container">
                 <div class="row">
@@ -533,7 +503,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--== Member End ==-->
+
                     <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-30 xs-mb-30">
                         <div class="team-member">
                             <div class="team-thumb">
@@ -554,7 +524,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--== Member End ==-->
+
                     <div class="col-md-3 col-sm-6 col-xs-12 sm-mb-30 xs-mb-30">
                         <div class="team-member">
                             <div class="team-thumb">
@@ -595,11 +565,10 @@
                             </div>
                         </div>
                     </div>
-                    <!--== Member End ==-->
+
                 </div>
             </div>
         </section>
-        <!--== Team End ==-->
     @endif
 
     @if ((isset($show_services) && isset($show_process->value) && $show_services->value == '1') || !isset($show_services))
@@ -643,7 +612,6 @@
     @endif
 
     @if (false)
-        <!--== Testimonails Start ==-->
         <section class="white-bg">
             <div class="container">
                 <div class="row">
@@ -662,7 +630,6 @@
                 <div class="row">
                     <div class="slick testimonial gradient-bullet-two">
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <!--== Slide ==-->
                             <div class="testimonial-item">
                                 <div class="testimonial-content">
                                     <img class="img-responsive img-circle text-center"
@@ -681,7 +648,6 @@
                         </div>
 
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <!--== Slide ==-->
                             <div class="testimonial-item">
                                 <div class="testimonial-content">
                                     <img class="img-responsive img-circle text-center"
@@ -699,7 +665,6 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <!--== Slide ==-->
                             <div class="testimonial-item">
                                 <div class="testimonial-content"> <img class="img-responsive img-circle"
                                         src="assets/images/team/avatar-3.jpg" alt="avatar-1" />
@@ -716,7 +681,6 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <!--== Slide ==-->
                             <div class="testimonial-item">
                                 <div class="testimonial-content"> <img class="img-responsive img-circle"
                                         src="assets/images/team/avatar-4.jpg" alt="avatar-1" />
@@ -737,7 +701,6 @@
                 </div>
             </div>
         </section>
-        <!--== Testimonails End ==-->
     @endif
 
     @if ((isset($show_suppliers) && isset($show_process->value) && $show_suppliers->value == '1') || !isset($show_suppliers))
@@ -776,7 +739,6 @@
     @endif
 
     @if (false)
-        <!--== Blogs Start ==-->
         <section class="gradient-bg xs-pb-60" id="blog">
             <div class="col-md-6 col-sm-6 bg-flex bg-flex-right">
                 <div class="bg-flex-holder bg-flex-cover" style="background-image: url(assets/images/blog-img.jpg);">
@@ -795,7 +757,6 @@
                 </div>
             </div>
         </section>
-        <!--== Blogs End ==-->
     @endif
 
     @if ((isset($show_contact) && isset($show_process->value) && $show_contact->value == '1') || !isset($show_contact))

@@ -23,16 +23,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* En az ekranın %100 yüksekliğini kaplar */
             background-color: #f8f8f8;
-            /* Arka plan rengi isteğe bağlı */
             align-items: center;
-            /* İçeriği yatay olarak ortalar */
         }
     </style>
 
     @if (isset($show_page_titles) && $show_page_titles->value == '1')
-        <!--== Page Title Start ==-->
         <div class="transition-none">
             <section class="title-hero-bg parallax-effect"
                 style="background-image: url({{ asset('defaultFiles/title/title_1.jpg') }});">
@@ -42,12 +38,10 @@
                             <div class="page-title text-center white-color">
                                 <h1 class="raleway-font font-300">{{ lang_db($page->title, -1) }}</h1>
                                 <div class="breadcrumb mt-20">
-                                    <!-- Breadcrumb Start -->
                                     <ul>
                                         <li><a href="{{ route('index.index') }}">{{ lang_db('Home', 1) }}</a></li>
                                         <li>{{ lang_db($page->title, -1) }}</li>
                                     </ul>
-                                    <!-- Breadcrumb End -->
                                 </div>
                             </div>
                         </div>
@@ -56,10 +50,8 @@
                 </div>
             </section>
         </div>
-        <!--== Page Title End ==-->
     @endif
 
-    <!--== Blog Details Start ==-->
     <section class="white-bg">
         <div class="container">
             <div class="row">
@@ -124,12 +116,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!--== Post End ==-->
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
-    <!--== Blog Details End ==-->
 @endsection

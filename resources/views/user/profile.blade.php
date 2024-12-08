@@ -69,7 +69,6 @@
         }
     </style>
 
-    <!-- Profil Bilgileri -->
     <div class="row">
         <div class="col-xl-4">
             <div class="card">
@@ -99,7 +98,6 @@
         <div class="col-xl-8">
             <div class="card">
                 <div class="card-body">
-                    <!-- Profil Bilgileri -->
                     <div class="form-section">
                         <h4 class="form-section-title">Profil Bilgileri</h4>
                         <form action="{{ route('user.change.profile') }}" method="POST">
@@ -133,7 +131,6 @@
                         </form>
                     </div>
 
-                    <!-- Şifre Değiştirme -->
                     <div class="form-section">
                         <h4 class="form-section-title">Şifre Değiştirme</h4>
                         <form action="{{ route('user.change.password') }}" method="POST">
@@ -164,14 +161,12 @@
         </div>
     </div>
 
-    <!-- Adres Yönetimi -->
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Adreslerim</h4>
                     <div class="row" id="addressContainer">
-                        <!-- Yeni Adres Ekleme Butonu -->
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100 btn-add-address" onclick="openAddAddressModal()">
                                 <div class="text-center">
@@ -180,7 +175,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Adres Kartları -->
                         @foreach ($addresses as $address)
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <div class="card h-100 address-card">
@@ -220,7 +214,6 @@
         </div>
     </div>
 
-    <!-- Adres Ekleme Modal -->
     <div class="modal fade" id="addAddressModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -274,7 +267,6 @@
     </div>
 
     <script>
-        // Profil resmi değiştirme
         function handleProfileImageChange(input) {
             if (input.files && input.files[0]) {
                 //var reader = new FileReader();
@@ -286,14 +278,11 @@
             }
         }
 
-        // Adres ekleme modalını aç
         function openAddAddressModal() {
             $('#addAddressModal').modal('show');
         }
 
-        // Yeni adres kaydet
         function saveAddress() {
-            // Input değerlerini al
             const fields = {
                 addressName: document.getElementById('addressName').value,
                 address: document.getElementById('address').value,
@@ -304,7 +293,6 @@
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // Boş alanları bul
             const emptyFields = Object.entries(fields)
                 .filter(([key, value]) => value.trim() === "")
                 .map(([key]) => {
@@ -323,8 +311,6 @@
                     }
                 });
 
-
-            // Eğer boş alan varsa kullanıcıya göster
             if (emptyFields.length > 0) {
                 Swal.fire({
                     type: "error",
@@ -337,7 +323,6 @@
             document.getElementById('addressForm').submit();
         }
 
-        // Adres düzenle
         function editAddress(code, name, address, city, county, postCode) {
             document.getElementById('addressCode').value = code;
             document.getElementById('addressName').value = name;
@@ -348,7 +333,6 @@
             openAddAddressModal();
         }
 
-        // Adres sil
         function deleteAddress(code, name) {
             Swal.fire({
                 title: `{{ lang_db('Are you sure', 2) }}`,
