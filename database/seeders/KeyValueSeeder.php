@@ -955,6 +955,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'active_theme',
                 'value'             => 'becki',
+                'optional_1'        => 'index.becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -962,6 +963,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'themes',
                 'value'             => 'becki',
+                'optional_1'        => 'index.becki',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -969,6 +971,7 @@ class KeyValueSeeder extends Seeder
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'themes',
                 'value'             => 'akea',
+                'optional_1'        => 'index.akea',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

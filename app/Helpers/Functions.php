@@ -136,3 +136,12 @@ function getActiveTheme()
 
     return $active_theme ? $active_theme->value : $default_theme;
 }
+
+function getActiveThemePath()
+{
+    $default_path = 'index.becki';
+
+    $active_path = getCachedKeyValue(['key' => 'active_theme', 'refreshCache' => true, 'first' => true]) ?? null;
+
+    return $active_path ? $active_path->optional_1 : $default_path;
+}
