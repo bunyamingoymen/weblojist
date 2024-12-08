@@ -1,5 +1,8 @@
 @extends('admin.layouts.main')
 @section('admin_index_body')
+    @php
+        $active_theme_type = getActiveTheme();
+    @endphp
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -8,7 +11,9 @@
                         enctype="multipart/form-data">
                         @csrf
                         <div id="LogosDivId">
-                            @foreach ($logos as $item)
+                            @foreach ($logos->filter(function ($item) use ($active_theme_type) {
+            return $item->optional_4 == 'all' || $item->optional_4 == $active_theme_type || $item->optional_4 == null || $item->optional_4 == '';
+        }) as $item)
                                 <div class="col-lg-8 mt-3">
                                     <label for="">{{ lang_db($item->value) }}</label>
                                     <input type="hidden" name="codes[]" value="{{ $item->code ?? '' }}" required readonly>

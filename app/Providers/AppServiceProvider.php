@@ -171,7 +171,15 @@ class AppServiceProvider extends ServiceProvider
             // Eğer değer bir dizi ise ve "sidebar" ve "show" içeriyorsa kontrol et
             if (is_array($value)) {
                 if (isset($value['sidebar']) && isset($value['sidebar']['show']) && $value['sidebar']['show'] === true) {
-                    if (checkAuth(['params' => $newPath])['status']) $validPaths[] = $newPath;  // İstenilen anahtar bulundu, path'i kaydet
+                    $active_theme = getActiveTheme();
+
+                    //Bu temada gözükecek mi diye kontrol ediyoruz. Temada gözükecek ise gönderiyoruz. eğer sidebar kısmıdna theme seçeneği yoksa varsayılan olarak gönderiyoruz.
+                    if (
+                        (isset($value['sidebar']['theme']) && is_array($value['sidebar']['theme']) && (in_array("all", $value['sidebar']['theme']) || in_array($active_theme, $value['sidebar']['theme']))) || //sidebar da tema ayarı varsa ve tema ayarının içinde aktif tema varsa diye kontrol eder
+                        (!isset($value['sidebar']['theme']) || !is_array($value['sidebar']['theme'])) //sidebar da tema ayarı yoksa diye kontrol eder
+                    ) {
+                        if (checkAuth(['params' => $newPath])['status']) $validPaths[] = $newPath;  // İstenilen anahtar bulundu, path'i kaydet
+                    }
                 }
 
                 // Diziyi tekrar işle (recursion)

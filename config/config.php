@@ -110,6 +110,7 @@ return [
                 'title' => 'Products',
                 'group' => 'Product',
                 'icon' => 'mdi mdi-cube-outline',
+                'theme' => ['becki'],
             ],
 
             'view' => [
@@ -176,6 +177,7 @@ return [
                 'title' => 'Orders',
                 'group' => 'Product',
                 'icon' => 'mdi mdi-shopping',
+                'theme' => ['becki'],
             ],
 
             'view' => [
@@ -212,6 +214,7 @@ return [
                 'title' => 'Contact',
                 'group' => 'Menu',
                 'icon' => 'mdi mdi-account-box-outline',
+                'theme' => ['all'],
             ],
 
             'view' => [
@@ -248,6 +251,7 @@ return [
                 'title' => 'Gallery',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-message-image-outline',
+                'theme' => ['becki'],
             ],
 
             'view' => [
@@ -313,6 +317,7 @@ return [
                 'title' => 'Blog',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-note-outline',
+                'theme' => ['all'],
             ],
 
             'view' => [
@@ -378,6 +383,7 @@ return [
                 'title' => 'Suppliers',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-truck-fast',
+                'theme' => ['becki'],
             ],
 
             'view' => [
@@ -443,6 +449,7 @@ return [
                 'title' => 'Pages',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-file-document-outline',
+                'theme' => ['all'],
             ],
 
             'view' => [
@@ -509,6 +516,7 @@ return [
                 'title' => 'Categories',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-folder-outline',
+                'theme' => ['all'],
             ],
 
             'view' => [
@@ -546,6 +554,7 @@ return [
                 'title' => 'Other',
                 'group' => 'Data',
                 'icon' => 'mdi mdi-dots-horizontal',
+                'theme' => ['becki'],
             ],
 
             'cargoCompanies' => [
@@ -562,6 +571,7 @@ return [
                     'title' => 'Cargo Companies',
                     'group' => 'Data',
                     'icon' => '',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -604,6 +614,7 @@ return [
                     'title' => 'IBAN Informaitons',
                     'group' => 'Data',
                     'icon' => '',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -646,6 +657,7 @@ return [
                 'title' => 'Members',
                 'group' => 'Management',
                 'icon' => 'mdi mdi-account-group',
+                'theme' => ['all'],
             ],
 
             'view' => [
@@ -705,6 +717,7 @@ return [
                     'title' => 'Modules',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-file-table-box-multiple-outline',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -735,6 +748,7 @@ return [
                     'title' => 'Key Value',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-key-outline',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -777,6 +791,7 @@ return [
                     'title' => 'Backgrounds',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-image',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -817,12 +832,13 @@ return [
                     'title' => 'Theme Settings',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-format-color-fill',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
                     'type' => '\Admin\KeyValueController@editPage',
                     'page' => $main_admin_path . 'setting.theme_settings',
-                    'key' => ['header_theme', 'sub_title_theme', 'active_theme'],
+                    'key' => ['header_theme', 'sub_title_theme', 'active_theme', 'themes'],
                 ],
 
                 'post' => [
@@ -846,6 +862,7 @@ return [
                     'title' => 'Descriptions',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-comment-text',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -875,6 +892,7 @@ return [
                     'title' => 'Gallery Descriptions',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-image-size-select-large',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -904,6 +922,7 @@ return [
                     'title' => 'FAQ',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-help-circle',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -944,6 +963,7 @@ return [
                     'title' => 'Logos',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-briefcase',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -973,6 +993,7 @@ return [
                     'title' => 'Meta Tags',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-tag',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -1012,6 +1033,7 @@ return [
                         'title' => 'Admin Meta Tags',
                         'group' => 'Settings',
                         'icon' => 'mdi mdi-tag-text-outline',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1053,6 +1075,7 @@ return [
                     'title' => 'Payment Methods',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-credit-card',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -1082,6 +1105,7 @@ return [
                     'title' => 'Social Media Links',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-share',
+                    'theme' => ['all'],
                 ],
 
                 'view' => [
@@ -1111,6 +1135,7 @@ return [
                     'title' => 'Process',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-timer-sand',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -1152,6 +1177,7 @@ return [
                     'title' => 'Services',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-cogs',
+                    'theme' => ['becki'],
                 ],
 
                 'view' => [
@@ -1189,6 +1215,7 @@ return [
                     'title' => 'Contact Information',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-account-box',
+                    'theme' => ['all'],
                 ],
 
                 'contactTitle' => [
@@ -1205,6 +1232,7 @@ return [
                         'title' => 'Contact Title',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1236,6 +1264,7 @@ return [
                         'title' => 'Address',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1278,6 +1307,7 @@ return [
                         'title' => 'Phones',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1320,6 +1350,7 @@ return [
                         'title' => 'E-mail Addresses',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1376,6 +1407,7 @@ return [
                             'params' => 'settings/contact/whatsapp',
                         ]
                     ],
+                    'theme' => ['all'],
 
                 ],
             ],
@@ -1389,6 +1421,7 @@ return [
                     'title' => 'Menu Settings',
                     'group' => 'Settings',
                     'icon' => 'mdi mdi-settings',
+                    'theme' => ['all'],
                 ],
 
                 'header' => [
@@ -1405,6 +1438,7 @@ return [
                         'title' => 'Header Settings',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1445,6 +1479,7 @@ return [
                         'title' => 'Footer Settings',
                         'group' => 'Settings',
                         'icon' => '',
+                        'theme' => ['all'],
                     ],
 
                     'view' => [
@@ -1488,6 +1523,7 @@ return [
                 'title' => 'Users',
                 'group' => 'Management',
                 'icon' => 'mdi mdi-account',
+                'theme' => ['all'],
             ],
 
             'view' => [

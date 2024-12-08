@@ -15,13 +15,12 @@
                             <input type="hidden" name="keys[]" value="{{ $active_theme[0]->key ?? 'active_theme' }}"
                                 required readonly>
                             <select name="values[]" id="active_theme" class="form-control">
-                                <option value="akea" {{ $active_theme[0]->value == 'akea' ? 'selected' : '' }}>
-                                    Akea
-                                </option>
-
-                                <option value="becki" {{ $active_theme[0]->value == 'becki' ? 'selected' : '' }}>
-                                    Becki
-                                </option>
+                                @foreach ($themes as $theme)
+                                    <option value="{{ $theme->value ?? '' }}"
+                                        {{ $active_theme[0]->value == $theme->value ? 'selected' : '' }}>
+                                        {{ $theme->optional_2 ?? '' }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
 

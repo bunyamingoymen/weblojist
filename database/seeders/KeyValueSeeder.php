@@ -441,6 +441,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Icon',
                 'optional_1'        => 'This logo is the logo that will appear on your home page',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/favicon.ico',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -450,6 +451,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Home Logo White',
                 'optional_1'        => 'This logo will appear at the top of the tab',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-light.png',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -459,6 +461,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Home Logo Dark',
                 'optional_1'        => 'This logo is the logo that will appear on your home page',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-dark.png',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -468,6 +471,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Login Logo',
                 'optional_1'        => 'This logo is the logo that will appear when members log in',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -477,6 +481,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Member Logo',
                 'optional_1'        => 'This logo is the logo that will appear after members log in',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -486,6 +491,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Member Logo Small Light',
                 'optional_1'        => 'This logo is the logo that will appear after members log in',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-sm-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -495,6 +501,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Admin Logo',
                 'optional_1'        => 'This logo is the logo that appears on the admin page',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -504,6 +511,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Admin Login Logo',
                 'optional_1'        => 'This logo is the logo that will appear after members log in',
+                'optional_4'        => 'all',
                 'optional_5'        => 'defaultFiles/logo/logo-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -513,6 +521,17 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'logos',
                 'value'             => 'Admin Logo Small Light',
                 'optional_1'        => '',
+                'optional_4'        => 'all',
+                'optional_5'        => 'defaultFiles/logo/logo-sm-light.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'logos',
+                'value'             => 'Akea Menu Small',
+                'optional_1'        => '',
+                'optional_4'        => 'akea',
                 'optional_5'        => 'defaultFiles/logo/logo-sm-light.png', //dosyanın yolu
                 'can_be_deleted'    => 0,
                 'delete'            => 0
@@ -956,14 +975,16 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'active_theme',
                 'value'             => 'becki',
                 'optional_1'        => 'index.becki',
+                'optional_2'        => '',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'themes',
-                'value'             => 'becki',
-                'optional_1'        => 'index.becki',
+                'value'             => 'becki', //tema kodu
+                'optional_1'        => 'index.becki',  //tema yolu
+                'optional_2'        => 'Becki', //Tema görünür ismi
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -972,6 +993,25 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'themes',
                 'value'             => 'akea',
                 'optional_1'        => 'index.akea',
+                'optional_2'        => 'Akea',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'themes',
+                'value'             => 'bizblog',
+                'optional_1'        => 'index.bizblog',
+                'optional_2'        => 'Bizblog',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'themes',
+                'value'             => 'genz',
+                'optional_1'        => 'index.genz',
+                'optional_2'        => 'Genz',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
