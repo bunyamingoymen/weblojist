@@ -1,4 +1,4 @@
-@extends('index.layouts.main')
+@extends('index.becki.layouts.main')
 @section('index_body')
     @php
         $sectionCount = 1; //0 olursa gri olarak başlar, 1 olursa beyaz olara kbaşlar

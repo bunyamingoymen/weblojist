@@ -1,4 +1,4 @@
-@extends('index.layouts.main')
+@extends('index.becki.layouts.main')
 @section('index_body')
     @php
         $contact_title = getCachedKeyValue(['key' => 'contact_title', 'first' => true, 'refreshCache' => true]) ?? null;

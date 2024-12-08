@@ -66,7 +66,7 @@ class IndexController extends Controller
 
         $social_media = KeyValue::Where('key', 'social_media')->where('delete', 0)->get();
         $active_theme = getActiveTheme();
-        return view("index.{$active_theme}index", compact(
+        return view("index.{$active_theme}.index", compact(
             'backgroudSettings_type',
             'backgrouds',
 

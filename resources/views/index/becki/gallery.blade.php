@@ -1,4 +1,4 @@
-@extends('index.layouts.main')
+@extends('index.becki.layouts.main')
 @section('index_body')
     @php
         $gallery_title = getCachedKeyValue(['key' => 'gallery_title', 'first' => true, 'refreshCache' => true]) ?? null;

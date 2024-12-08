@@ -1,4 +1,4 @@
-@extends('index.layouts.main')
+@extends('index.becki.layouts.main')
 @section('index_body')
 
     <div class="remove-padding transition-none">

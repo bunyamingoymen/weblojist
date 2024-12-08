@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $adminPages = ['admin.layouts.main'];
-        $indexPages = ['index.layous.main', 'index.index', 'index.blogs', 'index.blog_detail'];
+        $indexBeckiPages = ['index.becki.layous.main', 'index.becki.index', 'index.becki.blogs', 'index.becki.blog_detail'];
         $userPages = ['user.layouts.main'];
 
         View::composer($adminPages, function ($view) {
@@ -130,7 +130,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with(["sidebarHTML" => $sidebarHTML, "main_flag" => $main_flag, "other_flags" => $other_flags]);
         });
 
-        View::composer($indexPages, function ($view) {
+        View::composer($indexBeckiPages, function ($view) {
             $main_flag = KeyValue::Where('key', 'language')->Where('optional_1', getActiveLang())->first();
             if ($main_flag) $main_flag = $main_flag->optional_5;
             else $main_flag = "-1";

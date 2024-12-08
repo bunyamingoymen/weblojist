@@ -85,7 +85,8 @@ Route::get('assets/{folder}/{filename}', [MainController::class, 'assetFile'])->
 
 //Default 404:
 Route::get('/not-found', function () {
-    return view('errors.404');
+    $active_theme = getActiveTheme();
+    return view("errors.{$active_theme}.404");
 })->name('error.404');
 
 

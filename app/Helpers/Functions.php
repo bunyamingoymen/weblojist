@@ -134,5 +134,5 @@ function getActiveTheme()
 
     $active_theme = getCachedKeyValue(['key' => 'active_theme', 'refreshCache' => true, 'first' => true]) ?? null;
 
-    return $active_theme ? $active_theme->optional_1 : $default_theme;
+    return $active_theme ? $active_theme->value : $default_theme;
 }

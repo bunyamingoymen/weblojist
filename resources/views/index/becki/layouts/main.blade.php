@@ -91,11 +91,11 @@
 
     <div class="wrapper">
 
-        @include('index.layouts.header')
+        @include('index.becki.layouts.header')
 
         @yield('index_body')
 
-        @include('index.layouts.footer')
+        @include('index.becki.layouts.footer')
 
         <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>
 

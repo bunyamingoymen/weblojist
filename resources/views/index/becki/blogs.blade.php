@@ -1,4 +1,4 @@
-@extends('index.layouts.main')
+@extends('index.becki.layouts.main')
 @section('index_body')
     @php
         $type = is_null($type) ? 'blog' : $type;
