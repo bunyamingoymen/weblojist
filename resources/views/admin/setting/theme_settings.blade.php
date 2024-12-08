@@ -25,11 +25,7 @@
                             </select>
                         </div>
 
-                        @if ($active_theme_type == 'becki')
-                            @include('admin.setting.theme.becki')
-                        @elseif ($active_theme_type == 'akea')
-                            @include('admin.setting.theme.akea')
-                        @endif
+                        @include("admin.setting.theme.{$active_theme_type}")
 
                         <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save"></i>
                             {{ lang_db('Save') }}</button>

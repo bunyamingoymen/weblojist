@@ -1,11 +1,7 @@
 @extends('admin.layouts.main')
 @section('admin_index_body')
     @php
-        $active_theme = getActiveTheme();
+        $active_theme_type = getActiveTheme();
     @endphp
-    @if ($active_theme == 'becki')
-        @include('admin.setting.background.becki')
-    @elseif ($active_theme == 'akea')
-        @include('admin.setting.background.akea')
-    @endif
+    @include("admin.setting.background.{$active_theme_type}")
 @endsection

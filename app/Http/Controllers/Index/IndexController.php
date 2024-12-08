@@ -71,18 +71,22 @@ class IndexController extends Controller
 
     function getThemeFunction($method, $pageCode = null)
     {
-        $active_theme = ucfirst(getActiveTheme()); // "becki" => "Becki"
-        $controller_class = "App\\Http\\Controllers\\Index\\Themes\\{$active_theme}Controller";
+        try {
+            $active_theme = ucfirst(getActiveTheme()); // "becki" => "Becki"
+            $controller_class = "App\\Http\\Controllers\\Index\\Themes\\{$active_theme}Controller";
 
-        // Sınıf ve method mevcut mu kontrol et
-        if (class_exists($controller_class) && method_exists($controller_class, $method)) {
-            if (is_null($pageCode))
-                return app($controller_class)->$method();
-            else
-                return app($controller_class)->$method($pageCode);
+            // Sınıf ve method mevcut mu kontrol et
+            if (class_exists($controller_class) && method_exists($controller_class, $method)) {
+                if (is_null($pageCode))
+                    return app($controller_class)->$method();
+                else
+                    return app($controller_class)->$method($pageCode);
+            }
+
+            // Sınıf ya da method yoksa hata döndür
+            return redirect()->route('error.404');
+        } catch (\Throwable $th) {
+            return redirect()->route('error.404');
         }
-        dd($active_theme);
-        // Sınıf ya da method yoksa hata döndür
-        abort(404);
     }
 }
