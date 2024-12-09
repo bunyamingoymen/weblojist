@@ -402,10 +402,10 @@ class KeyValueSeeder extends Seeder
                 'optional_2'        => 'genz', //tema adı
                 'optional_3'        => '/', //path
                 'optional_4'        => '0', //farklı sayfada açılsın mı?
-                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
-                'optional_6'        => 'Başlık',
-                'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '2024-12-12', //tarih
+                'optional_5'        => 'defaultFiles/genz/slider/news1.png', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'I work best when my space is filled with inspiration',
+                'optional_7'        => 'Gosh jaguar ostrich quail one excited dear hello and bound and the and bland moral misheard roadrunner flapped lynx far that and jeepers giggled far and far', //cover_letter
+                'optional_8'        => '2022-04-25', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -417,10 +417,10 @@ class KeyValueSeeder extends Seeder
                 'optional_2'        => 'genz', //tema adı
                 'optional_3'        => '/', //path
                 'optional_4'        => '0', //farklı sayfada açılsın mı?
-                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
-                'optional_6'        => 'Başlık',
-                'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '2024-12-12', //tarih
+                'optional_5'        => 'defaultFiles/genz/slider/img1.png', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => '10 States At Risk of Rural Hospital Closures',
+                'optional_7'        => '', //cover_letter
+                'optional_8'        => '2022-05-29', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -432,10 +432,10 @@ class KeyValueSeeder extends Seeder
                 'optional_2'        => 'genz', //tema adı
                 'optional_3'        => '/', //path
                 'optional_4'        => '0', //farklı sayfada açılsın mı?
-                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
-                'optional_6'        => 'Başlık',
-                'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '2024-12-12', //tarih
+                'optional_5'        => 'defaultFiles/genz/slider/img2.png', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'U.S. Interventions in Latin America, in Photos',
+                'optional_7'        => '', //cover_letter
+                'optional_8'        => '2022-05-29', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -447,10 +447,10 @@ class KeyValueSeeder extends Seeder
                 'optional_2'        => 'genz', //tema adı
                 'optional_3'        => '/', //path
                 'optional_4'        => '0', //farklı sayfada açılsın mı?
-                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
-                'optional_6'        => 'Başlık',
-                'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '2024-12-12', //tarih
+                'optional_5'        => 'defaultFiles/genz/slider/img3.png', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => '2019 Best Cars for the Money',
+                'optional_7'        => '', //cover_letter
+                'optional_8'        => '2022-05-29', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -462,10 +462,10 @@ class KeyValueSeeder extends Seeder
                 'optional_2'        => 'genz', //tema adı
                 'optional_3'        => '/', //path
                 'optional_4'        => '0', //farklı sayfada açılsın mı?
-                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
-                'optional_6'        => 'Başlık',
-                'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '2024-12-12', //tarih
+                'optional_5'        => 'defaultFiles/genz/slider/img4.png', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'How to View Breast Cancer Survival Rates',
+                'optional_7'        => '', //cover_letter
+                'optional_8'        => '2022-05-29', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

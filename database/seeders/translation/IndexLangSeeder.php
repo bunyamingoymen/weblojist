@@ -164,6 +164,66 @@ class IndexLangSeeder extends Seeder
                 'en' => 'Details'
             ],
 
+            'January' => [
+                'tr' => 'Ocak',
+                'en' => 'January',
+            ],
+
+            'February' => [
+                'tr' => 'Şubat',
+                'en' => 'February',
+            ],
+
+            'March' => [
+                'tr' => 'Mart',
+                'en' => 'March',
+            ],
+
+            'April' => [
+                'tr' => 'Nisan',
+                'en' => 'April',
+            ],
+
+            'May' => [
+                'tr' => 'Mayıs',
+                'en' => 'May',
+            ],
+
+            'June' => [
+                'tr' => 'Haziran',
+                'en' => 'June',
+            ],
+
+            'July' => [
+                'tr' => 'Temmuz',
+                'en' => 'July',
+            ],
+
+            'August' => [
+                'tr' => 'Ağustos',
+                'en' => 'August',
+            ],
+
+            'September' => [
+                'tr' => 'Eylül',
+                'en' => 'September',
+            ],
+
+            'October' => [
+                'tr' => 'Ekim',
+                'en' => 'October',
+            ],
+
+            'November' => [
+                'tr' => 'Kasım',
+                'en' => 'November',
+            ],
+
+            'December' => [
+                'tr' => 'Aralık',
+                'en' => 'December',
+            ],
+
         ];
 
         $commonValues = [

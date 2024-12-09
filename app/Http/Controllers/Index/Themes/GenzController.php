@@ -10,9 +10,14 @@ class GenzController extends Controller
 {
     public function index()
     {
+        $active_theme = getActiveTheme();
+
+        $backgroudSettings = KeyValue::Where('key', 'backgroudSettings')->where('optional_4', $active_theme)->first();
+        $backgrouds = KeyValue::Where('key', 'backgrouds')->where('value', $backgroudSettings->value ?? 'slider')->where('optional_2', $active_theme)->orderBy('optional_1', 'ASC')->get();
+
         $active_theme_path = getActiveThemePath();
 
-        return view("{$active_theme_path}.index",);
+        return view("{$active_theme_path}.index", compact('backgroudSettings', 'backgrouds'));
     }
 
     public function blogs()

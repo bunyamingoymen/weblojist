@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col-lg-5 text-center text-lg-start">
                         <p class="text-base color-white wow animate__animated animate__fadeIn">© Created by<a
-                                class="copyright" href="http://alithemes.com" target="_blank"> AliThemes.com</a>
+                                class="copyright" href="#" target="_blank"> {{ env('APP_NAME') }}</a>
                         </p>
                     </div>
                     <div class="col-lg-7 text-center text-lg-end">
