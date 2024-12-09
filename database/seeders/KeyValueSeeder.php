@@ -1085,8 +1085,8 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'active_theme',
-                'value'             => 'becki',
-                'optional_1'        => 'index.becki',
+                'value'             => 'genz',
+                'optional_1'        => 'index.genz',
                 'optional_2'        => '',
                 'can_be_deleted'    => 0,
                 'delete'            => 0

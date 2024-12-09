@@ -125,421 +125,70 @@
                             </div>
                         </div>
                     @endif
+                    @if (isset($blogs) && $blogs->isNotEmpty())
+                        <div class="row mt-70">
+                            @foreach ($blogs as $blog)
+                                @php
 
-                    <div class="row mt-70">
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
+                                    if ($blog->created_at) {
+                                        $date = \Carbon\Carbon::parse($blog->created_at);
+                                        $day = $date->format('d');
+                                        $month = lang_db($date->format('F'), 1); // Ayı dil dosyasından çekiyoruz
+                                        $year = $date->format('Y');
+                                        $result_date = $day . ' ' . $month . ' ' . $year;
+                                    } else {
+                                        $result_date = '';
+                                    }
+
+                                    $url = $blog->short_name ?? 'not-found';
+                                @endphp
+                                <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
+                                    <div class="card-blog-1 hover-up">
+                                        <div class="card-image mb-20">
+                                            @if ($blog->pinned)
+                                                <a class="post-type post-pinned"
+                                                    href="{{ route('index.blog.detail', ['pageCode' => $url]) }}"></a>
+                                            @endif
+                                            <a href="{{ route('index.blog.detail', ['pageCode' => $url]) }}">
+                                                <img src="{{ $blog->image ? asset($blog->image) : '' }}"
+                                                    alt="{{ $blog->title }}">
+                                            </a>
                                         </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
+                                        <div class="card-info">
+                                            <a href="{{ route('index.blog.detail', ['pageCode' => $url]) }}">
+                                                <h5 class="color-white mt-20">
+                                                    {{ $blog->title }}
+                                                </h5>
+                                            </a>
+                                            <div class="row align-items-center mt-25">
+                                                <div class="col-7">
+                                                    <div class="box-author">
+                                                        <div class="author-info">
+                                                            <span class="color-gray-700 text-sm">
+                                                                {{ $result_date }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5 text-end">
+                                                    <a class="readmore color-gray-500 text-sm"
+                                                        href="{{ route('index.blog.detail', ['pageCode' => $url]) }}">
+                                                        <span>{{ lang_db('Read More', 1) }}</span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
+                        <div class="text-center mb-50">
+                            <a class="btn btn-linear btn-load-more wow animate__animated animate__zoomIn">
+                                {{ lang_db('Read More') }} <i class="fi-rr-arrow-small-right"></i>
+                            </a>
+                        </div>
+                    @endif
 
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 wow animate__animated animate__fadeIn" data-wow-delay=".1s">
-                            <div class="card-blog-1 hover-up">
-                                <div class="card-image mb-20"><a class="post-type" href="blog-archive.html"></a><a
-                                        href="single-sidebar.html"><img src="assets/imgs/page/homepage1/news3.png"
-                                            alt="Genz"></a></div>
-                                <div class="card-info">
-                                    <div class="row">
-                                        <div class="col-7"><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Design</a><a class="color-gray-700 text-sm" href="blog-archive.html">
-                                                #Movie</a>
-                                        </div>
-                                        <div class="col-5 text-end"><span class="color-gray-700 text-sm timeread">6 mins
-                                                read</span></div>
-                                    </div><a href="single-sidebar.html">
-                                        <h5 class="color-white mt-20"> Self-observation is the first step of inner
-                                            unfolding</h5>
-                                    </a>
-                                    <div class="row align-items-center mt-25">
-                                        <div class="col-7">
-                                            <div class="box-author"><img src="assets/imgs/page/homepage1/author3.png"
-                                                    alt="Genz">
-                                                <div class="author-info">
-                                                    <h6 class="color-gray-700">Joseph</h6><span
-                                                        class="color-gray-700 text-sm">27 Sep 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-5 text-end"><a class="readmore color-gray-500 text-sm"
-                                                href="single-sidebar.html"><span>Read more</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mb-50">
-                        <a class="btn btn-linear btn-load-more wow animate__animated animate__zoomIn">
-                            {{ lang_db('Read More') }} <i class="fi-rr-arrow-small-right"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>

@@ -37,6 +37,7 @@ return new class extends Migration
 
             //Sistemsel işlevler:
             $table->tinyInteger('type')->default(2); //1: blog, 2: sayfa, 3: tedarikçiler, 4: galeri
+            $table->tinyInteger('pinned')->default(0); // Sabitlendi mi? Eğer sabitlenirse blog listeleme ve anasayfada en başta gözükür
             $table->tinyInteger('can_be_deleted')->default(1); //Silinebilir mi?
             $table->tinyInteger('active')->default(1); //Aktif mi?
             $table->tinyInteger('delete')->default(0); // Silindi mi?

@@ -15,7 +15,7 @@ return [
 
     'showCount' => 10,
     'name' => env('APP_NAME', 'Weblojist'),
-    'showblogCount' => 9,
+    'showblogCount' => 15,
 
     /*
     |--------------------------------------------------------------------------
