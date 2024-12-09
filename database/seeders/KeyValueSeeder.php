@@ -203,15 +203,24 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgroudTypes',
-                'value'             => 'creative',
-                'optional_1'        => 'Creative',
-                'optional_4'        => 'becki',
+                'value'             => 'slider',
+                'optional_1'        => 'Slider',
+                'optional_4'        => 'genz',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
+                'value'             => 'none',
+                'optional_1'        => 'None',
+                'optional_4'        => 'genz',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
         ]);
 
-        //Arkaplanlar
+        //Arkaplanlar (becki)
         DB::table('key_values')->insert([
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
@@ -354,6 +363,106 @@ class KeyValueSeeder extends Seeder
                 'value'             => 'creative', //video, resim ya da silder
                 'optional_4'        => 'becki',
                 'optional_5'        => 'defaultFiles/creative/creative_10.png', //dosyanın yolu
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+        ]);
+
+        //Arkaplanlar (genz)
+        DB::table('key_values')->insert([
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudSettings',
+                'value'             => 'slider', //picture, silder, resim ya da  creative. İsteğe bağlı seçim.
+                'optional_1'        => null,
+                'optional_2'        => null,
+                'optional_3'        => null, //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz',
+                'optional_5'        => '',
+                'optional_6'        => null,
+                'optional_7'        => null, //cover_letter
+                'optional_8'        => null, //farklı sayfada açılsın mı?
+                'optional_9'        => null, //tarih
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'slider', //slider
+                'optional_1'        => '1', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
+                'optional_2'        => '1', //Code (sayfanın kodu vs...)
+                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz', //tema adı
+                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'Başlık',
+                'optional_7'        => 'açıklama', //cover_letter
+                'optional_8'        => '0', //farklı sayfada açılsın mı?
+                'optional_9'        => '2024-12-12', //tarih
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'slider', //slider
+                'optional_1'        => '2', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
+                'optional_2'        => '1', //Code (sayfanın kodu vs...)
+                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz', //tema adı
+                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'Başlık',
+                'optional_7'        => 'açıklama', //cover_letter
+                'optional_8'        => '0', //farklı sayfada açılsın mı?
+                'optional_9'        => '2024-12-12', //tarih
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'slider', //slider
+                'optional_1'        => '3', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
+                'optional_2'        => '1', //Code (sayfanın kodu vs...)
+                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz', //tema adı
+                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'Başlık',
+                'optional_7'        => 'açıklama', //cover_letter
+                'optional_8'        => '0', //farklı sayfada açılsın mı?
+                'optional_9'        => '2024-12-12', //tarih
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'slider', //slider
+                'optional_1'        => '4', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
+                'optional_2'        => '1', //Code (sayfanın kodu vs...)
+                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz', //tema adı
+                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'Başlık',
+                'optional_7'        => 'açıklama', //cover_letter
+                'optional_8'        => '0', //farklı sayfada açılsın mı?
+                'optional_9'        => '2024-12-12', //tarih
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgrouds',
+                'value'             => 'slider', //slider
+                'optional_1'        => '5', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
+                'optional_2'        => '1', //Code (sayfanın kodu vs...)
+                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
+                'optional_4'        => 'genz', //tema adı
+                'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
+                'optional_6'        => 'Başlık',
+                'optional_7'        => 'açıklama', //cover_letter
+                'optional_8'        => '0', //farklı sayfada açılsın mı?
+                'optional_9'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

@@ -2,7 +2,6 @@
     $icon = getCachedKeyValue(['key' => 'logos', 'value' => 'Icon', 'first' => true]) ?? null;
     $meta = getCachedKeyValue(['key' => 'meta', 'delete' => true, 'first' => false]) ?? null;
     $admin_meta = getCachedKeyValue(['key' => 'admin_meta', 'delete' => true, 'first' => false]) ?? null;
-
 @endphp
 
 <!DOCTYPE html>
@@ -25,15 +24,16 @@
 
     <link rel="shortcut icon" href="{{ !is_null($icon) ? asset($icon->optional_5) : '' }}">
 
-    <link rel="stylesheet" href="{{ route('assetFile', ['folder' => 'index/assets/css', 'filename' => 'master.css']) }}">
     <link rel="stylesheet"
-        href="{{ route('assetFile', ['folder' => 'index/assets/css', 'filename' => 'responsive.css']) }}">
+        href="{{ route('assetFile', ['folder' => 'index/becki/assets/css', 'filename' => 'master.css']) }}">
+    <link rel="stylesheet"
+        href="{{ route('assetFile', ['folder' => 'index/becki/assets/css', 'filename' => 'responsive.css']) }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ route('assetFile', ['folder' => 'index/revolution/css', 'filename' => 'settings.css']) }}">
+        href="{{ route('assetFile', ['folder' => 'index/becki/revolution/css', 'filename' => 'settings.css']) }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ route('assetFile', ['folder' => 'index/revolution/css', 'filename' => 'layers.css']) }}">
+        href="{{ route('assetFile', ['folder' => 'index/becki/revolution/css', 'filename' => 'layers.css']) }}">
     <link rel="stylesheet" type="text/css"
-        href="{{ route('assetFile', ['folder' => 'index/revolution/css', 'filename' => 'navigation.css']) }}">
+        href="{{ route('assetFile', ['folder' => 'index/becki/revolution/css', 'filename' => 'navigation.css']) }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
@@ -101,43 +101,44 @@
 
     </div>
 
-    <script src="{{ route('assetFile', ['folder' => 'index/assets/js', 'filename' => 'jquery.min.js']) }}"></script>
-    <script src="{{ route('assetFile', ['folder' => 'index/assets/js', 'filename' => 'smoothscroll.js']) }}"></script>
-    <script src="{{ route('assetFile', ['folder' => 'index/assets/js', 'filename' => 'plugins.js']) }}"></script>
-    <script src="{{ route('assetFile', ['folder' => 'index/assets/js', 'filename' => 'master.js']) }}"></script>
+    <script src="{{ route('assetFile', ['folder' => 'index/becki/assets/js', 'filename' => 'jquery.min.js']) }}"></script>
+    <script src="{{ route('assetFile', ['folder' => 'index/becki/assets/js', 'filename' => 'smoothscroll.js']) }}">
+    </script>
+    <script src="{{ route('assetFile', ['folder' => 'index/becki/assets/js', 'filename' => 'plugins.js']) }}"></script>
+    <script src="{{ route('assetFile', ['folder' => 'index/becki/assets/js', 'filename' => 'master.js']) }}"></script>
 
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'jquery.themepunch.tools.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'jquery.themepunch.tools.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'jquery.themepunch.revolution.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'jquery.themepunch.revolution.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.actions.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.actions.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.carousel.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.carousel.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.kenburn.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.kenburn.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.layeranimation.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.layeranimation.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.migration.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.migration.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.navigation.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.navigation.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.parallax.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.parallax.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.slideanims.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.slideanims.min.js']) }}">
     </script>
     <script
-        src="{{ route('assetFile', ['folder' => 'index/revolution/js', 'filename' => 'revolution.extension.video.min.js']) }}">
+        src="{{ route('assetFile', ['folder' => 'index/becki/revolution/js', 'filename' => 'revolution.extension.video.min.js']) }}">
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"

@@ -12,11 +12,11 @@ class BeckiController extends Controller
 {
     public function index()
     {
-        $backgroudSettings = KeyValue::Where('key', 'backgroudSettings')->first();
+        $backgroudSettings = KeyValue::Where('key', 'backgroudSettings')->where('optional_4', getActiveTheme())->first();
         if ($backgroudSettings) $backgroudSettings_type = $backgroudSettings->value;
         else $backgroudSettings_type = 'video';
 
-        $backgrouds = KeyValue::Where('key', 'backgrouds')->where('value', $backgroudSettings_type)->where('delete', 0)->get();
+        $backgrouds = KeyValue::Where('key', 'backgrouds')->where('value', $backgroudSettings_type)->where('optional_4', getActiveTheme())->where('delete', 0)->get();
 
         $site_title = KeyValue::Where('key', 'site_title')->first();
         $site_description = KeyValue::Where('key', 'site_description')->first();

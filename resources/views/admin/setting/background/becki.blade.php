@@ -1,3 +1,6 @@
+@php
+    $active_theme_type = getActiveTheme();
+@endphp
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -6,17 +9,20 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <input type="hidden" name="codes[]" value="{{ $backgroudSettings[0]->code ?? '' }}" required
+                        <input type="hidden" name="codes[]"
+                            value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->code ?? '' }}"
+                            required readonly>
+                        <input type="hidden" name="keys[]" value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->key ?? '' }}" required
                             readonly>
-                        <input type="hidden" name="keys[]" value="{{ $backgroudSettings[0]->key ?? '' }}" required
-                            readonly>
+                        <input type="hidden" name="optional_4[]" value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->key ?? '' }}"
+                            required readonly>
                         <input type="file" class="custom-file-input" id="choose_file_1" name="optional_5[]" hidden>
 
                         @foreach ($backgroudTypes->where('optional_4', 'becki') as $background_type)
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="backgroudSettings_{{ $background_type->value }}"
                                     name="values[]" class="custom-control-input" value="{{ $background_type->value }}"
-                                    {{ $backgroudSettings[0]->value == $background_type->value ? 'checked' : '' }}
+                                    {{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->value == $background_type->value ? 'checked' : '' }}
                                     onclick='changeBackgroudType("{{ $background_type->value }}")'>
                                 <label class="custom-control-label"
                                     for="backgroudSettings_{{ $background_type->value }}">{{ $background_type->optional_1 }}</label>
@@ -127,6 +133,7 @@
         </div>
     </div>
 </div>
+
 <script src="{{ route('assetFile', ['folder' => 'admin/libs/jquery', 'filename' => 'jquery.min.js']) }}"></script>
 <script>
     document.getElementById('videoUpload').addEventListener('change', function() {

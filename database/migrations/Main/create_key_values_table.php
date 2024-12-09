@@ -23,6 +23,11 @@ return new class extends Migration
             $table->longText('optional_3')->nullable();
             $table->longText('optional_4')->nullable();
             $table->longText('optional_5')->nullable();
+            $table->longText('optional_6')->nullable();
+            $table->longText('optional_7')->nullable();
+            $table->longText('optional_8')->nullable();
+            $table->longText('optional_9')->nullable();
+            $table->longText('optional_10')->nullable();
             $table->tinyInteger('can_be_deleted')->default(1);
             $table->tinyInteger('delete')->default(0);
             $table->string('create_user_code')->default('1');

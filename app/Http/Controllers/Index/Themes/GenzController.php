@@ -10,7 +10,9 @@ class GenzController extends Controller
 {
     public function index()
     {
-        dd('GenzController.index');
+        $active_theme_path = getActiveThemePath();
+
+        return view("{$active_theme_path}.index",);
     }
 
     public function blogs()
