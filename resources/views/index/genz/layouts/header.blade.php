@@ -94,15 +94,14 @@
                                 <input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox"
                                     role="switch" checked="">
                             </div>
-                        </div><a
-                            class="btn btn-linear d-none d-sm-inline-block d-md-inline-block d-lg-inline-block hover-up"
-                            href="page-login.html">Subscribe</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar bg-gray-900">
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-content-area">

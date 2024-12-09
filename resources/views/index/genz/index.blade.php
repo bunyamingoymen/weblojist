@@ -184,7 +184,7 @@
                         </div>
                         <div class="text-center mb-50">
                             <a class="btn btn-linear btn-load-more wow animate__animated animate__zoomIn">
-                                {{ lang_db('Read More') }} <i class="fi-rr-arrow-small-right"></i>
+                                {{ lang_db('Read More', 1) }} <i class="fi-rr-arrow-small-right"></i>
                             </a>
                         </div>
                     @endif
