@@ -70,6 +70,11 @@ class KeyValueController extends Controller
                         else if ($lan_type == 'optional_2' && isset($request->optional_2) && isset($request->optional_2[$i])) $lan_key = $request->optional_2[$i];
                         else if ($lan_type == 'optional_3' && isset($request->optional_3) && isset($request->optional_3[$i])) $lan_key = $request->optional_3[$i];
                         else if ($lan_type == 'optional_4' && isset($request->optional_4) && isset($request->optional_4[$i])) $lan_key = $request->optional_4[$i];
+                        else if ($lan_type == 'optional_6' && isset($request->optional_6) && isset($request->optional_6[$i])) $lan_key = $request->optional_6[$i];
+                        else if ($lan_type == 'optional_7' && isset($request->optional_7) && isset($request->optional_7[$i])) $lan_key = $request->optional_7[$i];
+                        else if ($lan_type == 'optional_8' && isset($request->optional_8) && isset($request->optional_8[$i])) $lan_key = $request->optional_8[$i];
+                        else if ($lan_type == 'optional_9' && isset($request->optional_9) && isset($request->optional_9[$i])) $lan_key = $request->optional_9[$i];
+                        else if ($lan_type == 'optional_10' && isset($request->optional_10) && isset($request->optional_10[$i])) $lan_key = $request->optional_10[$i];
                         else continue;
 
                         $translation->key = $lan_key;
@@ -85,6 +90,11 @@ class KeyValueController extends Controller
             $item->optional_2 = (isset($request->optional_2) && isset($request->optional_2[$i])) ? $request->optional_2[$i] : null;
             $item->optional_3 = (isset($request->optional_3) && isset($request->optional_3[$i])) ? $request->optional_3[$i] : null;
             $item->optional_4 = (isset($request->optional_4) && isset($request->optional_4[$i])) ? $request->optional_4[$i] : null;
+            $item->optional_6 = (isset($request->optional_6) && isset($request->optional_6[$i])) ? $request->optional_6[$i] : null;
+            $item->optional_7 = (isset($request->optional_7) && isset($request->optional_7[$i])) ? $request->optional_7[$i] : null;
+            $item->optional_8 = (isset($request->optional_8) && isset($request->optional_8[$i])) ? $request->optional_8[$i] : null;
+            $item->optional_9 = (isset($request->optional_9) && isset($request->optional_9[$i])) ? $request->optional_9[$i] : null;
+            $item->optional_10 = (isset($request->optional_10) && isset($request->optional_10[$i])) ? $request->optional_10[$i] : null;
 
             if (!$isNew) $item->update_user_code = Auth::guard('admin')->user()->code;
 

@@ -1,5 +1,19 @@
 @php
     $active_theme_type = getActiveTheme();
+    $backgroudSettings = App\Models\Main\KeyValue::Where('delete', 0)
+        ->where('key', 'backgroudSettings')
+        ->where('optional_4', $active_theme_type)
+        ->first();
+
+    $backgrouds = App\Models\Main\KeyValue::Where('delete', 0)
+        ->where('key', 'backgrouds')
+        ->where('optional_4', $active_theme_type)
+        ->get();
+
+    $backgroudTypes = App\Models\Main\KeyValue::Where('delete', 0)
+        ->where('key', 'backgroudTypes')
+        ->where('optional_4', $active_theme_type)
+        ->get();
 @endphp
 <div class="row">
     <div class="col-lg-12">
@@ -9,20 +23,19 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <input type="hidden" name="codes[]"
-                            value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->code ?? '' }}"
-                            required readonly>
-                        <input type="hidden" name="keys[]" value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->key ?? '' }}" required
+                        <input type="hidden" name="codes[]" value="{{ $backgroudSettings->code ?? '' }}" required
                             readonly>
-                        <input type="hidden" name="optional_4[]" value="{{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->key ?? '' }}"
+                        <input type="hidden" name="keys[]" value="{{ $backgroudSettings->key ?? '' }}" required
+                            readonly>
+                        <input type="hidden" name="optional_4[]" value="{{ $backgroudSettings->optional_4 ?? '' }}"
                             required readonly>
                         <input type="file" class="custom-file-input" id="choose_file_1" name="optional_5[]" hidden>
 
-                        @foreach ($backgroudTypes->where('optional_4', 'becki') as $background_type)
+                        @foreach ($backgroudTypes as $background_type)
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="backgroudSettings_{{ $background_type->value }}"
                                     name="values[]" class="custom-control-input" value="{{ $background_type->value }}"
-                                    {{ $backgroudSettings->where('optional_4', $active_theme_type)->first()->value == $background_type->value ? 'checked' : '' }}
+                                    {{ $backgroudSettings->value == $background_type->value ? 'checked' : '' }}
                                     onclick='changeBackgroudType("{{ $background_type->value }}")'>
                                 <label class="custom-control-label"
                                     for="backgroudSettings_{{ $background_type->value }}">{{ $background_type->optional_1 }}</label>
@@ -31,13 +44,15 @@
                     </div>
 
                     <div id="Backgrounds">
-                        @foreach ($backgrouds->where('optional_4', 'becki') as $item)
+                        @foreach ($backgrouds as $item)
                             <div class="mt-5 row backgroudSettings_{{ $item->value }}" style="align-items: center"
                                 hidden>
                                 <input type="hidden" name="codes[]" value="{{ $item->code ?? '' }}" required readonly>
                                 <input type="hidden" name="keys[]" value="{{ $item->key ?? '' }}" required readonly>
                                 <input type="hidden" name="values[]" value="{{ $item->value ?? '' }}" required
                                     readonly>
+                                <input type="hidden" name="optional_4[]" value="{{ $item->optional_4 ?? '' }}"
+                                    required readonly>
                                 @if ($item->value == 'video')
                                     <div class="col-lg-5">
                                         @if (file_exists(public_path($item->optional_5)))
@@ -157,7 +172,7 @@
 
         // Tüm arka plan türlerini tanımlıyoruz
         var allTypes = [];
-        @foreach ($backgroudTypes->where('optional_4', 'becki') as $background_type)
+        @foreach ($backgroudTypes as $background_type)
             allTypes.push('{{ $background_type->value }}')
             //Eğer yeni bir arkaplan ekleyeceksen direk buraya gelecektir db de varsa
         @endforeach
@@ -206,6 +221,6 @@
     }
 
     $(document).ready(function() {
-        changeBackgroudType('{{ $backgroudSettings[0]->value }}');
+        changeBackgroudType('{{ $backgroudSettings->value }}');
     })
 </script>

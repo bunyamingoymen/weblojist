@@ -1106,6 +1106,16 @@ class AdminLangSeeder extends Seeder
                 'en' => 'Not Exist'
             ],
 
+            'Date' => [
+                'tr' => "Tarih",
+                'en' => 'Date'
+            ],
+
+            'Enter Date' => [
+                'tr' => "Tarih Giriniz",
+                'en' => 'Enter Date'
+            ],
+
         ];
 
         // Ortak alanlar

@@ -203,6 +203,15 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'backgroudTypes',
+                'value'             => 'creative',
+                'optional_1'        => 'Creative',
+                'optional_4'        => 'becki',
+                'can_be_deleted'    => 0,
+                'delete'            => 0
+            ],
+            [
+                'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
+                'key'               => 'backgroudTypes',
                 'value'             => 'slider',
                 'optional_1'        => 'Slider',
                 'optional_4'        => 'genz',
@@ -376,13 +385,12 @@ class KeyValueSeeder extends Seeder
                 'value'             => 'slider', //picture, silder, resim ya da  creative. İsteğe bağlı seçim.
                 'optional_1'        => null,
                 'optional_2'        => null,
-                'optional_3'        => null, //Type (Sayfa, blog, link ...vs)
+                'optional_3'        => null,
                 'optional_4'        => 'genz',
                 'optional_5'        => '',
                 'optional_6'        => null,
-                'optional_7'        => null, //cover_letter
-                'optional_8'        => null, //farklı sayfada açılsın mı?
-                'optional_9'        => null, //tarih
+                'optional_7'        => null,
+                'optional_8'        => null,
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -391,14 +399,13 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //slider
                 'optional_1'        => '1', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
-                'optional_2'        => '1', //Code (sayfanın kodu vs...)
-                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
-                'optional_4'        => 'genz', //tema adı
+                'optional_2'        => 'genz', //tema adı
+                'optional_3'        => '/', //path
+                'optional_4'        => '0', //farklı sayfada açılsın mı?
                 'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
                 'optional_6'        => 'Başlık',
                 'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '0', //farklı sayfada açılsın mı?
-                'optional_9'        => '2024-12-12', //tarih
+                'optional_8'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -407,14 +414,13 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //slider
                 'optional_1'        => '2', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
-                'optional_2'        => '1', //Code (sayfanın kodu vs...)
-                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
-                'optional_4'        => 'genz', //tema adı
+                'optional_2'        => 'genz', //tema adı
+                'optional_3'        => '/', //path
+                'optional_4'        => '0', //farklı sayfada açılsın mı?
                 'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
                 'optional_6'        => 'Başlık',
                 'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '0', //farklı sayfada açılsın mı?
-                'optional_9'        => '2024-12-12', //tarih
+                'optional_8'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -423,14 +429,13 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //slider
                 'optional_1'        => '3', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
-                'optional_2'        => '1', //Code (sayfanın kodu vs...)
-                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
-                'optional_4'        => 'genz', //tema adı
+                'optional_2'        => 'genz', //tema adı
+                'optional_3'        => '/', //path
+                'optional_4'        => '0', //farklı sayfada açılsın mı?
                 'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
                 'optional_6'        => 'Başlık',
                 'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '0', //farklı sayfada açılsın mı?
-                'optional_9'        => '2024-12-12', //tarih
+                'optional_8'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -439,14 +444,13 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //slider
                 'optional_1'        => '4', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
-                'optional_2'        => '1', //Code (sayfanın kodu vs...)
-                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
-                'optional_4'        => 'genz', //tema adı
+                'optional_2'        => 'genz', //tema adı
+                'optional_3'        => '/', //path
+                'optional_4'        => '0', //farklı sayfada açılsın mı?
                 'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
                 'optional_6'        => 'Başlık',
                 'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '0', //farklı sayfada açılsın mı?
-                'optional_9'        => '2024-12-12', //tarih
+                'optional_8'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
@@ -455,14 +459,13 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'backgrouds',
                 'value'             => 'slider', //slider
                 'optional_1'        => '5', //konum (1,sırada , 2.sırada vs... max 5 adet var.)
-                'optional_2'        => '1', //Code (sayfanın kodu vs...)
-                'optional_3'        => 'page', //Type (Sayfa, blog, link ...vs)
-                'optional_4'        => 'genz', //tema adı
+                'optional_2'        => 'genz', //tema adı
+                'optional_3'        => '/', //path
+                'optional_4'        => '0', //farklı sayfada açılsın mı?
                 'optional_5'        => 'defaultFiles/video.mp4', //resim yolu (blog ya da sayfanın)
                 'optional_6'        => 'Başlık',
                 'optional_7'        => 'açıklama', //cover_letter
-                'optional_8'        => '0', //farklı sayfada açılsın mı?
-                'optional_9'        => '2024-12-12', //tarih
+                'optional_8'        => '2024-12-12', //tarih
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],

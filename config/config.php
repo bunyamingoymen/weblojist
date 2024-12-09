@@ -797,14 +797,14 @@ return [
                 'view' => [
                     'type' => '\Admin\KeyValueController@editPage',
                     'page' => $main_admin_path . 'setting.background',
-                    'key' => ['backgroudSettings', 'backgroudTypes', 'backgrouds'],
+                    'key' => [],
                 ],
 
                 'delete' => [
                     'view' => [
                         'type' => '\Admin\KeyValueController@delete',
                         'page' => $main_admin_path . 'setting.background',
-                        'key' => ['backgroudSettings', 'backgroudTypes', 'backgrouds'],
+                        'key' => [],
                         'redirect' => [
                             'params' => 'settings/background',
                         ]
