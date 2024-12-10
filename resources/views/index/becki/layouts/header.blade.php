@@ -2,7 +2,7 @@
     $home_logo_white = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo White', 'first' => true]) ?? null;
     $home_logo_dark = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo Dark', 'first' => true]) ?? null;
 
-    $headers = App\Models\Main\Menu::where('delete', 0)->where('active', 1)->where('type', 'header')->get();
+    $headers = App\Models\Main\Menu::where('delete', 0)->where('active', 1)->where('type', 'header')->orderBy('row','ASC')->get();
     if (Route::currentRouteName() == '') {
         $use_theme = 'dark';
     } else {

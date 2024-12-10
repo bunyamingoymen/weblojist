@@ -25,7 +25,22 @@ class GenzController extends Controller
 
     public function blogs()
     {
-        dd('GenzController.blogs');
+        $showblogCount = config('app.showblogCount') ?? 15;
+
+        $blogs = Page::join('admin_users', 'admin_users.code', '=', 'pages.create_user_code')
+            ->where('pages.type', 1)
+            ->where('pages.delete', 0)
+            ->where('pages.active', 1)
+            ->orderBy('pages.pinned', 'DESC')
+            ->orderBy('pages.created_at', 'DESC')
+            ->select('pages.*', 'admin_users.name as admin_name', 'admin_users.image as admin_image')
+            ->paginate($showblogCount);
+
+        $type = 'blog';
+
+        $active_theme_path = getActiveThemePath();
+
+        return view("{$active_theme_path}.blogs", compact('blogs', 'type'));
     }
 
     public function blog_detail($pageCode)

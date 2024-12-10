@@ -183,7 +183,8 @@
                             @endforeach
                         </div>
                         <div class="text-center mb-50">
-                            <a class="btn btn-linear btn-load-more wow animate__animated animate__zoomIn">
+                            <a class="btn btn-linear btn-load-more wow animate__animated animate__zoomIn"
+                                href="{{ route('index.blogs') }}">
                                 {{ lang_db('Read More', 1) }} <i class="fi-rr-arrow-small-right"></i>
                             </a>
                         </div>
