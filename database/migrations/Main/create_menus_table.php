@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('row')->nullable(); //satır
             $table->string('column')->nullable(); //sütun, sadece footer için
             $table->tinyInteger('open_different_page')->nullable()->default(0);
-            $table->string('footer_type')->nullable(); //logo, yazı, sosyal medya, link
+            $table->string('footer_type')->nullable(); //image, yazı, sosyal medya, link
             $table->tinyInteger('can_be_deleted')->default(1);
             $table->tinyInteger('active')->default(1);
             $table->tinyInteger('delete')->default(0);

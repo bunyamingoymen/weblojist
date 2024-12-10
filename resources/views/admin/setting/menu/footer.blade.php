@@ -130,8 +130,25 @@
                         <div id="footerTypeImageDiv" style="display: none;">
                             <div class="col-lg-10 mt-4 ml-3">
                                 <div>
-                                    <input type="file" class="custom-file-input" id="footer_type_image"
-                                        name="footer_type_image" accept="image/*">
+                                    {{ lang_db('Light Mode') }}:
+                                </div>
+                                <!--Light, title'a kaydediliyor-->
+                                <div>
+                                    <input type="file" class="custom-file-input" id="footer_type_image_light"
+                                        name="footer_type_image_light" accept="image/*">
+                                    <label class="custom-file-label" for="pageImage">
+                                        {{ lang_db('Choose file...') }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-10 mt-4 ml-3">
+                                <div>
+                                    {{ lang_db('Dark Mode') }}:
+                                </div>
+                                <!--Dark, path'a kaydediliyor-->
+                                <div>
+                                    <input type="file" class="custom-file-input" id="footer_type_image_dark"
+                                        name="footer_type_image_dark" accept="image/*">
                                     <label class="custom-file-label" for="pageImage">
                                         {{ lang_db('Choose file...') }}
                                     </label>

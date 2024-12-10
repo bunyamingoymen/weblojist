@@ -108,11 +108,21 @@ class MenuController extends Controller
             else
                 $menu->path = $request->path;
         } else if ($request->footer_type && $request->footer_type == 'image') {
-            if ($request->hasFile('footer_type_image')) {
-                $file = $request->file("footer_type_image");
+
+            if ($request->hasFile('footer_type_image_light')) {
+                $file = $request->file("footer_type_image_light");
                 $main_path = "file/footer/image";
                 $path = public_path($main_path);
-                $name = "footer_image_{$menu->code}_{$this->mainController->generateUniqueCode(['length' => 5])}.{$file->getClientOriginalExtension()}";
+                $name = "footer_image_light_{$menu->code}_{$this->mainController->generateUniqueCode(['length' => 5])}.{$file->getClientOriginalExtension()}";
+                $file->move($path, $name);
+                $menu->title = "{$main_path}/{$name}";
+            } else $menu->title = $menu->path ?? '';
+
+            if ($request->hasFile('footer_type_image_dark')) {
+                $file = $request->file("footer_type_image_dark");
+                $main_path = "file/footer/image";
+                $path = public_path($main_path);
+                $name = "footer_image_dark_{$menu->code}_{$this->mainController->generateUniqueCode(['length' => 5])}.{$file->getClientOriginalExtension()}";
                 $file->move($path, $name);
                 $menu->path = "{$main_path}/{$name}";
             } else $menu->path = $menu->path ?? '';

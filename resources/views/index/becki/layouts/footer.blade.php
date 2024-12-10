@@ -128,7 +128,7 @@
                                     @continue;
                                 @endif
                                 <li>
-                                    <a href="{{ $media->value ?? '#' }}" class="">
+                                    <a href="{{ $media->value ?? '#' }}" class="" target="_blank">
                                         <i class="{{ $media->optional_4 ?? '' }}"></i>
                                     </a>
                                 </li>
