@@ -229,6 +229,26 @@ class IndexLangSeeder extends Seeder
                 'en' => 'Share',
             ],
 
+            'Page not found!' => [
+                'tr' => 'Sayfa Bulunamadı!',
+                'en' => 'Page not found!',
+            ],
+
+            'It looks like this page does not exist.' => [
+                'tr' => ' Görünüşe göre bu sayfa mevcut değil.',
+                'en' => 'It looks like this page does not exist.',
+            ],
+
+            'You can go to the home page by clicking the button below.' => [
+                'tr' => 'Aşağıdaki butona tıklayarak ana sayfaya gidebilirsiniz.',
+                'en' => 'You can go to the home page by clicking the button below.',
+            ],
+
+            'CONTINUE' => [
+                'tr' => 'DEVAM ET',
+                'en' => 'CONTINUE',
+            ],
+
         ];
 
         $commonValues = [

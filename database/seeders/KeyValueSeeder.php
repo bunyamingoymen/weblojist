@@ -43,14 +43,14 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'site_title',
-                'value'             => 'Başlık',
+                'value'             => 'Weblojist',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ],
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'site_description',
-                'value'             => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ex ac velit varius semper. Mauris at dolor nec ante ultricies aliquam ac vitae diam. Quisque sodales vehicula elementum. Phasellus tempus tellus vitae ullamcorper hendrerit.',
+                'value'             => 'Websitenizi modern, kullanıcı dostu ve ihtiyaçlarınıza uygun şekilde tasarlıyor ve hayata geçiriyoruz. Ayrıca sosyal medya yönetimi, reklam planlaması ve marka ismi oluşturma hizmetleriyle markanızı dijital dünyada destekliyoruz. Hedefiniz, bizim önceliğimiz!',
                 'can_be_deleted'    => 0,
                 'delete'            => 0
             ]
@@ -1095,8 +1095,8 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'active_theme',
-                'value'             => 'genz',
-                'optional_1'        => 'index.genz',
+                'value'             => 'becki',
+                'optional_1'        => 'index.becki',
                 'optional_2'        => '',
                 'can_be_deleted'    => 0,
                 'delete'            => 0

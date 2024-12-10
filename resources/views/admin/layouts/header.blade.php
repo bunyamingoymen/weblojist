@@ -14,7 +14,7 @@
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="{{ isset($admin_logo_small_light) ? asset($admin_logo_small_light->optional_5) : '' }}"
-                            alt="" height="42">
+                            alt="" height="18">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ isset($admin_logo) ? asset($admin_logo->optional_5) : '' }}" alt=""
