@@ -224,6 +224,11 @@ class IndexLangSeeder extends Seeder
                 'en' => 'December',
             ],
 
+            'Share' => [
+                'tr' => 'Paylaş',
+                'en' => 'Share',
+            ],
+
         ];
 
         $commonValues = [

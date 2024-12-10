@@ -158,6 +158,14 @@
                                     <label class="custom-control-label"
                                         for="pageShowDate">{{ lang_db('Show date on its own page') }}</label>
                                 </div>
+
+                                <div class="mt-3 ml-3 col-lg-12 custom-control custom-checkbox custom-control-inline">
+                                    <input type="checkbox" class="custom-control-input" id="show_author_on_its_own"
+                                        name="show_author_on_its_own"
+                                        {{ (isset($show_author_on_its_own) && $show_author_on_its_own->optional_1) || !isset($show_author_on_its_own) ? 'checked' : '' }}>
+                                    <label class="custom-control-label"
+                                        for="show_author_on_its_own">{{ lang_db('Show author on its own page') }}</label>
+                                </div>
                             </div>
 
                         </div>

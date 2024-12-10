@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         DB::table('admin_users')->insert([
             [
                 'code' => '1',
-                'name'  => 'Bünyamin Göymen',
+                'name'  => 'B. Göymen',
                 'username'  => 'bunyamingoymen',
                 'email' => 'bunyamingoymen@gmail.com',
                 'type' => 0,
