@@ -55,7 +55,7 @@ class PageSeeder extends Seeder
                 'description'       => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ex ac velit varius semper. Mauris at dolor nec ante ultricies aliquam ac vitae diam. Quisque sodales vehicula elementum. Phasellus tempus tellus vitae ullamcorper hendrerit.',
                 'image'             => 'defaultFiles/page/home_1.jpeg',
                 'type'              => 2,
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'show_home'         => 1,
                 'home_type'         => 0,
             ],
@@ -67,7 +67,7 @@ class PageSeeder extends Seeder
                 'description'       => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ex ac velit varius semper. Mauris at dolor nec ante ultricies aliquam ac vitae diam. Quisque sodales vehicula elementum. Phasellus tempus tellus vitae ullamcorper hendrerit.',
                 'image'             => 'defaultFiles/page/home_2.jpg',
                 'type'              => 2,
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'show_home'         => 1,
                 'home_type'         => 1,
             ],
@@ -81,7 +81,7 @@ class PageSeeder extends Seeder
                 'description'   => 'a',
                 'image'         => 'defaultFiles/page/supplier_1.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -91,7 +91,7 @@ class PageSeeder extends Seeder
                 'description'   => 'b',
                 'image'         => 'defaultFiles/page/supplier_2.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -101,7 +101,7 @@ class PageSeeder extends Seeder
                 'description'   => 'c',
                 'image'         => 'defaultFiles/page/supplier_3.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -111,7 +111,7 @@ class PageSeeder extends Seeder
                 'description'   => 'd',
                 'image'         => 'defaultFiles/page/supplier_4.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -121,7 +121,7 @@ class PageSeeder extends Seeder
                 'description'   => 'e',
                 'image'         => 'defaultFiles/page/supplier_5.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -131,7 +131,7 @@ class PageSeeder extends Seeder
                 'description'   => 'f',
                 'image'         => 'defaultFiles/page/supplier_6.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -141,7 +141,7 @@ class PageSeeder extends Seeder
                 'description'   => 'g',
                 'image'         => 'defaultFiles/page/supplier_7.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -151,7 +151,7 @@ class PageSeeder extends Seeder
                 'description'   => 'h',
                 'image'         => 'defaultFiles/page/supplier_8.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -161,7 +161,7 @@ class PageSeeder extends Seeder
                 'description'   => 'i',
                 'image'         => 'defaultFiles/page/supplier_9.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
             [
@@ -171,7 +171,7 @@ class PageSeeder extends Seeder
                 'description'   => 'j',
                 'image'         => 'defaultFiles/page/supplier_10.png',
                 'type'          => 3,
-                'can_be_deleted' => 0,
+                'can_be_deleted' => 1,
                 'show_home'         => 1,
             ],
 

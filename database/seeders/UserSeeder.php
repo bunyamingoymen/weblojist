@@ -22,20 +22,20 @@ class UserSeeder extends Seeder
             [
                 'code' => '1',
                 'name'  => 'B. Göymen',
-                'username'  => 'bunyamingoymen',
+                'username'  => 'bunyaminweblojist',
                 'email' => 'bunyamingoymen@gmail.com',
                 'type' => 0,
                 'can_be_deleted' => '0',
-                'password'  => Hash::make('123'),
+                'password'  => Hash::make('introlistalemi.weblojist.net'),
             ],
             [
                 'code' => '2',
                 'name'  => 'Admin',
-                'username'  => 'admin',
-                'email' => 'admin@gmail.com',
+                'username'  => 'adminweblojist',
+                'email' => 'adminweblojist@gmail.com',
                 'type' => 1,
                 'can_be_deleted' => '0',
-                'password'  => Hash::make('weblojist12*56'),
+                'password'  => Hash::make('Hiqmyg-jukfeb-pyvxo1'),
             ]
         ]);
     }

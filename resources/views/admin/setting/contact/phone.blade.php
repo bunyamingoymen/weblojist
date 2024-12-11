@@ -12,7 +12,7 @@
                             <i class="mdi mdi-plus-circle-outline"></i> {{ lang_db('New') }}
                         </a>
                     </div>
-                    <form action="{{ route('admin_page', ['params' => 'settings/contact/email']) }}" method="POST">
+                    <form action="{{ route('admin_page', ['params' => 'settings/contact/phone']) }}" method="POST">
                         @csrf
                         <div id="PhoneDivId">
                             @foreach ($phones as $item)
@@ -38,7 +38,7 @@
                                                 value="{{ $item->optional_1 ?? '' }}">
                                         </div>
                                         <div class="col-lg-2 mt-4">
-                                            <a href="{{ route('admin_page', ['params' => 'settings/contact/email/delete']) }}?code={{ $item->code }}"
+                                            <a href="{{ route('admin_page', ['params' => 'settings/contact/phone/delete']) }}?code={{ $item->code }}"
                                                 class="btn btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>

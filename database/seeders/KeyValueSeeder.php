@@ -61,7 +61,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'fb.com',
+                'value'             => '',
                 'optional_1'        => 'Facebook',
                 'optional_2'        => 'mdi mdi-facebook',
                 'optional_3'        => 'facebook',
@@ -73,7 +73,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'x.com',
+                'value'             => '',
                 'optional_1'        => 'X (Twitter)',
                 'optional_2'        => 'mdi mdi-twitter',
                 'optional_3'        => 'twitter',
@@ -85,7 +85,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'instagram.com',
+                'value'             => '',
                 'optional_1'        => 'Instagram',
                 'optional_2'        => 'mdi mdi-instagram',
                 'optional_3'        => 'instagram',
@@ -97,7 +97,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'linkedin.com',
+                'value'             => '',
                 'optional_1'        => 'Linkedin',
                 'optional_2'        => 'mdi mdi-linkedin',
                 'optional_3'        => 'linkedin',
@@ -109,7 +109,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'youtube.com',
+                'value'             => '',
                 'optional_1'        => 'Youtube',
                 'optional_2'        => 'mdi mdi-youtube',
                 'optional_3'        => 'youtube',
@@ -121,7 +121,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'pinterest.com',
+                'value'             => '',
                 'optional_1'        => 'Pinterest',
                 'optional_2'        => 'mdi mdi-pinterest',
                 'optional_3'        => 'pinterest',
@@ -133,7 +133,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'whatsapp.com',
+                'value'             => '',
                 'optional_1'        => 'Whatsapp',
                 'optional_2'        => 'mdi mdi-whatsapp',
                 'optional_3'        => 'whatsapp',
@@ -145,7 +145,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'telegram.com',
+                'value'             => '',
                 'optional_1'        => 'Telegram',
                 'optional_2'        => 'mdi mdi-telegram',
                 'optional_3'        => 'telegram',
@@ -157,7 +157,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => 'discord.com',
+                'value'             => '',
                 'optional_1'        => 'Discord',
                 'optional_2'        => 'mdi mdi-discord',
                 'optional_3'        => 'discord',
@@ -169,7 +169,7 @@ class KeyValueSeeder extends Seeder
             [
                 'code'              => $mainController->generateUniqueCode(['table' => 'key_values']),
                 'key'               => 'social_media',
-                'value'             => '#',
+                'value'             => '',
                 'optional_1'        => 'Website',
                 'optional_2'        => 'fas fa-globe',
                 'optional_3'        => 'website',
@@ -906,7 +906,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'phones',
                 'value'             => 'Landline',
                 'optional_1'        => '+44 1234 567 9',
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
             [
@@ -914,7 +914,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'phones',
                 'value'             => 'Mobile',
                 'optional_1'        => '+44 1234 567 9',
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
         ]);
@@ -926,7 +926,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'emails',
                 'value'             => 'Order',
                 'optional_1'        => 'order@yourwebsite.com',
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
             [
@@ -934,7 +934,7 @@ class KeyValueSeeder extends Seeder
                 'key'               => 'emails',
                 'value'             => 'Request',
                 'optional_1'        => 'request@yourwebsite.com',
-                'can_be_deleted'    => 0,
+                'can_be_deleted'    => 1,
                 'delete'            => 0
             ],
         ]);

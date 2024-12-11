@@ -123,13 +123,13 @@
                 @if (isset($social_medias) && $social_medias->isNotEmpty())
                     <div class="col-md-6 col-xs-12">
                         <ul class="social-media">
-                            @foreach ($social_medias as $media)
-                                @if ($media->value == '' || is_null($media->value))
+                            @foreach ($social_media as $sm)
+                                @if ($sm->value == '' || is_null($sm->value))
                                     @continue;
                                 @endif
                                 <li>
-                                    <a href="{{ $media->value ?? '#' }}" class="" target="_blank">
-                                        <i class="{{ $media->optional_4 ?? '' }}"></i>
+                                    <a href="{{ $sm->value ?? '#' }}" target="_blank">
+                                        <i class="{{ $sm->optional_4 ?? '' }}"></i>
                                     </a>
                                 </li>
                             @endforeach
