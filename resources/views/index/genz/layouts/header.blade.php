@@ -18,7 +18,8 @@
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
-            <div class="text-center"><img class="mb-10" src="assets/imgs/template/favicon.svg" alt="GenZ">
+            <div class="text-center"><img class="mb-10" src="{{ url('defaultFiles/genz/template/preloader.svg') }}"
+                    alt="{{ env('APP_NAME') }}">
                 <div class="preloader-dots"></div>
             </div>
         </div>
