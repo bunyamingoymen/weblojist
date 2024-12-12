@@ -2,7 +2,11 @@
     $home_logo_white = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo White', 'first' => true]) ?? null;
     $home_logo_dark = getCachedKeyValue(['key' => 'logos', 'value' => 'Home Logo Dark', 'first' => true]) ?? null;
 
-    $headers = App\Models\Main\Menu::where('delete', 0)->where('active', 1)->where('type', 'header')->orderBy('row','ASC')->get();
+    $headers = App\Models\Main\Menu::where('delete', 0)
+        ->where('active', 1)
+        ->where('type', 'header')
+        ->orderBy('row', 'ASC')
+        ->get();
     if (Route::currentRouteName() == '') {
         $use_theme = 'dark';
     } else {
@@ -33,7 +37,7 @@
                 @foreach ($headers->where('top_category', '0') as $header)
                     @if (count($headers->where('top_category', $header->code)) > 0)
                         <li class="dropdown">
-                            <a href="{{ url($header->path) }}" class="dropdown-toggle" data-toggle="dropdown"
+                            <a href="{{ url($header->path) }}" class="dropdown-toggle page-scroll" data-toggle="dropdown"
                                 {{ $header->open_different_page ? 'target="_blank"' : '' }}>
                                 {{ lang_db($header->title, -1) }}
                             </a>
@@ -50,7 +54,7 @@
                         </li>
                     @else
                         <li>
-                            <a href="{{ url($header->path) }}"
+                            <a href="{{ url($header->path) }}" class="page-scroll"
                                 {{ $header->open_different_page ? 'target="_blank"' : '' }}>
                                 {{ lang_db($header->title, -1) }}
                             </a>

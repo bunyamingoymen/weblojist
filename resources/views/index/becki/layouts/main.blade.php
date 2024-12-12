@@ -2,6 +2,7 @@
     $icon = getCachedKeyValue(['key' => 'logos', 'value' => 'Icon', 'first' => true]) ?? null;
     $meta = getCachedKeyValue(['key' => 'meta', 'delete' => true, 'first' => false]) ?? null;
     $admin_meta = getCachedKeyValue(['key' => 'admin_meta', 'delete' => true, 'first' => false]) ?? null;
+    $show_main_langs = false;
 @endphp
 
 <!DOCTYPE html>
@@ -42,11 +43,109 @@
         href="{{ route('assetFile', ['folder' => 'admin/libs/alertifyjs/build/css', 'filename' => 'alertify.min.css']) }}"
         rel="stylesheet" type="text/css" />
 
+    <style>
+        /* Mobil cihazlarda sadece gizlemek */
+        @media screen and (max-width: 768px) {
+            .mobile-hidden {
+                display: none !important;
+            }
+        }
+    </style>
+    <!-- Yazı boyutlarını artırmak için head içine eklenecek custom CSS -->
+    <style>
+        /* Genel yazı boyutu artışı */
+        p {
+            font-size: 16px !important;
+            line-height: 1.8 !important;
+        }
+
+        /* Başlık boyutlarını artır */
+        .section-title h1 {
+            font-size: 42px !important;
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            font-size: 24px !important;
+        }
+
+        /* Contact form stillerini güncelle */
+        .contact-form-style-01 {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form-style-01 input,
+        .contact-form-style-01 textarea,
+        .contact-form-style-01 select {
+            background: #fff !important;
+            border: 1px solid #e1e1e1 !important;
+            padding: 12px 15px !important;
+            border-radius: 4px !important;
+            color: #333 !important;
+            font-size: 15px !important;
+        }
+
+        .contact-form-style-01 input:focus,
+        .contact-form-style-01 textarea:focus {
+            border-color: #2055c7 !important;
+            box-shadow: 0 0 5px rgba(32, 85, 199, 0.2);
+        }
+
+        /* Menü yazı boyutlarını artır */
+        .navbar-nav>li>a {
+            font-size: 15px !important;
+        }
+
+        /* Servis kartları için gölge ve hover efekti */
+        .feature-box {
+            transition: all 0.3s ease;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Testimonial kartları için stil güncellemesi */
+        .testimonial-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Portfolio hover efektini güçlendir */
+        .portfolio-info {
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            opacity: 1;
+        }
+
+        /* Button stillerini güncelle */
+        .btn {
+            padding: 12px 30px !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+        }
+
+        /* Footer yazı boyutunu artır */
+        .footer {
+            font-size: 15px !important;
+        }
+    </style>
 </head>
 
 <body>
-    @if (isset($main_flag) && isset($other_flags) && $main_flag != '-1')
-        <div class="top-language-bar">
+    @if (isset($main_flag) && isset($other_flags) && $main_flag != '-1' && $show_main_langs)
+        <div class="top-language-bar mobile-hidden">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-right">

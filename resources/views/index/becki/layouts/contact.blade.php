@@ -104,7 +104,7 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                     </div>
                 @endif
 
@@ -141,7 +141,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label class="sr-only" for="message">{{ lang_db('Message', 1) }}</label>
-                                    <textarea name="message" class="md-textarea" id="message" rows="7" placeholder="{{ lang_db('Message', 1) }}"
+                                    <textarea name="message" class="md-textarea" id="message" rows="7" placeholder="{{ lang_db('Message', 1) }} *"
                                         required data-error="{{ lang_db('Please Enter Your Message', 1) }}"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>

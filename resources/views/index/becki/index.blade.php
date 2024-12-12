@@ -146,7 +146,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 2)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-8" id="slide-3238-layer-4"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-8 mobile-hidden" id="slide-3238-layer-4"
                                     data-x="['left','left','left','left']" data-hoffset="['-264','-264','-371','-416']"
                                     data-y="['top','top','top','top']" data-voffset="['-135','-135','-180','-203']"
                                     data-width="none" data-height="none" data-whitespace="nowrap" data-type="image"
@@ -195,7 +195,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 5)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-12" id="slide-3238-layer-9"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-12 mobile-hidden" id="slide-3238-layer-9"
                                     data-x="['left','left','left','left']" data-hoffset="['134','134','-2','-57']"
                                     data-y="['bottom','bottom','bottom','bottom']" data-voffset="['67','67','50','6']"
                                     data-width="none" data-height="none" data-whitespace="nowrap" data-type="image"
@@ -211,7 +211,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 6)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11" id="slide-3238-layer-10"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11 mobile-hidden" id="slide-3238-layer-10"
                                     data-x="['left','left','left','left']" data-hoffset="['181','181','30','-39']"
                                     data-y="['bottom','bottom','bottom','bottom']"
                                     data-voffset="['-170','-170','-190','-212']" data-width="none" data-height="none"
@@ -228,7 +228,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 7)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-12" id="slide-3238-layer-11"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-12 mobile-hidden" id="slide-3238-layer-11"
                                     data-x="['left','left','left','left']" data-hoffset="['393','393','201','81']"
                                     data-y="['bottom','bottom','bottom','bottom']"
                                     data-voffset="['218','218','183','191']" data-width="none" data-height="none"
@@ -245,7 +245,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 8)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11" id="slide-3238-layer-12"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11 mobile-hidden" id="slide-3238-layer-12"
                                     data-x="['left','left','left','left']" data-hoffset="['346','346','165','36']"
                                     data-y="['bottom','bottom','bottom','bottom']"
                                     data-voffset="['255','255','237','231']" data-width="none" data-height="none"
@@ -262,7 +262,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 9)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-9" id="slide-3238-layer-7"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-9 mobile-hidden" id="slide-3238-layer-7"
                                     data-x="['right','right','right','right']"
                                     data-hoffset="['-364','-364','-479','-553']"
                                     data-y="['bottom','bottom','bottom','bottom']"
@@ -280,7 +280,7 @@
                             @endif
 
                             @if (isset($backgrouds) && count($backgrouds) >= 10)
-                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11" id="slide-3238-layer-8"
+                                <div class="tp-caption tp-resizeme rs-parallaxlevel-11 mobile-hidden" id="slide-3238-layer-8"
                                     data-x="['right','right','right','right']" data-hoffset="['222','222','105','8']"
                                     data-y="['bottom','bottom','bottom','bottom']" data-voffset="['8','8','-17','-10']"
                                     data-width="none" data-height="none" data-whitespace="nowrap" data-type="image"
@@ -296,7 +296,7 @@
                             @endif
 
 
-                            <div class="tp-caption tp-resizeme rs-parallaxlevel-2" id="slide-3238-layer-16"
+                            <div class="tp-caption tp-resizeme rs-parallaxlevel-2 " id="slide-3238-layer-16"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['-70','-70','-70','-90']"
                                 data-fontsize="['80','80','80','60']" data-lineheight="['80','80','80','60']"
@@ -374,7 +374,7 @@
                     $sectionCount++;
                 @endphp
                 @if ($home_page->home_type == 1)
-                    <section class="{{ $sectionCount % 2 == 0 ? 'white-bg' : 'grey-bg' }} lg-section xs-pb-100 xs-pt-100">
+                    <section class="{{ $sectionCount % 2 == 0 ? 'white-bg' : 'grey-bg' }} lg-section xs-pb-100 xs-pt-100" id="page_{{$home_page->short_name}}">
                         <div class="col-md-6 col-sm-6 bg-flex bg-flex-right">
                             <div class="bg-flex-holder bg-flex-cover"
                                 style="background-image: url({{ asset($home_page->image) }});">
@@ -394,7 +394,7 @@
                         </div>
                     </section>
                 @else
-                    <section class="{{ $sectionCount % 2 == 0 ? 'white-bg' : 'grey-bg' }} lg-section xs-pt-100 xs-pb-100">
+                    <section class="{{ $sectionCount % 2 == 0 ? 'white-bg' : 'grey-bg' }} lg-section xs-pt-100 xs-pb-100" id="page_{{$home_page->short_name}}">
                         <div class="col-md-6 col-sm-6 bg-flex bg-flex-left">
                             <div class="bg-flex-holder bg-flex-cover"
                                 style="background-image: url({{ asset($home_page->image) }});">
@@ -420,7 +420,7 @@
 
     @if ((isset($show_process) && isset($show_process->value) && $show_process->value == '1') || !isset($show_process))
         @if ($processes->isNotEmpty())
-            <section class="gradient-bg-two pt-80 pb-80">
+            <section class="gradient-bg-two pt-80 pb-80" id="process">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -708,7 +708,7 @@
             @php
                 $sectionCount++;
             @endphp
-            <div class="gradient-bg-two pb-120 pt-120">
+            <div class="gradient-bg-two pb-120 pt-120" id="supplier">
                 <div class="container">
                     <div class="row">
                         <div class="client-slider slick">

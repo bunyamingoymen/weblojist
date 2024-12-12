@@ -123,7 +123,7 @@
                 @if (isset($social_medias) && $social_medias->isNotEmpty())
                     <div class="col-md-6 col-xs-12">
                         <ul class="social-media">
-                            @foreach ($social_media as $sm)
+                            @foreach ($social_medias as $sm)
                                 @if ($sm->value == '' || is_null($sm->value))
                                     @continue;
                                 @endif
